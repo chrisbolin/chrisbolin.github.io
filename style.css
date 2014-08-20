@@ -1,0 +1,101 @@
+/*reset for mobile browsers*/
+h1 {
+	font-weight: normal;
+	margin: 0px;
+	text-align: center;
+	font-size: 8em;
+}
+
+body {
+	font-family: 'Source Sans Pro', 'Helvetica', sans-serif;
+	height: 100%;
+	margin: 0px;
+	background-color: #2285C5;
+    color: white;
+    font-size: 1.1em;
+}
+
+.header{
+	color: #F47D67;
+	background-color: #3F454C;
+	font-family: 'Lobster', cursive;
+}
+
+.block{
+	width: 300px;
+	display: inline-block;
+	position: relative;
+	text-align: left;
+	clear: both;
+}
+
+.page{
+	width: 100%;
+	text-align: center;
+}
+
+.dotted{
+	border: 1px dashed;
+	padding: 0.4em;
+    margin: 0.4em;
+}
+
+.center{
+    text-align: center;
+}
+
+/* tooltip */
+
+a{
+    outline:none;
+    text-decoration: none;
+    color: white;
+    background-color:rgba(255,255,255,0.1);
+}
+
+a:hover {
+    text-decoration:none;
+    background-color:#3F454C;
+} 
+a.tooltip strong {line-height:30px;}
+
+
+a.tooltip span {
+    z-index:10;
+    display:none;
+    padding:14px 20px;
+    margin-top:20px; /* move down x */
+    margin-left:40px; /* move left x */
+    min-width: 100px;
+    line-height:16px;
+}
+
+a.tooltip:hover span{
+    display:inline;
+    position:absolute;
+    color: #FFF6E6;
+    border:1px dashed white;
+    background-color:#3F454C;
+    font-size:0.9em;
+}
+
+.hot{
+	color: #F47D67;
+}
+
+/* end tooltip */
+
+@media only screen and (max-device-width : 600px) {
+	h1{
+		font-size: 16em;
+	}
+
+	.body{
+		font-size: 8em;
+		padding: 40px;
+	}
+
+	.block{
+		width: 100%;
+	}
+}
