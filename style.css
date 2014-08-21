@@ -57,33 +57,38 @@ a:hover {
     text-decoration:none;
     background-color:#3F454C;
 } 
-a.tooltip strong {line-height:30px;}
-
 
 a.tooltip span {
-    z-index:10;
     display:none;
-    padding:14px 20px;
-    margin-top:20px; /* move down x */
-    margin-left:40px; /* move left x */
-    min-width: 100px;
-    line-height:16px;
+    z-index:10;
+    padding: 10px;
+    padding-right: 0px;
+    width: 495px;
+    text-align: left;
+    position:fixed;
+    right: 0px;
+    background-color:#F47D67;
 }
 
+/*a.tooltip span{*/
 a.tooltip:hover span{
     display:inline;
-    position:absolute;
-    color: #FFF6E6;
-    border:1px dashed white;
-    background-color:#3F454C;
-    font-size:0.9em;
-}
-
-.hot{
-	color: #F47D67;
 }
 
 /* end tooltip */
+
+@media only screen and (max-width: 1300px){
+	a.tooltip span {
+		width: 295px;
+	}
+}
+
+@media only screen and (max-width: 900px){
+	a.tooltip span {
+		padding-right: 5px;
+		width: auto;
+	}
+}
 
 @media only screen and (max-width: 480px), only screen and (max-device-width : 600px) {
 	h1{
