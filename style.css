@@ -19,6 +19,7 @@ html,body {
 	color: #F47D67;
 	background-color: #3F454C;
 	font-family: 'Lobster', cursive;
+	border-bottom: 2px white dashed;
 }
 
 .block{
@@ -34,8 +35,7 @@ html,body {
 	text-align: center;
 }
 
-.dotted{
-	border: 1px dashed;
+.text{
 	padding: 0.4em;
     margin: 0.4em;
 }
@@ -91,14 +91,14 @@ a.tooltip:hover span{
 	}
 	
 	.header{
-		border-bottom: 5px white dashed;
+		border-bottom-width: 5px;
 	}
 
 	body{
 		font-size: 4em;
 	}
 
-	.dotted{
+	.text{
 		border: 0em;
 		padding: 0em;
 	}
