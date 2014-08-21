@@ -3,16 +3,16 @@ h1 {
 	font-weight: normal;
 	margin: 0px;
 	text-align: center;
-	font-size: 8em;
+	font-size: 7em;
 }
 
-body {
+html,body {
 	font-family: 'Source Sans Pro', 'Helvetica', sans-serif;
 	height: 100%;
 	margin: 0px;
 	background-color: #2285C5;
     color: white;
-    font-size: 1.1em;
+    font-size: 1.15em;
 }
 
 .header{
@@ -85,17 +85,35 @@ a.tooltip:hover span{
 
 /* end tooltip */
 
-@media only screen and (max-device-width : 600px) {
+@media only screen and (max-width: 480px), only screen and (max-device-width : 600px) {
 	h1{
-		font-size: 16em;
+		font-size: 4em;
+	}
+	
+	.header{
+		border-bottom: 5px white dashed;
 	}
 
-	.body{
-		font-size: 8em;
-		padding: 40px;
+	body{
+		font-size: 4em;
+	}
+
+	.dotted{
+		border: 0em;
+		padding: 0em;
 	}
 
 	.block{
-		width: 100%;
+		width: 90%;
+		margin-left: 5%;
+		margin-right: 5%;
+	}
+
+	a.tooltip:hover span{
+		display: none;
+	}
+
+	a.hoveronly{
+		background-color: rgba(255,255,255,0);
 	}
 }
