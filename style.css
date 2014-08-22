@@ -61,13 +61,13 @@ a:hover {
 a.tooltip span {
     display:none;
     z-index:10;
-    padding: 10px;
-    padding-right: 0px;
+    padding: 10px 10px 10px 15px; /* top, right, bottom, left */
     width: 495px;
     text-align: left;
     position:fixed;
     right: 0px;
     background-color:#F47D67;
+    border-radius: 0px 0px 0px 15px; /* top left, top right, bottom right, bottom left */
 }
 
 /*a.tooltip span{*/
@@ -85,7 +85,6 @@ a.tooltip:hover span{
 
 @media only screen and (max-width: 900px){
 	a.tooltip span {
-		padding-right: 5px;
 		width: auto;
 	}
 }
