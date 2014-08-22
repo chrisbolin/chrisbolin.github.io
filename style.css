@@ -67,7 +67,7 @@ a.tooltip span {
     position:fixed;
     right: 0px;
     background-color:#F47D67;
-    border-radius: 0px 0px 0px 15px; /* top left, top right, bottom right, bottom left */
+    border-radius: 10px 0px 0px 10px; /* top left, top right, bottom right, bottom left */
 }
 
 /*a.tooltip span{*/
