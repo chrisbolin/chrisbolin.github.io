@@ -8,6 +8,7 @@ h1 {
 
 html,body {
 	font-family: 'Source Sans Pro', 'Helvetica', sans-serif;
+	font-weight: 300;
 	height: 100%;
 	margin: 0px;
 	background-color: #2285C5;
