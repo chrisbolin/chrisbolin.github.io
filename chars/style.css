@@ -1,0 +1,15 @@
+body {
+	background-color: white;
+	color: black;
+	font-family: 'Raleway', sans-serif;
+}
+
+.char{
+	font-family: "Georgia", "Apple Symbols", serif;
+}
+
+.box{
+	margin: 10px;
+	padding: 10px;
+	background-color: #eee;
+}
