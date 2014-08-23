@@ -33,12 +33,16 @@
 </head>
 
 <body ng-controller="MainController">
-	hello there.
-	<div ng-repeat="char in symbols" class="box">
-		<h1 class="char" ng-bind-html="char.printable"></h1>
-		{{char.codes}}
-		<br>
-		{{char.tags}}
+	<div id="main">
+		<div class="search-header">
+			<h1 style="font-size: 4em; margin: -30px;">&circledast;</h1>
+			<h1>sick chars</h1>
+			<input ng-model="search" placeholder="bro, do you even search?"/>
+		</div>
+		<div ng-repeat="char in symbols | filter:search:false" class="box">
+			<h1 class="char" ng-bind-html="char.printable"></h1>
+			{{char.codes[0]}}
+		</div>
 	</div>
 </body>
 
