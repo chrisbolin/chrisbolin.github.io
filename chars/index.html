@@ -38,11 +38,13 @@
 		<div class="search-header">
 			<h1 style="font-size: 4em; margin: -30px;">&circledast;</h1>
 			<h1>sick chars</h1>
-			<input ng-model="search" placeholder="search 'em"/>
+			<input ng-model="search" placeholder="search 'em!"/>
 		</div>
-		<div ng-repeat="char in symbols | filter:search:false" class="box">
-			<h1 class="char" ng-bind-html="char.printable"></h1>
-			{{char.codes[0]}}
+		<div ng-repeat="symbol in symbols | filter:search:false | limitTo: 64" class="box">
+			<h1 class="display" ng-bind-html="symbol.printable"></h1>
+			<div class="about">
+				{{symbol.codes[0]}}
+			</div>
 		</div>
 	</div>
 </body>

@@ -7,7 +7,7 @@ h1, h2, h3, h4{
 body {
 	background-color: white;
 	color: black;
-	font-family: 'Raleway', sans-serif;
+	font-family: 'Raleway', sans-serif, serif, "Georgia", "Apple Symbols";
 	padding: 0px;
 	margin: 0px; 
 	-webkit-font-smoothing: antialiased !important;
@@ -18,10 +18,6 @@ body {
 	margin: 0 auto;
 	max-width: 560px;
 	padding: 0;
-}
-
-.char{
-	font-family: "Georgia", "Apple Symbols", serif;
 }
 
 .box{
@@ -49,8 +45,37 @@ input{
 	text-align: center;
 }
 
-@media only screen and (max-width: 560px){
+h1.display{
+	font-size: 3em;
+}
+
+/* small desktops */
+/*@media only screen and (max-width: 560px){
 	#main{
 		max-width: 420px;
+	}
+}*/
+
+/* mobile */
+@media only screen and (max-device-width : 640px), only screen and (max-width: 640px) {	
+	#main {
+		max-width: 960px;
+	}
+	
+	.search-header{
+		font-size: 4em;
+	}
+	
+	h1.display{
+		font-size: 10em;
+	}
+	
+	.box{
+		width: 280px;
+		height: 280px;
+	}
+
+	.about{
+		font-size: 3em;
 	}
 }
