@@ -37,14 +37,40 @@
 	<div id="main">
 		<div class="search-header">
 			<h1 style="font-size: 4em; margin: -30px;">&circledast;</h1>
-			<h1>sick chars</h1>
-			<input ng-model="search" placeholder="search 'em!"/>
+			<h1 id="heading">sick chars</h1>
+			<input ng-model="search" placeholder="search 'em" autofocus/>
 		</div>
-		<div ng-repeat="symbol in symbols | filter:search:false | limitTo: 64" class="box">
+
+		<div class="about-results">
+			<span ng-show="search">
+				found {{(symbols | filter:search:false).length}} results.
+			</span>
+			<span ng-hide="search">
+				{{symbols.length}} characters.
+			</span>
+			<br>
+			<span ng-show="(symbols | filter:search:false).length > limit">
+				first {{limit}} are shown.
+				<i ng-click="limit=100000">show all</i>
+			</span>
+			<span ng-hide="(symbols | filter:search:false).length > limit">
+				<br>
+			</span>
+		</div>
+
+		<div ng-repeat="symbol in symbols | filter:search:false | limitTo: limit" class="box">
 			<h1 class="display" ng-bind-html="symbol.printable"></h1>
 			<div class="about">
 				{{symbol.codes[0]}}
 			</div>
+		</div>
+		
+		<div id="footer">
+			chris bolin made this in 2014.
+			<br>
+			he has no idea what most of these symbols mean.
+			<br>
+			like &cwconint; &bump; &harrw; &nVDash;. what the hell?
 		</div>
 	</div>
 </body>
