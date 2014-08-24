@@ -6,6 +6,7 @@
 	<title>html character reference</title>	
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js"></script>
+	<script src="symbols.js"></script>
 	<script src="script.js"></script>
 
 	<link href='http://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
@@ -37,7 +38,7 @@
 		<div class="search-header">
 			<h1 style="font-size: 4em; margin: -30px;">&circledast;</h1>
 			<h1>sick chars</h1>
-			<input ng-model="search" placeholder="bro, do you even search?"/>
+			<input ng-model="search" placeholder="search 'em"/>
 		</div>
 		<div ng-repeat="char in symbols | filter:search:false" class="box">
 			<h1 class="char" ng-bind-html="char.printable"></h1>
