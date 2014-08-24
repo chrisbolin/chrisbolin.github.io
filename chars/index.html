@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="charsApp">
+
+<head>
+	<title>html character reference</title>	
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js"></script>
+	<script src="symbols.js"></script>
+	<script src="script.js"></script>
+
+	<link href='http://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<!-- favicons -->
+	<link rel="shortcut icon" href="../img/favicon.ico">
+	<link rel="icon" sizes="16x16 32x32 64x64" href="../img/favicon.ico">
+	<link rel="icon" type="image/png" sizes="196x196" href="../img/favicon-196.png">
+	<link rel="icon" type="image/png" sizes="160x160" href="../img/favicon-160.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="../img/favicon-96.png">
+	<link rel="icon" type="image/png" sizes="64x64" href="../img/favicon-64.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="../img/favicon-152.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="../img/favicon-144.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="../img/favicon-120.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="../img/favicon-114.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="../img/favicon-76.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="../img/favicon-72.png">
+	<link rel="apple-touch-icon" href="../img/favicon-57.png">
+	<meta name="msapplication-TileColor" content="#FFFFFF">
+	<meta name="msapplication-TileImage" content="../img/favicon-144.png">
+	<meta name="msapplication-config" content="../img/browserconfig.xml">
+</head>
+
+<body ng-controller="MainController">
+	<div id="main">
+		<div class="search-header">
+			<h1 style="font-size: 4em; margin: -30px;">&circledast;</h1>
+			<h1 id="heading">sick chars</h1>
+			<input ng-model="search" placeholder="search 'em" autofocus/>
+		</div>
+
+		<div class="about-results">
+			<span ng-show="search">
+				found {{(symbols | filter:search:false).length}} results.
+			</span>
+			<span ng-hide="search">
+				{{symbols.length}} characters.
+			</span>
+			<br>
+			<span ng-show="(symbols | filter:search:false).length > limit">
+				first {{limit}} are shown.
+				<i ng-click="limit=100000">show all</i>
+			</span>
+			<span ng-hide="(symbols | filter:search:false).length > limit">
+				<br>
+			</span>
+		</div>
+
+		<div ng-repeat="symbol in symbols | filter:search:false | limitTo: limit" class="box">
+			<h1 class="display" ng-bind-html="symbol.printable"></h1>
+			<div class="about">
+				{{symbol.codes[0]}}
+			</div>
+		</div>
+		
+		<div id="footer">
+			chris bolin made this in 2014.
+			<br>
+			he has no idea what most of these symbols mean.
+			<br>
+			like &cwconint; &bump; &harrw; &nVDash;. what the hell?
+		</div>
+	</div>
+</body>
+
+</html>
