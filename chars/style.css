@@ -14,7 +14,8 @@ body {
 	color: black;
 	font-family: 'Raleway', sans-serif, serif, "Georgia", "Apple Symbols";
 	padding: 0px;
-	margin: 0px; 
+	margin: 0px;
+	text-align: center;
 	-webkit-font-smoothing: antialiased !important;
 	-moz-osx-font-smoothing: grayscale !important;
 }
@@ -30,7 +31,6 @@ div.box{
 	padding: 10px;
 	color: white;
 	background-color: #0CDBE8;
-	text-align: center;
 	width: 100px;
 	height: 100px;
 	border-radius: 20px;
@@ -38,20 +38,18 @@ div.box{
 }
 
 div.search-header{
-	text-align: center;
 	font-size: 2em;
 }
 
 input{
 	font-family: inherit;
+	text-align: center;
 	font-size: 1em;
 	border: none;
 	width: 400px;
-	text-align: center;
 	border: 2px solid #EEEEEE;
 	border-radius: 20px;
 	margin-top: 20px;
-	margin-bottom: 20px;
 }
 
 input:focus, input.focus{
@@ -63,14 +61,17 @@ h1.display{
 	font-size: 3em;
 }
 
+div#about-search{
+	font-size: 0.5em;
+	color: #555555;
+}
+
 div.about-results{
-	text-align: center;
 	margin-top: 20px;
 	margin-bottom: 20px;
 }
 
 div#footer{
-	text-align: center;
 	clear: both;
 	padding-top: 100px;
 	padding-bottom: 100px;
