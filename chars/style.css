@@ -51,8 +51,7 @@ div.box:hover .hover{
 }
 
 div.box:hover h1.display{
-	font-size: 5em;
-	font-size: 5em;
+	font-size: 6em;
 }
 
 div.search-header{
@@ -71,7 +70,7 @@ input{
 }
 
 input:focus, input.focus{
-	border-color: #555555;
+	border-color: black;
 	outline: none;
 }
 
@@ -105,6 +104,16 @@ a:hover {
 	color: white;
 	background-color: black;
 	text-decoration: none;
+}
+
+.clear-button {
+	cursor: pointer;
+	color:  #EEEEEE;
+}
+
+.displayed {
+	display: inline;
+	color: inherit;
 }
 
 /* small desktops */
@@ -143,7 +152,7 @@ a:hover {
 	}
 
 	input{
-		width: 90%;
+		width: 80%;
 		border-radius: 100px;
 		border-width: 4px;
 	}

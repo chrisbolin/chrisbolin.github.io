@@ -39,6 +39,9 @@
 			<h1 style="font-size: 4em; margin: -30px;">&circledast;</h1>
 			<h1 id="heading">html characters</h1>
 			<input ng-model="search" placeholder="search" autofocus/>
+			<span class="clear-button" ng-class="{displayed:search}" ng-click="search='';">
+				&otimes;
+			</span>
 			<div id="about-search">
 				examples:
 				<a ng-click="search = 'integral'">integral</a>
