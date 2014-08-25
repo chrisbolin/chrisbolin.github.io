@@ -12,7 +12,7 @@ h1#heading{
 body {
 	background-color: white;
 	color: black;
-	font-family: 'Raleway', sans-serif, serif, "Georgia", "Apple Symbols";
+	font-family: 'Raleway', serif, "Georgia", "Apple Symbols";
 	padding: 0px;
 	margin: 0px;
 	text-align: center;
@@ -69,15 +69,23 @@ div#about-search{
 div.about-results{
 	margin-top: 20px;
 	margin-bottom: 20px;
-}
-
-div#pre-footer{
 	clear: both;
 }
 
 div#footer{
 	padding-top: 100px;
 	padding-bottom: 100px;
+}
+
+a {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+a:hover {
+	color: white;
+	background-color: black;
+	text-decoration: none;
 }
 
 /* small desktops */

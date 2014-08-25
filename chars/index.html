@@ -39,11 +39,14 @@
 			<h1 style="font-size: 4em; margin: -30px;">&circledast;</h1>
 			<h1 id="heading">html characters</h1>
 			<input ng-model="search" placeholder="search" autofocus/>
-			<div id="about-search" ng-hide="search">
-				examples: <i>integral, arrow, star, circle</i>
+			<div id="about-search">
+				examples:
+				<a ng-click="search = 'integral'">integral</a>
+				<a ng-click="search = 'arrow'">arrow</a>
+				<a ng-click="search = 'star'">star</a>
+				<a ng-click="search = 'circle'">circle</a>
 			</div>
 		</div>
-
 
 		<div class="about-results">
 			<span ng-show="search">
@@ -56,12 +59,9 @@
 
 			<span ng-show="(symbols | filter:search:false).length > limit">
 				first {{limit}} are shown.
-				<i ng-click="limit=100000">show all</i>
+				<a ng-click="limit=100000">show all</a>
 			</span>
-			<span ng-hide="(symbols | filter:search:false).length > limit">
-				<br>
-			</span>
-			
+			<a ng-show="limit > limitInit && (symbols | filter:search:false).length > limitInit" ng-click="limit = limitInit;">show less</a>
 		</div>
 
 		<div ng-repeat="symbol in symbols | filter:search:false | limitTo: limit" class="box">
@@ -71,17 +71,20 @@
 			</div>
 		</div>
 		
-		<div id="pre-footer">
+		<div class="about-results">
+			<span ng-show="search">
+				found {{(symbols | filter:search:false).length}} results.
+			</span>
+
 			<span ng-hide="search">
 				{{symbols.length}} characters.
 			</span>
+
 			<span ng-show="(symbols | filter:search:false).length > limit">
 				first {{limit}} are shown.
-				<i ng-click="limit=100000">show all</i>
+				<a ng-click="limit=100000">show all</a>
 			</span>
-			<span ng-hide="(symbols | filter:search:false).length > limit">
-				<br>
-			</span>
+			<a ng-show="limit > limitInit && (symbols | filter:search:false).length > limitInit" ng-click="limit = limitInit;">show less</a>
 		</div>
 
 		<div id="footer">
