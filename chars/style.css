@@ -12,7 +12,7 @@ h1#heading{
 body {
 	background-color: white;
 	color: black;
-	font-family: 'Raleway', serif, "Georgia", "Apple Symbols";
+	font-family: "Raleway", sans-serif;
 	padding: 0px;
 	margin: 0px;
 	text-align: center;
@@ -58,6 +58,7 @@ input:focus, input.focus{
 }
 
 h1.display{
+	font-family: "Raleway", "Georgia", "Apple Symbols", serif;
 	font-size: 3em;
 }
 
