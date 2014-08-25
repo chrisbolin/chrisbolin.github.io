@@ -37,6 +37,24 @@ div.box{
 	float: left;
 }
 
+div.box:hover{
+	background-color: #3D4C53;
+	height: 240px;
+}
+
+div.box .hover{
+	display: none;
+}
+
+div.box:hover .hover{
+	display: inherit;
+}
+
+div.box:hover h1.display{
+	font-size: 5em;
+	font-size: 5em;
+}
+
 div.search-header{
 	font-size: 2em;
 }

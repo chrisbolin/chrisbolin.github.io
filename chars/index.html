@@ -64,11 +64,14 @@
 			<a ng-show="limit > limitInit && (symbols | filter:search:false).length > limitInit" ng-click="limit = limitInit;">show less</a>
 		</div>
 
-		<div ng-repeat="symbol in symbols | filter:search:false | limitTo: limit" class="box">
+		<div class="box" ng-repeat="symbol in symbols | filter:search:false | limitTo: limit">
 			<h1 class="display" ng-bind-html="symbol.printable"></h1>
 			<div class="about">
 				{{symbol.codes[0]}}
 			</div>
+			<span class="hover">
+				<br>{{symbol.about}}
+			</span>
 		</div>
 		
 		<div class="about-results">
