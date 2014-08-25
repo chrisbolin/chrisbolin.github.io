@@ -39,32 +39,36 @@
 			<h1 style="font-size: 4em; margin: -30px;">&circledast;</h1>
 			<h1 id="heading">html characters</h1>
 			<input ng-model="search" placeholder="search" autofocus/>
+			<span class="clear-button" ng-class="{displayed:search}" ng-click="search='';">
+				&otimes;
+			</span>
 			<div id="about-search">
 				examples:
 				<a ng-click="search = 'integral'">integral</a>
 				<a ng-click="search = 'arrow'">arrow</a>
 				<a ng-click="search = 'star'">star</a>
 				<a ng-click="search = 'circle'">circle</a>
+				<a ng-click="search = 'zig'">zig</a>
 			</div>
 		</div>
 
 		<div class="about-results">
 			<span ng-show="search">
-				found {{(symbols | filter:search:false).length}} results.
+				found {{(symbols | filter:searchFunc).length}} results.
 			</span>
 
 			<span ng-hide="search">
 				{{symbols.length}} characters.
 			</span>
 
-			<span ng-show="(symbols | filter:search:false).length > limit">
+			<span ng-show="(symbols | filter:searchFunc).length > limit">
 				first {{limit}} are shown.
 				<a ng-click="limit=100000">show all</a>
 			</span>
-			<a ng-show="limit > limitInit && (symbols | filter:search:false).length > limitInit" ng-click="limit = limitInit;">show less</a>
+			<a ng-show="limit > limitInit && (symbols | filter:searchFunc).length > limitInit" ng-click="limit = limitInit;">show less</a>
 		</div>
 
-		<div class="box" ng-repeat="symbol in symbols | filter:search:false | limitTo: limit">
+		<div class="box" ng-repeat="symbol in symbols | filter:searchFunc | limitTo: limit">
 			<h1 class="display" ng-bind-html="symbol.printable"></h1>
 			<div class="about">
 				{{symbol.codes[0]}}
@@ -76,18 +80,18 @@
 		
 		<div class="about-results">
 			<span ng-show="search">
-				found {{(symbols | filter:search:false).length}} results.
+				found {{(symbols | filter:searchFunc).length}} results.
 			</span>
 
 			<span ng-hide="search">
 				{{symbols.length}} characters.
 			</span>
 
-			<span ng-show="(symbols | filter:search:false).length > limit">
+			<span ng-show="(symbols | filter:searchFunc).length > limit">
 				first {{limit}} are shown.
 				<a ng-click="limit=100000">show all</a>
 			</span>
-			<a ng-show="limit > limitInit && (symbols | filter:search:false).length > limitInit" ng-click="limit = limitInit;">show less</a>
+			<a ng-show="limit > limitInit && (symbols | filter:searchFunc).length > limitInit" ng-click="limit = limitInit;">show less</a>
 		</div>
 
 		<div id="footer">
