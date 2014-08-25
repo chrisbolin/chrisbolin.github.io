@@ -71,8 +71,11 @@ div.about-results{
 	margin-bottom: 20px;
 }
 
-div#footer{
+div#pre-footer{
 	clear: both;
+}
+
+div#footer{
 	padding-top: 100px;
 	padding-bottom: 100px;
 }

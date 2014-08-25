@@ -40,7 +40,7 @@
 			<h1 id="heading">html characters</h1>
 			<input ng-model="search" placeholder="search" autofocus/>
 			<div id="about-search" ng-hide="search">
-				&starf; example searches: <i>integral, arrow, star, circle</i>
+				examples: <i>integral, arrow, star, circle</i>
 			</div>
 		</div>
 
@@ -49,10 +49,11 @@
 			<span ng-show="search">
 				found {{(symbols | filter:search:false).length}} results.
 			</span>
+
 			<span ng-hide="search">
 				{{symbols.length}} characters.
 			</span>
-			<br>
+
 			<span ng-show="(symbols | filter:search:false).length > limit">
 				first {{limit}} are shown.
 				<i ng-click="limit=100000">show all</i>
@@ -60,6 +61,7 @@
 			<span ng-hide="(symbols | filter:search:false).length > limit">
 				<br>
 			</span>
+			
 		</div>
 
 		<div ng-repeat="symbol in symbols | filter:search:false | limitTo: limit" class="box">
@@ -69,6 +71,19 @@
 			</div>
 		</div>
 		
+		<div id="pre-footer">
+			<span ng-hide="search">
+				{{symbols.length}} characters.
+			</span>
+			<span ng-show="(symbols | filter:search:false).length > limit">
+				first {{limit}} are shown.
+				<i ng-click="limit=100000">show all</i>
+			</span>
+			<span ng-hide="(symbols | filter:search:false).length > limit">
+				<br>
+			</span>
+		</div>
+
 		<div id="footer">
 			chris bolin made this in 2014.
 			<br>
