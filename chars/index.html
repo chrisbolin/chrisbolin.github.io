@@ -69,13 +69,19 @@
 		</div>
 
 		<div class="box" ng-repeat="symbol in symbols | filter:searchFunc | limitTo: limit">
+			<div class="details">
+				<h1 class="display" ng-bind-html="symbol.printable"></h1>
+				<div class="about">
+					{{symbol.codes[0]}}
+					<br>
+					<br>
+					{{symbol.about}}
+				</div>
+			</div>
 			<h1 class="display" ng-bind-html="symbol.printable"></h1>
-			<div class="about">
+			<div class="about mobile-only">
 				{{symbol.codes[0]}}
 			</div>
-			<span class="hover">
-				<br>{{symbol.about}}
-			</span>
 		</div>
 		
 		<div class="about-results">
