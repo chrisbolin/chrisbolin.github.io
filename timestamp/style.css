@@ -1,0 +1,10 @@
+body {
+	font-family: 'Anonymous Pro', monospace;
+}
+
+.headline {
+	font-size: 10em;
+	text-align: center;
+	margin-top: 0;
+	margin-bottom: 0;
+}
