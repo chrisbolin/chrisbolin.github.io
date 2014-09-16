@@ -33,7 +33,9 @@
 </head>
 
 <body ng-controller="MainCtrl">
-	<h1 class='headline'>{{timestamp}}</h1>
+	<h1 class='headline'>
+		<span ng-repeat='char in timestampArray track by $index'>{{char}}</span>
+	</h1>
 	
 </body>
 
