@@ -14,7 +14,7 @@ details = [
 ]
 
 app.controller('MainCtrl', function($scope) {
-	$scope.timestamp = 'init';
+	$scope.info = 'now()';
 	updateTimestamp = function(){
 		var ts = Math.round(Date.now()/1000);
 		$scope.timestampArray = ts.toString().split('');
@@ -23,7 +23,6 @@ app.controller('MainCtrl', function($scope) {
 	var delay = 250;
 	var intervalID = window.setInterval(updateTimestamp, delay);
 	$scope.getInfo = function(index){
-		console.log(index);
 		$scope.info = details[index];
 	}
 });

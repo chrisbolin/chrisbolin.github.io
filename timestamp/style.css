@@ -1,10 +1,30 @@
 body {
 	font-family: 'Anonymous Pro', monospace;
+	background-color: #053F38;
+	color: white;
+	text-align: center;
 }
 
-.headline {
+#headline {
 	font-size: 10em;
-	text-align: center;
-	margin-top: 0;
-	margin-bottom: 0;
+	font-weight: bold;
+	background-color: white;
+	color: #053F38;
+}
+
+#info {
+	font-size: 2em;
+	margin: 10px;
+	padding: 10px;
+}
+
+#footer{
+	position: fixed;
+	bottom: 0%;
+	width: 100%;
+	padding: 10px;
+}
+
+.char:hover {
+	text-decoration: overline;
 }

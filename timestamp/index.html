@@ -33,14 +33,18 @@
 </head>
 
 <body ng-controller="MainCtrl">
+	<div id='info'>
+		{{info}}
+	</div>
 	<div id='headline'>
-		<span ng-repeat='char in timestampArray track by $index'
+		<span class='char'
+			ng-repeat='char in timestampArray track by $index'
 			ng-click='getInfo($index)'
 			ng-mouseover='getInfo($index)'
 			>{{char}}</span>
 	</div>
-	<div id='info'>
-		{{info}}
+	<div id='footer'>
+		chris bolin made this shitty thing in 2014.
 	</div>
 </body>
 
