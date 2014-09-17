@@ -33,10 +33,15 @@
 </head>
 
 <body ng-controller="MainCtrl">
-	<h1 class='headline'>
-		<span ng-repeat='char in timestampArray track by $index'>{{char}}</span>
-	</h1>
-	
+	<div id='headline'>
+		<span ng-repeat='char in timestampArray track by $index'
+			ng-click='getInfo($index)'
+			ng-mouseover='getInfo($index)'
+			>{{char}}</span>
+	</div>
+	<div id='info'>
+		{{info}}
+	</div>
 </body>
 
 </html>
