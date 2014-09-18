@@ -1,30 +1,44 @@
-body {
-	font-family: 'Anonymous Pro', monospace;
-	background-color: #053F38;
-	color: white;
-	text-align: center;
+div {
+	margin: 0px;
+	padding: 0px;
 }
 
-#headline {
+body {
+	font-family: 'Raleway', sans-serif;
+	color: white;
+	text-align: center;
+	background-color: #053F38;
+}
+
+#timestamp {
+	font-family: 'Anonymous Pro', monospace;
 	font-size: 10em;
 	font-weight: bold;
 	background-color: white;
 	color: #053F38;
+	margin-top: 10px;
+}
+
+.char{
+	border-width: 10px;
+	border-left-width: 0px;
+	border-right-width: 0px;
+	border-style: solid;
+	border-color: transparent;
+}
+
+.active {
+	border-color: white;
+	border-bottom-color: white;
 }
 
 #info {
 	font-size: 2em;
-	margin: 10px;
-	padding: 10px;
 }
 
 #footer{
 	position: fixed;
 	bottom: 0%;
 	width: 100%;
-	padding: 10px;
 }
 
-.char:hover {
-	text-decoration: overline;
-}

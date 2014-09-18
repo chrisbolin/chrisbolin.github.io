@@ -22,7 +22,9 @@ app.controller('MainCtrl', function($scope) {
 	}
 	var delay = 250;
 	var intervalID = window.setInterval(updateTimestamp, delay);
+	
 	$scope.getInfo = function(index){
+		$scope.currentIndex = index;
 		$scope.info = details[index];
 	}
 });

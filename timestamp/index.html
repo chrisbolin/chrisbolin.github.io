@@ -6,9 +6,11 @@
 	<title>timestamp</title>	
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js"></script>
+	<script src="/Users/chris/Downloads/angular.min.js"></script>
 	<script src="script.js"></script>
 
 	<link href='http://fonts.googleapis.com/css?family=Anonymous+Pro' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="style.css">
 
 	<!-- favicons -->
@@ -36,15 +38,17 @@
 	<div id='info'>
 		{{info}}
 	</div>
-	<div id='headline'>
-		<span class='char'
+	<div id='timestamp'>
+		<span
+			class='char'
 			ng-repeat='char in timestampArray track by $index'
+			ng-class='{active:($index == currentIndex)}'
 			ng-click='getInfo($index)'
 			ng-mouseover='getInfo($index)'
 			>{{char}}</span>
 	</div>
 	<div id='footer'>
-		chris bolin made this shitty thing in 2014.
+		chris bolin made this shitty thing in 2014
 	</div>
 </body>
 
