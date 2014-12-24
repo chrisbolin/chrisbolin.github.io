@@ -90,17 +90,9 @@ a.tooltip:hover span{
 	}
 }
 
-@media only screen and (max-width: 480px), only screen and (max-device-width : 600px) {
-	h1{
-		font-size: 4em;
-	}
-	
+@media only screen and (max-width: 480px), only screen and (max-device-width : 600px) {	
 	.header{
 		border-bottom-width: 5px;
-	}
-
-	body{
-		font-size: 4em;
 	}
 
 	.text{
