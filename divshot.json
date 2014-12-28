@@ -1,0 +1,7 @@
+{
+  "name": "chrisbolin",
+  "root": "./",
+  "clean_urls": true,
+  "error_page": "error.html",
+  "exclude": ["*.s3config"]
+}
