@@ -13,8 +13,9 @@ html,body {
   height: 100%;
   margin: 0px;
   background-color: #2285C5;
-    color: white;
-    font-size: 1.15em;
+  color: white;
+  font-size: 1.15em;
+  overflow-x: hidden;
 }
 
 .header{
@@ -92,10 +93,6 @@ a.tooltip:hover span{
 }
 
 @media only screen and (max-width: 480px), only screen and (max-device-width : 600px) { 
-  .header{
-    border-bottom-width: 5px;
-  }
-
   .text{
     border: 0em;
     padding: 0em;
