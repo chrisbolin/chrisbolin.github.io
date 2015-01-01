@@ -1,14 +1,5 @@
-h1 {
-  font-weight: normal;
-  margin: 0px;
-  text-align: center;
-  font-size: 7em;
-  margin-bottom: -8px;
-  margin-top: -15px;
-}
-
 html,body {
-  font-family: 'Source Sans Pro', 'Helvetica', sans-serif;
+  font-family: 'Lato', 'Helvetica', sans-serif;
   font-weight: 300;
   height: 100%;
   margin: 0px;
@@ -18,11 +9,21 @@ html,body {
   overflow-x: hidden;
 }
 
-.header{
-  color: #F47D67;
+#header{
   background-color: #3F454C;
   font-family: 'Lobster', cursive;
   border-bottom: 2px white dashed;
+  
+  h1 {
+    color: #F47D67;
+    font-weight: normal;
+    margin: 0px;
+    text-align: center;
+    font-size: 6.2em;
+    margin-bottom: -3px;
+    margin-top: -10px;
+  }
+
 }
 
 .block{
@@ -38,9 +39,14 @@ html,body {
   text-align: center;
 }
 
+#main{
+  margin-top: 20px;
+  line-height: 1.4em;
+}
+
 .text{
-  padding: 0.4em;
-    margin: 0.4em;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .center{
@@ -53,7 +59,7 @@ a{
     outline:none;
     text-decoration: none;
     color: white;
-    background-color:rgba(255,255,255,0.1);
+    background-color:rgba(255,255,255,0.05);
 }
 
 a:hover {
