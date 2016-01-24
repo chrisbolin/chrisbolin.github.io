@@ -1,120 +1,77 @@
-html,body {
-  font-family: 'Lato', 'Helvetica', sans-serif;
-  font-weight: 300;
-  height: 100%;
-  margin: 0px;
-  background-color: #2285C5;
+@import url(https://fonts.googleapis.com/css?family=Inconsolata);
+@import url(https://fonts.googleapis.com/css?family=Playfair+Display:400italic);
+
+body {
+  background-color: white;
+  margin: 0;
+}
+
+.container {
+  position: fixed;
+}
+
+$card-height: 320;
+$card-width: $card-height * (2/3.5);
+$offset: ($card-height - $card-width) / 2;
+
+.card-plane {
+  position: absolute;
+  width: $card-width + px;
+  height: $card-height + px;
+  margin: 50px calc(50vw -  #{$card-width / 2 + px});
+  .card-face {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+
+    &.front {
+      background-color: black;
+      color: white;
+      font-style: italic;
+      font-family: 'Playfair Display', Serif;
+      .title {
+        font-size: 21px;
+        padding: 22px 22px;
+        hr {
+          margin: 7px 0;
+        }
+      }
+      .scroll {
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        color: #7D7D7D;
+        bottom: -30px;
+        font-size: 12px;
+      }
+    }
+
+    &.back {
+      color: white;
+      background-color: #FD556F;
+      /* reversed for the back of the card */
+      width: $card-height + px;
+      height: $card-width + px;
+      transform: rotateZ(90deg) rotateX(180deg) translate3d($offset+px, -$offset+px, 0px);
+    }
+  }
+}
+
+.back-text {
+  position: fixed;
+  left: calc(50vw -  #{$card-width + px} + 40px);
+  top: 90px;
+  font-family: Inconsolata, monospace;
   color: white;
-  font-size: 1.15em;
-  overflow-x: hidden;
-}
-
-#header{
-  background-color: #3F454C;
-  font-family: 'Lobster', cursive;
-  border-bottom: 2px white dashed;
-  
-  h1 {
-    color: #F47D67;
-    font-weight: normal;
-    margin: 0px;
-    text-align: center;
-    font-size: 6.2em;
-    margin-bottom: -3px;
-    margin-top: -10px;
-  }
-
-}
-
-.block{
+  font-size: 14px;
   width: 300px;
-  display: inline-block;
-  position: relative;
-  text-align: left;
-  clear: both;
 }
 
-.page{
-  width: 100%;
+.arrow {
+  font-size: 24px;
+  font-family: 'Times New Roman', serif;
+  position: fixed;
   text-align: center;
-}
-
-#main{
-  margin-top: 20px;
-  line-height: 1.4em;
-}
-
-.text{
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-.center{
-    text-align: center;
-}
-
-/* tooltip */
-
-a{
-    outline:none;
-    text-decoration: none;
-    color: white;
-    background-color:rgba(255,255,255,0.05);
-}
-
-a:hover {
-    text-decoration:none;
-    background-color:#3F454C;
-} 
-
-a.tooltip span {
-    display:none;
-    z-index:10;
-    padding: 10px 10px 10px 15px; /* top, right, bottom, left */
-    width: 495px;
-    text-align: left;
-    position:fixed;
-    right: 0px;
-    background-color:#F47D67;
-    border-radius: 10px 0px 0px 10px; /* top left, top right, bottom right, bottom left */
-}
-
-/*a.tooltip span{*/
-a.tooltip:hover span{
-    display:inline;
-}
-
-/* end tooltip */
-
-@media only screen and (max-width: 1300px){
-  a.tooltip span {
-    width: 295px;
-  }
-}
-
-@media only screen and (max-width: 900px){
-  a.tooltip span {
-    width: auto;
-  }
-}
-
-@media only screen and (max-width: 480px), only screen and (max-device-width : 600px) { 
-  .text{
-    border: 0em;
-    padding: 0em;
-  }
-
-  .block{
-    width: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
-  }
-
-  a.tooltip:hover span{
-    display: none;
-  }
-
-  a.hoveronly{
-    background-color: rgba(255,255,255,0);
-  }
+  width: 100%;
+  top: $card-height + px;
 }
