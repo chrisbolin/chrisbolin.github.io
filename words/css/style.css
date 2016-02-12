@@ -1,0 +1,274 @@
+@import url(https://fonts.googleapis.com/css?family=Alegreya:700,400,400italic);
+@import url(https://fonts.googleapis.com/css?family=Fanwood+Text);
+@media screen and (max-width: 600px) {
+  h1, p {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background-color: #F7F7FA;
+    font-size: 20px;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid black;
+    margin: 0;
+    margin-bottom: 40px;
+  }
+  hr:last-child {
+    margin-bottom: 0;
+    margin-top: 40px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .page-container {
+    width: 600px;
+    padding-top: 20px;
+    /* empty space when navigated by #id */
+  }
+
+  .page {
+    padding: 70px 30px;
+    background-color: white;
+    color: black;
+  }
+
+  .header {
+    margin: 40px auto 200px;
+  }
+  .header .title {
+    border-bottom: 1px solid black;
+    margin-bottom: 60px;
+    text-align: center;
+    height: 26px;
+  }
+  .header .title h1 {
+    padding: 8px 10px;
+    display: inline-block;
+    font-size: 26px;
+    background-color: white;
+    font-family: "Alegreya", Georgia, serif;
+    font-weight: 700;
+  }
+  .header .links {
+    -webkit-columns: 2 190px;
+       -moz-columns: 2 190px;
+            columns: 2 190px;
+    -webkit-column-gap: 30px;
+       -moz-column-gap: 30px;
+            column-gap: 30px;
+    text-align: center;
+  }
+  .header .links .link {
+    margin-bottom: 3px;
+  }
+  .header a {
+    font-family: "Fanwood Text", Georgia, serif;
+    color: black;
+  }
+  .header a:visited {
+    color: black;
+  }
+
+  .nav-links {
+    text-align: center;
+  }
+
+  .nav-link {
+    border: 10px solid #F7F7FA;
+    display: inline-block;
+    opacity: 0.12;
+    margin: 10px 5px;
+    -webkit-transition: 0.3s ease-out;
+    transition: 0.3s ease-out;
+  }
+  .nav-link.previous {
+    border-right: 10px solid black;
+    left: 0px;
+  }
+  .nav-link.next {
+    border-left: 10px solid black;
+    right: 0px;
+  }
+  .nav-link:hover {
+    opacity: 1;
+  }
+
+  .piece {
+    margin: 100px auto 300px;
+  }
+  .piece .page {
+    /* types */
+  }
+  .piece .page h1 {
+    font-size: 48px;
+    line-height: 52px;
+    font-family: "Alegreya", Georgia, serif;
+    font-weight: 700;
+  }
+  .piece .page .year {
+    font-family: "Alegreya", Georgia, serif;
+    font-style: italic;
+    margin: 12px 0 38px;
+  }
+  .piece .page .body {
+    font-family: "Fanwood Text", Georgia, serif;
+  }
+  .piece .page hr:last-child {
+    margin-top: 50px;
+  }
+  .piece .page.prose p + p {
+    /* paragraphs following other paragraphs */
+    margin-top: 20px;
+  }
+  .piece .page.poem .body {
+    text-indent: -2em;
+    margin-left: 2em;
+  }
+
+  .page-container {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 601px) {
+  h1, p {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background-color: #F7F7FA;
+    font-size: 16px;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid black;
+    margin: 0;
+    margin-bottom: 40px;
+  }
+  hr:last-child {
+    margin-bottom: 0;
+    margin-top: 40px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .page-container {
+    width: 600px;
+    padding-top: 20px;
+    /* empty space when navigated by #id */
+  }
+
+  .page {
+    padding: 70px 70px;
+    background-color: white;
+    color: black;
+  }
+
+  .header {
+    margin: 40px auto 200px;
+  }
+  .header .title {
+    border-bottom: 1px solid black;
+    margin-bottom: 60px;
+    text-align: center;
+    height: 26px;
+  }
+  .header .title h1 {
+    padding: 8px 10px;
+    display: inline-block;
+    font-size: 26px;
+    background-color: white;
+    font-family: "Alegreya", Georgia, serif;
+    font-weight: 700;
+  }
+  .header .links {
+    -webkit-columns: 2 190px;
+       -moz-columns: 2 190px;
+            columns: 2 190px;
+    -webkit-column-gap: 30px;
+       -moz-column-gap: 30px;
+            column-gap: 30px;
+    text-align: center;
+  }
+  .header .links .link {
+    margin-bottom: 3px;
+  }
+  .header a {
+    font-family: "Fanwood Text", Georgia, serif;
+    color: black;
+  }
+  .header a:visited {
+    color: black;
+  }
+
+  .nav-links {
+    text-align: center;
+  }
+
+  .nav-link {
+    border: 12px solid #F7F7FA;
+    display: inline-block;
+    opacity: 0.12;
+    margin: 12px 6px;
+    -webkit-transition: 0.3s ease-out;
+    transition: 0.3s ease-out;
+  }
+  .nav-link.previous {
+    border-right: 12px solid black;
+    left: 0px;
+  }
+  .nav-link.next {
+    border-left: 12px solid black;
+    right: 0px;
+  }
+  .nav-link:hover {
+    opacity: 1;
+  }
+
+  .piece {
+    margin: 100px auto 300px;
+  }
+  .piece .page {
+    /* types */
+  }
+  .piece .page h1 {
+    font-size: 48px;
+    line-height: 52px;
+    font-family: "Alegreya", Georgia, serif;
+    font-weight: 700;
+  }
+  .piece .page .year {
+    font-family: "Alegreya", Georgia, serif;
+    font-style: italic;
+    margin: 12px 0 38px;
+  }
+  .piece .page .body {
+    font-family: "Fanwood Text", Georgia, serif;
+  }
+  .piece .page hr:last-child {
+    margin-top: 50px;
+  }
+  .piece .page.prose p + p {
+    /* paragraphs following other paragraphs */
+    margin-top: 16px;
+  }
+  .piece .page.poem .body {
+    text-indent: -2em;
+    margin-left: 2em;
+  }
+}

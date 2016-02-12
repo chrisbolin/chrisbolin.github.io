@@ -1,0 +1,167 @@
+@import url(https://fonts.googleapis.com/css?family=Alegreya:700,400,400italic);
+@import url(https://fonts.googleapis.com/css?family=Fanwood+Text);
+
+$header-font: 'Alegreya', Georgia, serif;
+$body-font: 'Fanwood Text', Georgia, serif;
+$page-color: white;
+$text-color: black;
+$background-color: #F7F7FA;
+$y-dim: 70;
+
+// begin styling()
+
+@mixin styling($x-dim, $arrow-dim, $body-font-size) {
+
+h1, p {
+  margin: 0; padding: 0;
+}
+
+body {
+  background-color: $background-color;
+  font-size: $body-font-size + px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid $text-color;
+  margin: 0;
+  margin-bottom: $y-dim - 30 + px;
+  &:last-child {
+    margin-bottom: 0;
+    margin-top: $y-dim - 30 + px;
+  }
+}
+
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}  
+
+.page-container {
+  width: 600px;
+  padding-top: 20px; /* empty space when navigated by #id */  
+}
+
+.page {
+  padding: $y-dim + px  $x-dim + px;
+  background-color: $page-color;
+  color: $text-color;
+}
+
+.header {
+  margin: 40px auto 200px;
+
+  .title {
+    border-bottom: 1px solid $text-color;
+    margin-bottom: $y-dim - 10 + px;
+    text-align: center;
+    height: 26px;
+    h1 {
+      padding: 8px 10px;
+      display: inline-block;
+      font-size: 26px;
+      background-color: $page-color;
+      font-family: $header-font;
+      font-weight: 700;
+    }      
+  }  
+  .links {
+    columns: 2 190px;
+    column-gap: 30px;
+    text-align: center;
+    .link {
+      margin-bottom: 3px;
+    }
+  }
+  a {
+    $link-color: black;
+    font-family: $body-font;
+    color: $link-color;
+    &:visited {
+      color: $link-color;
+    }
+  }  
+}
+
+.nav-links{
+  text-align: center;
+}
+.nav-link {
+  $dim: 15px;
+  border: $arrow-dim + px solid $background-color;
+  display: inline-block;
+  opacity: 0.12;
+  // position: absolute;
+  margin: $arrow-dim + px $arrow-dim/2 + px;    
+  &.previous {
+    border-right: $arrow-dim + px solid $text-color;
+    left: 0px;
+  }
+  &.next {
+    border-left: $arrow-dim + px solid $text-color;
+    right: 0px;
+  }
+  &:hover {
+    opacity: 1;
+  }
+  transition: 0.3s ease-out;
+}
+  
+  
+.piece {
+  margin: 100px auto 300px;
+  
+  .page {
+    h1 {
+      font-size: 48px;
+      line-height: 52px;
+      font-family: $header-font;
+      font-weight: 700;
+    }
+
+    .year {
+      font-family: $header-font;
+      font-style: italic;
+      margin: 12px 0 38px;
+    }
+
+    .body {
+      font-family: $body-font;    
+    }
+
+    hr {
+      &:last-child {
+        margin-top: $y-dim - 20 + px;
+      }
+    }
+
+    /* types */
+    &.prose {
+      p + p { /* paragraphs following other paragraphs */
+        margin-top: $body-font-size + px;
+      }    
+    }
+
+    &.poem {
+      .body {
+        text-indent: -2em;
+        margin-left: 2em;
+      }    
+    }
+  }  
+}
+
+} // end styling()
+
+@media screen and (max-width: 600px) {
+  @include styling($x-dim: 30, $arrow-dim: 10, $body-font-size: 20);
+  .page-container{
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 601px) {
+ @include styling($x-dim: 70, $arrow-dim: 12, $body-font-size: 16);
+}
