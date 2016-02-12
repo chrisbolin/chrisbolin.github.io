@@ -40,7 +40,7 @@ var Header = function Header(_ref2) {
         React.createElement(
           'h1',
           null,
-          'Sundry Et Cetera'
+          'Some Words'
         )
       ),
       React.createElement(
