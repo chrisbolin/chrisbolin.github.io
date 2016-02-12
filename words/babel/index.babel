@@ -257,8 +257,8 @@ if (typeof document === 'undefined') {
     .toString()
     .replace(
       '<div id="app"></div>',
-      '<div id="app">' + ReactDOMServer.renderToString(<App/>) + '</div>'
-    )
+      '<div id="app">' + ReactDOMServer.renderToString(<App/>) + '</div>')
+    .replace(/TIMESTAMP/g, Date.now())
   );
 } else {
   // BROWSER - binding
