@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "babel-node babel/index.babel > index.html"
+    "build": "babel-node babel/index.babel > index.html; babel babel/index.babel > js/index.js"
   },
   "dependencies": {
     "babel-preset-es2015": "^6.5.0",
