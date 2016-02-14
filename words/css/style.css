@@ -22,17 +22,11 @@
     margin-top: 40px;
   }
 
-  a {
-    text-decoration: none;
-  }
-  a:hover {
-    text-decoration: underline;
-  }
-
   .page-container {
     width: 600px;
     padding-top: 20px;
     /* empty space when navigated by #id */
+    margin: 0 auto 50px;
   }
 
   .page {
@@ -41,10 +35,9 @@
     color: black;
   }
 
-  .header {
-    margin: 0 auto 200px;
-  }
   .header .homepage {
+    text-decoration: none;
+    display: block;
     font-family: "Fanwood Text", Georgia, serif;
     text-align: right;
     margin-bottom: 50px;
@@ -85,6 +78,7 @@
   }
 
   .nav-links {
+    display: none;
     margin-top: 16px;
     text-align: center;
   }
@@ -117,9 +111,6 @@
     opacity: 1;
   }
 
-  .piece {
-    margin: 100px auto 300px;
-  }
   .piece .page {
     /* types */
   }
@@ -179,17 +170,11 @@
     margin-top: 40px;
   }
 
-  a {
-    text-decoration: none;
-  }
-  a:hover {
-    text-decoration: underline;
-  }
-
   .page-container {
     width: 600px;
     padding-top: 20px;
     /* empty space when navigated by #id */
+    margin: 0 auto 50px;
   }
 
   .page {
@@ -198,10 +183,9 @@
     color: black;
   }
 
-  .header {
-    margin: 0 auto 200px;
-  }
   .header .homepage {
+    text-decoration: none;
+    display: block;
     font-family: "Fanwood Text", Georgia, serif;
     text-align: right;
     margin-bottom: 50px;
@@ -242,6 +226,7 @@
   }
 
   .nav-links {
+    display: none;
     margin-top: 20px;
     text-align: center;
   }
@@ -274,9 +259,6 @@
     opacity: 1;
   }
 
-  .piece {
-    margin: 100px auto 300px;
-  }
   .piece .page {
     /* types */
   }

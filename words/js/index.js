@@ -1,9 +1,5 @@
 'use strict';
 
-if (typeof React === 'undefined') {
-  var React = require('react');
-}
-
 var titleToId = function titleToId(title) {
   var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
   return title ? (options.hash ? '#' : '') + title.toLowerCase().split(' ').join('-') : '#';
@@ -32,13 +28,9 @@ var Header = function Header(_ref2) {
     'div',
     { className: 'header page-container' },
     React.createElement(
-      'div',
-      { className: 'homepage' },
-      React.createElement(
-        'a',
-        { href: '/' },
-        'chris bolin'
-      )
+      'a',
+      { className: 'homepage', href: '/' },
+      'chris bolin'
     ),
     React.createElement(
       'div',
@@ -113,7 +105,7 @@ var Piece = function Piece(_ref4) {
     ),
     React.createElement(
       'div',
-      { className: 'nav-links' },
+      { className: 'nav-links {/*unused */}' },
       React.createElement(NavLink, { piece: previousPiece, type: 'previous' }),
       React.createElement(NavLink, null),
       React.createElement(NavLink, { piece: nextPiece, type: 'next' })
@@ -492,6 +484,7 @@ var App = function App() {
 };
 
 if (typeof document === 'undefined') {
+  var React = require('react');
   // NODE - static file generation
   var ReactDOMServer = require('react-dom/server');
   var fs = require('fs');
