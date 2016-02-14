@@ -478,16 +478,8 @@ var App = function App() {
   );
 };
 
-if (typeof document === 'undefined') {
-  var React = require('react');
-  // NODE - static file generation
-  var ReactDOMServer = require('react-dom/server');
-  var fs = require('fs');
-
-  // write output to std-out
-  console.log(fs.readFileSync('index-template.html').toString().replace('<div id="app"></div>', '<div id="app">' + ReactDOMServer.renderToString(React.createElement(App, null)) + '</div>').replace(/TIMESTAMP/g, Date.now()));
-} else {
-  // BROWSER - binding
+if (typeof document !== 'undefined') {
+  // BROWSER
   ReactDOM.render(React.createElement(App, null), document.getElementById('app'));
 }
 
