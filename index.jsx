@@ -1,3 +1,10 @@
+if (typeof document === 'undefined') {
+  // server inputs and spoofing
+  var React = require('react');
+  var window = {};
+  var navigator = { userAgent: '' };
+}
+
 let fx = {
   limitUnit(x) {
     return (x < 0) ? 0 : (
@@ -230,7 +237,17 @@ let App = React.createClass({
   },
 });
 
-React.render(
-  <App/>,
-  document.getElementById('app')
-);
+if (typeof document !== 'undefined') {
+  // BROWSER
+  ReactDOM.render(
+    <App/>,
+    document.getElementById('app')
+  );
+} else {
+  var qsrv = require('qsrv');
+  qsrv.render({
+    reactElement: <App/>,
+  templatePath: 'index-template.html',
+    elementId: 'app',
+  });
+}

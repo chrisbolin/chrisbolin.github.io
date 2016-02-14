@@ -243,11 +243,18 @@ const App = () => (
 
   </PiecesApp>
 );
-
 if (typeof document !== 'undefined') {
   // BROWSER
   ReactDOM.render(
     <App/>,
     document.getElementById('app')
   );
+} else {
+  var React = require('react');
+  var qsrv = require('qsrv');
+  qsrv.render({
+    reactElement: <App/>,
+    templatePath: 'yo.html',
+    elementId: 'app',
+  });
 }
