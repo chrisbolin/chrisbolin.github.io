@@ -15,7 +15,6 @@ var fx = {
 
 var ColorBar = React.createClass({
   displayName: 'ColorBar',
-
   render: function render() {
     var height = fx.limitUnit(this.props.x) * 100;
     return React.createElement('div', { style: {
@@ -31,7 +30,6 @@ var ColorBar = React.createClass({
 
 var CardFront = React.createClass({
   displayName: 'CardFront',
-
   render: function render() {
     var x = this.props.x;
     var zIndex = x < 0.5 ? 1 : 0;
@@ -64,7 +62,6 @@ var CardFront = React.createClass({
 
 var CardBack = React.createClass({
   displayName: 'CardBack',
-
   render: function render() {
     var x = this.props.x;
     var zIndex = x > 0.5 ? 1 : 0;
@@ -89,7 +86,6 @@ var CardBack = React.createClass({
 
 var CardPlane = React.createClass({
   displayName: 'CardPlane',
-
   getStyle: function getStyle() {
     var x = this.props.x;
     var transform = '\n      rotateZ(' + 90 * x + 'deg)\n      rotateX(' + 180 * x + 'deg)\n      translate3d(' + -50 * x + 'px, 0, 0)\n    ';
@@ -113,7 +109,6 @@ var CardPlane = React.createClass({
 
 var Typer = React.createClass({
   displayName: 'Typer',
-
   render: function render() {
     var x = fx.limitUnit(this.props.x);
     if (!x) {
@@ -143,7 +138,6 @@ var Typer = React.createClass({
 
 var Arrow = React.createClass({
   displayName: 'Arrow',
-
   render: function render() {
     var x = this.props.x;
     var grey = Math.floor(255 * (1 - x));
@@ -164,7 +158,6 @@ var Arrow = React.createClass({
 
 var BackText = React.createClass({
   displayName: 'BackText',
-
   render: function render() {
     return React.createElement(
       'div',
@@ -179,7 +172,30 @@ var BackText = React.createClass({
         'cambridge, mass, usa',
         React.createElement('br', null),
         React.createElement('br', null),
-        'bolin.chris@gmail.com'
+        'bolin.chris@gmail.com',
+        React.createElement('br', null),
+        React.createElement('br', null),
+        React.createElement(
+          'a',
+          { href: 'https://www.instagram.com/bolinchris/' },
+          'photos'
+        ),
+        ' ',
+        ' ',
+        React.createElement(
+          'a',
+          { href: 'https://github.com/chrisbolin' },
+          'code'
+        ),
+        ' ',
+        ' ',
+        React.createElement(
+          'a',
+          { href: '/words' },
+          'words'
+        ),
+        ' ',
+        ' '
       )
     );
   }
@@ -187,10 +203,10 @@ var BackText = React.createClass({
 
 var App = React.createClass({
   displayName: 'App',
-
   getInitialState: function getInitialState() {
     return { x: 0 };
   },
+
   appStyle: {
     // longer scroll for desktop users
     height: window.innerHeight * (fx.isMobile() ? 1.5 : 3)
@@ -199,7 +215,6 @@ var App = React.createClass({
     var x = fx.limitUnit(window.scrollY / (this.appStyle.height - window.innerHeight));
     this.setState({ x: x });
   },
-
   handleLegacyScroll: function handleLegacyScroll(e) {
     var _this = this;
 
@@ -225,6 +240,7 @@ var App = React.createClass({
       }
     }, interval);
   },
+
   componentDidMount: function componentDidMount() {
     this.container = document.getElementsByClassName('main');
     // backup for non-safari mobile browsers
@@ -233,8 +249,6 @@ var App = React.createClass({
     window.addEventListener('scroll', handler);
     window.addEventListener('resize', handler);
     window.addEventListener('touchmove', handler);
-    window.addEventListener('touchstart', handler);
-    window.addEventListener('click', handler);
   },
   render: function render() {
     var x = this.state.x * 1.3; // extra padding for slight scroll ups
