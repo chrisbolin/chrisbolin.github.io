@@ -317,7 +317,7 @@ var App = function App() {
       React.createElement(
         'p',
         null,
-        '(This was the third variation: "You\'re Traffic, Too” seemed to lack self-awareness and "We Are All Traffic" felt too patriotic.)'
+        '(This was the third variation: "You\'re Traffic, Too" seemed to lack self-awareness and "We Are All Traffic" felt too patriotic.)'
       ),
       React.createElement(
         'p',
