@@ -1,249 +1,258 @@
 'use strict';
 
-var titleToId = function titleToId(title) {
-  var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
-  return title ? (options.hash ? '#' : '') + title.toLowerCase().split(' ').join('-') : '#';
+var fx = {
+  limitUnit: function limitUnit(x) {
+    return x < 0 ? 0 : x < 1 ? x : 1;
+  },
+  isMobile: function isMobile() {
+    return navigator.userAgent.match(/Mobile|iP(hone|od|ad)|Android|BlackBerry|IEMobile/);
+  },
+  isSafari: function isSafari() {
+    var ua = navigator.userAgent;
+    return ua.match(/Safari/) && !ua.match(/CriOS|Chrome/);
+  }
 };
 
-var PiecesApp = function PiecesApp(_ref) {
-  var _ref$children = _ref.children;
-  var children = _ref$children === undefined ? [] : _ref$children;
-  return React.createElement(
-    'div',
-    null,
-    React.createElement(Header, { pieces: children }),
-    children.map(function (piece, i, pieces) {
-      return React.cloneElement(piece, {
-        previousPiece: pieces[i - 1],
-        nextPiece: pieces[i + 1],
-        key: i
-      });
-    })
-  );
-};
+var ColorBar = React.createClass({
+  displayName: 'ColorBar',
 
-var Header = function Header(_ref2) {
-  var pieces = _ref2.pieces;
-  return React.createElement(
-    'div',
-    { className: 'header page-container' },
-    React.createElement(
+  render: function render() {
+    var height = fx.limitUnit(this.props.x) * 100;
+    return React.createElement('div', { style: {
+        width: this.props.width,
+        height: height + '%',
+        backgroundColor: this.props.color,
+        left: this.props.left,
+        position: 'absolute',
+        bottom: 0
+      } });
+  }
+});
+
+var CardFront = React.createClass({
+  displayName: 'CardFront',
+
+  render: function render() {
+    var x = this.props.x;
+    var zIndex = x < 0.5 ? 1 : 0;
+    if (!zIndex) return null;
+    var scrollStyle = {
+      opacity: 1 - 10 * x
+    };
+    return React.createElement(
       'div',
-      { className: 'homepage' },
-      React.createElement(
-        'a',
-        { href: '/' },
-        'chris bolin'
-      )
-    ),
-    React.createElement(
-      'div',
-      { className: 'page' },
+      { className: 'card-face front', style: { zIndex: zIndex } },
       React.createElement(
         'div',
         { className: 'title' },
-        React.createElement(
-          'h1',
-          null,
-          'Words'
-        )
+        'chris bolin',
+        React.createElement('hr', null)
       ),
       React.createElement(
         'div',
-        { className: 'links' },
-        pieces.map(function (piece, i) {
-          return React.createElement(PieceLink, { piece: piece, key: i });
-        })
+        { className: 'scroll', style: scrollStyle },
+        '(scroll)'
       ),
-      React.createElement('hr', null)
-    )
-  );
-};
+      React.createElement(ColorBar, { color: '#EDC919', left: '0%', width: '20%', x: x * 5.2 }),
+      React.createElement(ColorBar, { color: '#76919A', left: '20%', width: '20%', x: x * 4.7 }),
+      React.createElement(ColorBar, { color: '#257A97', left: '40%', width: '20%', x: x * 4.4 }),
+      React.createElement(ColorBar, { color: '#7A486E', left: '60%', width: '20%', x: x * 4 }),
+      React.createElement(ColorBar, { color: '#FD556F', left: '80%', width: '20%', x: x * 3.5 })
+    );
+  }
+});
 
-var PieceLink = function PieceLink(_ref3) {
-  var piece = _ref3.piece;
-  return React.createElement(
-    'div',
-    { className: 'link', key: piece.props.title },
-    React.createElement(
-      'a',
-      { href: titleToId(piece.props.title, { hash: true }) },
-      piece.props.title
-    )
-  );
-};
+var CardBack = React.createClass({
+  displayName: 'CardBack',
 
-var Piece = function Piece(_ref4) {
-  var title = _ref4.title;
-  var year = _ref4.year;
-  var children = _ref4.children;
-  var _ref4$nextPiece = _ref4.nextPiece;
-  var nextPiece = _ref4$nextPiece === undefined ? { props: {} } : _ref4$nextPiece;
-  var _ref4$previousPiece = _ref4.previousPiece;
-  var previousPiece = _ref4$previousPiece === undefined ? { props: {} } : _ref4$previousPiece;
-  var _ref4$type = _ref4.type;
-  var type = _ref4$type === undefined ? 'prose' : _ref4$type;
-  return React.createElement(
-    'div',
-    { id: titleToId(title), className: 'piece page-container' },
-    React.createElement(
+  render: function render() {
+    var x = this.props.x;
+    var zIndex = x > 0.5 ? 1 : 0;
+    var colorH = 0.06;
+    if (!zIndex) return null;
+    return React.createElement(
       'div',
-      { className: 'page ' + type },
-      React.createElement('hr', null),
-      React.createElement(
-        'h1',
-        null,
-        title
-      ),
-      React.createElement(
-        'div',
-        { className: 'year' },
-        year
-      ),
-      React.createElement(
-        'div',
-        { className: 'body' },
-        children
-      ),
-      React.createElement('hr', null)
-    ),
-    React.createElement(
+      { className: 'card-face back', style: { zIndex: zIndex } },
+      React.createElement(ColorBar, { color: '#EDC919', width: '10%', left: '0%', x: 2.5 * (1 - x) + colorH }),
+      React.createElement(ColorBar, { color: '#76919A', width: '10%', left: '10%', x: 9 * (1 - x) + colorH }),
+      React.createElement(ColorBar, { color: '#257A97', width: '10%', left: '20%', x: 4 * (1 - x) + colorH }),
+      React.createElement(ColorBar, { color: '#7A486E', width: '10%', left: '30%', x: 6 * (1 - x) + colorH }),
+      React.createElement(ColorBar, { color: '#EDC919', width: '10%', left: '40%', x: 5 * (1 - x) + colorH }),
+      React.createElement(ColorBar, { color: '#76919A', width: '10%', left: '50%', x: 2 * (1 - x) + colorH }),
+      React.createElement(ColorBar, { color: '#257A97', width: '10%', left: '60%', x: 4 * (1 - x) + colorH }),
+      React.createElement(ColorBar, { color: '#7A486E', width: '10%', left: '70%', x: 8 * (1 - x) + colorH }),
+      React.createElement(ColorBar, { color: '#EDC919', width: '10%', left: '80%', x: 7 * (1 - x) + colorH }),
+      React.createElement(ColorBar, { color: '#76919A', width: '10%', left: '90%', x: 3 * (1 - x) + colorH })
+    );
+  }
+});
+
+var CardPlane = React.createClass({
+  displayName: 'CardPlane',
+
+  getStyle: function getStyle() {
+    var x = this.props.x;
+    var transform = '\n      rotateZ(' + 90 * x + 'deg)\n      rotateX(' + 180 * x + 'deg)\n      translate3d(' + -50 * x + 'px, 0, 0)\n    ';
+
+    return {
+      transform: transform,
+      WebkitTransform: transform
+    };
+  },
+  render: function render() {
+    var zFront = this.props.x < 0.5 ? 1 : 0;
+    var zBack = !zFront;
+    return React.createElement(
       'div',
-      { className: 'nav-links' },
-      React.createElement(NavLink, { piece: previousPiece, type: 'previous' }),
-      React.createElement(NavLink, null),
-      React.createElement(NavLink, { piece: nextPiece, type: 'next' })
-    )
-  );
-};
+      { style: this.getStyle(), className: 'card-plane' },
+      React.createElement(CardFront, { x: this.props.x }),
+      React.createElement(CardBack, { x: this.props.x })
+    );
+  }
+});
 
-var NavLink = function NavLink(_ref5) {
-  var piece = _ref5.piece;
-  var type = _ref5.type;
-  return React.createElement('a', { href: piece ? titleToId(piece.props.title, { hash: true }) : '#',
-    className: 'nav-link ' + (type || 'home'),
-    title: type || 'home'
-  });
-};
+var Typer = React.createClass({
+  displayName: 'Typer',
 
-var App = function App() {
-  return React.createElement(
-    PiecesApp,
-    null,
-    React.createElement(
-      Piece,
-      { title: 'Habitant Morbi', year: '2016' },
-      React.createElement(
-        'p',
-        null,
-        'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.'
-      ),
-      React.createElement(
-        'p',
-        null,
-        'Habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.'
-      )
-    ),
-    React.createElement(
-      Piece,
-      { title: 'Lorum Ipsum Dolor Sit Amet', year: '2015', type: 'poem' },
-      React.createElement(
-        'p',
-        null,
-        'Line one something or another one something or another and then'
-      ),
-      React.createElement(
-        'p',
-        null,
-        'Then Two,'
-      ),
-      React.createElement(
-        'p',
-        null,
-        'Finally the last.'
-      ),
-      React.createElement('br', null),
-      React.createElement(
-        'p',
-        null,
-        'Then Two,'
-      ),
-      React.createElement(
-        'p',
-        null,
-        'Finally the last.'
-      )
-    ),
-    React.createElement(
-      Piece,
-      { title: 'Pellentesque', year: '2015', type: 'poem' },
-      React.createElement(
-        'p',
-        null,
-        'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.'
-      ),
-      React.createElement(
-        'p',
-        null,
-        'Vestibulum habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.'
-      )
-    ),
-    React.createElement(
-      Piece,
-      { title: 'Tortor-quam', year: '2015', type: 'poem' },
-      React.createElement(
-        'p',
-        null,
-        'Seventeen.'
-      )
-    ),
-    React.createElement(
-      Piece,
-      { title: 'Julian eu Libero', year: '2015', type: 'poem' },
-      React.createElement(
-        'p',
-        null,
-        'Line one something.'
-      )
-    ),
-    React.createElement(
-      Piece,
-      { title: 'Turpis Egestas', year: '2015', type: 'poem' },
-      React.createElement(
-        'p',
-        null,
-        'Line one something.'
-      )
-    ),
-    React.createElement(
-      Piece,
-      { title: 'Et Eetus, Et Netus', year: '2015', type: 'poem' },
-      React.createElement(
-        'p',
-        null,
-        'Line one something.'
-      )
-    ),
-    React.createElement(
-      Piece,
-      { title: 'Donec', year: '2015', type: 'poem' },
-      React.createElement(
-        'p',
-        null,
-        'Line one something.'
-      )
-    ),
-    React.createElement(
-      Piece,
-      { title: 'Et Malesuada?', year: '2015', type: 'poem' },
-      React.createElement(
-        'p',
-        null,
-        'Line one something.'
-      )
-    )
-  );
-};
+  render: function render() {
+    var x = fx.limitUnit(this.props.x);
+    if (!x) {
+      return null;
+    }
+    var letters = this.props.children.reduce(function (agg, element) {
+      if (element.length) {
+        agg = agg.concat(element.split(''));
+      } else {
+        agg.push(element);
+      }
+      return agg;
+    }, []);
+    letters.push(' ');
+    var cursor = x < 1 ? '|' : '';
+    var childrenSubset = letters.slice(0, x * letters.length);
+    return React.createElement(
+      'span',
+      null,
+      childrenSubset,
+      ' ',
+      cursor,
+      ' '
+    );
+  }
+});
 
-ReactDOM.render(React.createElement(App, null), document.getElementById('app'));
+var Arrow = React.createClass({
+  displayName: 'Arrow',
 
+  render: function render() {
+    var x = this.props.x;
+    var grey = Math.floor(255 * (1 - x));
+    var transform = 'translateY(' + 20 * x + 'px)';
+    var style = {
+      transform: transform,
+      WebkitTransform: transform,
+      color: 'rgb(' + grey + ',' + grey + ',' + grey + ')',
+      opacity: 10 * (1 - x)
+    };
+    return React.createElement(
+      'div',
+      { className: 'arrow', style: style },
+      '↓'
+    );
+  }
+});
+
+var BackText = React.createClass({
+  displayName: 'BackText',
+
+  render: function render() {
+    return React.createElement(
+      'div',
+      { className: 'back-text' },
+      React.createElement(
+        Typer,
+        { x: this.props.x },
+        'chris bolin',
+        React.createElement('br', null),
+        'wannabe polymath',
+        React.createElement('br', null),
+        'cambridge, mass, usa',
+        React.createElement('br', null),
+        React.createElement('br', null),
+        'bolin.chris@gmail.com'
+      )
+    );
+  }
+});
+
+var App = React.createClass({
+  displayName: 'App',
+
+  getInitialState: function getInitialState() {
+    return { x: 0 };
+  },
+  appStyle: {
+    // longer scroll for desktop users
+    height: window.innerHeight * (fx.isMobile() ? 1.5 : 3)
+  },
+  handleScroll: function handleScroll(e) {
+    var x = fx.limitUnit(window.scrollY / (this.appStyle.height - window.innerHeight));
+    this.setState({ x: x });
+  },
+
+  handleLegacyScroll: function handleLegacyScroll(e) {
+    var _this = this;
+
+    // handling for non-iOS mobile devices, until they allow painting while scrolling
+    // this creates a non-interactive animation instead :/
+
+    var x = this.state.x;
+    var interval = 10; // update in ms
+    var totalTime = 1000; // ms
+
+    e.preventDefault();
+
+    // don't queue up anything in the middle of animation
+    if (x !== 1 && x !== 0) return;
+
+    // 'scroll' up when at the bottom
+    var increment = interval / totalTime * (x === 1 ? -1 : 1);
+    var intervalId = setInterval(function () {
+      x = fx.limitUnit(x + increment);
+      _this.setState({ x: x });
+      if (x === 0 || x === 1) {
+        clearInterval(intervalId);
+      }
+    }, interval);
+  },
+  componentDidMount: function componentDidMount() {
+    this.container = document.getElementsByClassName('main');
+    // backup for non-safari mobile browsers
+    var handler = fx.isMobile() && !fx.isSafari() ? this.handleLegacyScroll : this.handleScroll;
+
+    window.addEventListener('scroll', handler);
+    window.addEventListener('resize', handler);
+    window.addEventListener('touchmove', handler);
+    window.addEventListener('touchstart', handler);
+    window.addEventListener('click', handler);
+  },
+  render: function render() {
+    var x = this.state.x * 1.3; // extra padding for slight scroll ups
+    var planeW = 0.9; // plane annimation weight (0-1)
+    var planeX = fx.limitUnit(x / planeW);
+    var typerX = fx.limitUnit(1 / (1 - planeW) * (-planeW + x));
+    return React.createElement(
+      'div',
+      { className: 'app', style: this.appStyle },
+      React.createElement(
+        'div',
+        { className: 'container' },
+        React.createElement(CardPlane, { x: planeX }),
+        React.createElement(Arrow, { x: x }),
+        React.createElement(BackText, { x: typerX })
+      )
+    );
+  }
+});
+
+React.render(React.createElement(App, null), document.getElementById('app'));

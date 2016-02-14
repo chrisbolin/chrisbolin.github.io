@@ -1,4 +1,3 @@
+*.s3config
 .divshot-cache
 .sass-cache
-node_modules
-*.log
