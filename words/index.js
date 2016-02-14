@@ -477,9 +477,16 @@ var App = function App() {
     )
   );
 };
-
 if (typeof document !== 'undefined') {
   // BROWSER
   ReactDOM.render(React.createElement(App, null), document.getElementById('app'));
+} else {
+  var React = require('react');
+  var qsrv = require('qsrv');
+  qsrv.render({
+    reactElement: React.createElement(App, null),
+    templatePath: 'index-template.html',
+    elementId: 'app'
+  });
 }
 
