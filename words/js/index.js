@@ -154,7 +154,7 @@ var App = function App() {
       React.createElement(
         'p',
         null,
-        'Melted snowed on glistening streets under the bright yellow sun.'
+        'Melted snow on glistening streets under the bright yellow sun.'
       ),
       React.createElement(
         'p',
@@ -183,7 +183,7 @@ var App = function App() {
       React.createElement(
         'p',
         null,
-        'I remove a canister of oatmeal from the cupboard. Because it is cheap, convenient, and healthy it is my de facto breakfast. The mediocre taste and texture quietly honor asceticism, a virtue I have always associated with wisdom (initially because of my father’s Protestantism and later because I found Epictetus’ Enchiridion very compelling).'
+        'I remove a canister of oatmeal from the cupboard. Because it is cheap, convenient, and healthy, it is my de facto breakfast. The mediocre taste and texture quietly honor asceticism, a virtue I\'ve long associated with wisdom (a nod to my father’s Protestantism?).'
       ),
       React.createElement(
         'p',
@@ -223,12 +223,12 @@ var App = function App() {
       React.createElement(
         'p',
         null,
-        'Despite its many anachronisms (also there are no three-prong electrical outlets [Fun fact: grounded three-prong outlets were required in the 1971 National Electrical Code, effective January 1, 1974 - forty-two years ago tomorrow.]) and small size, this apartment is the most expensive I\'ve rented. My rent has risen monotonically over my adulthood, sometimes in small inflationary steps, sometimes in large migratory leaps. If I now reversed those migrations, left the East Coast and returned to the Great Plains, my current rent check would surely secure a small mansion, full of shiny Frigidaire doors, silent floors, and approved electrical wiring.'
+        'Despite its dated fixtures (also there are no three-prong electrical outlets [Fun fact: grounded three-prong outlets were required in the 1971 National Electrical Code, effective January 1, 1974 - forty-two years ago tomorrow.]) and small size, this apartment is the most expensive I\'ve rented. My rent has risen monotonically over my adulthood, sometimes in small inflationary steps, sometimes in large migratory leaps. If I now reversed those migrations, left the East Coast and returned to the Great Plains, my current rent check would surely secure a small mansion, full of shiny Frigidaire doors, silent floors, and approved electrical wiring.'
       ),
       React.createElement(
         'p',
         null,
-        'I realize I have almost finished my oatmeal, spending these last minutes staring at empty sink, chewing, contemplating the price of rent.'
+        'I realize I have almost finished my oatmeal, spending these last minutes staring at the empty sink, chewing, contemplating the price of rent.'
       ),
       React.createElement(
         'p',
@@ -296,7 +296,7 @@ var App = function App() {
       React.createElement(
         'p',
         null,
-        'A few hour laters I take a long shower at the gym and mentally write the first draft of this. I begin the process of remembering, which imperceptibly yet fundamentally changes the memories, unwittingly creating fiction from nonfiction: the past is subtly erased and replaced.'
+        'A few hours later I take a long shower at the gym and mentally write the first draft of this. I begin the process of remembering, which imperceptibly yet fundamentally changes the memories, unwittingly creating fiction from nonfiction: the past is subtly erased and replaced.'
       ),
       React.createElement(
         'p',
@@ -315,7 +315,7 @@ var App = function App() {
       React.createElement(
         'p',
         null,
-        'After a long while I leave shower\'s comfort and maneuver awkwardly around the other gym-goers to my locker. It is so difficult to remember that insofar as they are in my way I am in their ways. I come up with an idea for a bumper sticker:'
+        'After a long while I leave the shower\'s comfort and maneuver awkwardly around the other gym-goers to my locker. It is so difficult to remember that insofar as they are in my way I am in theirs. I come up with an idea for a bumper sticker:'
       ),
       React.createElement(
         'p',

@@ -84,7 +84,7 @@ const App = () => (
 
     <Piece title="Winter Tomorrow" year="2016" type="poem">
       <p>
-        Melted snowed on glistening streets under the bright yellow sun.
+        Melted snow on glistening streets under the bright yellow sun.
       </p>
       <p>
         Tomorrow it may be winter again,
@@ -102,7 +102,7 @@ const App = () => (
         This morning is unencumbered: the right basin (the shallower of the two) is empty; the left basin is filled with clean, orderly, dry dishes. (Our small apartment does not have a dishwasher.)
       </p>
       <p>
-        I remove a canister of oatmeal from the cupboard. Because it is cheap, convenient, and healthy it is my de facto breakfast. The mediocre taste and texture quietly honor asceticism, a virtue I have always associated with wisdom (initially because of my father’s Protestantism and later because I found Epictetus’ Enchiridion very compelling).
+        I remove a canister of oatmeal from the cupboard. Because it is cheap, convenient, and healthy, it is my de facto breakfast. The mediocre taste and texture quietly honor asceticism, a virtue I've long associated with wisdom (a nod to my father’s Protestantism?).
       </p>
       <p>
         There are two general techniques to prepare oatmeal that I know of:
@@ -126,10 +126,10 @@ const App = () => (
         To pass the time I move some of the dry, clean dishes from the sink to the shelves above. Both the sink and the small gas stove next to it are bone white and older than my parents. Along with the creaking wooden floors and cast iron radiators they transform the apartment into a makeshift live-in time capsule: this is World War II New England.
       </p>
       <p>
-        Despite its many anachronisms (also there are no three-prong electrical outlets [Fun fact: grounded three-prong outlets were required in the 1971 National Electrical Code, effective January 1, 1974 - forty-two years ago tomorrow.]) and small size, this apartment is the most expensive I've rented. My rent has risen monotonically over my adulthood, sometimes in small inflationary steps, sometimes in large migratory leaps. If I now reversed those migrations, left the East Coast and returned to the Great Plains, my current rent check would surely secure a small mansion, full of shiny Frigidaire doors, silent floors, and approved electrical wiring.
+        Despite its dated fixtures (also there are no three-prong electrical outlets [Fun fact: grounded three-prong outlets were required in the 1971 National Electrical Code, effective January 1, 1974 - forty-two years ago tomorrow.]) and small size, this apartment is the most expensive I've rented. My rent has risen monotonically over my adulthood, sometimes in small inflationary steps, sometimes in large migratory leaps. If I now reversed those migrations, left the East Coast and returned to the Great Plains, my current rent check would surely secure a small mansion, full of shiny Frigidaire doors, silent floors, and approved electrical wiring.
       </p>
       <p>
-        I realize I have almost finished my oatmeal, spending these last minutes staring at empty sink, chewing, contemplating the price of rent.
+        I realize I have almost finished my oatmeal, spending these last minutes staring at the empty sink, chewing, contemplating the price of rent.
       </p>
       <p>
         I walk down the short hallway (creak, creak) to the living room. On the coffee table, next to a bold red skein of yarn and a bold red crocheted scarf, is my wife’s wedding ring. I quickly note the simple connection - the ring must have been an impediment to her crocheting last night and had to be removed - but not before experiencing a slight preamble to panic, seeing this symbolic object in a symbolically threatening pose. I briefly but vividly imagine a bitter fight and a discarded ring before I fade back to reality.
@@ -172,7 +172,7 @@ const App = () => (
         My doctor knocks on the door and enters. She sees my bike helmet (I forgot to lock it to the bicycle) and we discuss the woes of winter cycling for two or three minutes - long enough to be friendly but short enough to attend to the business at hand. She is kind and quirky and more leery of medications than I am.
       </p>
       <p>
-        A few hour laters I take a long shower at the gym and mentally write the first draft of this. I begin the process of remembering, which imperceptibly yet fundamentally changes the memories, unwittingly creating fiction from nonfiction: the past is subtly erased and replaced.
+        A few hours later I take a long shower at the gym and mentally write the first draft of this. I begin the process of remembering, which imperceptibly yet fundamentally changes the memories, unwittingly creating fiction from nonfiction: the past is subtly erased and replaced.
       </p>
       <p>
         In the warm water I reflect on my own good mood and on how much simple joy I derive from tiny tasks finished. I picture a tombstone, its epitaph sardonic, truthful, self-conscious:
@@ -185,7 +185,7 @@ const App = () => (
         A Life of Small Accomplishments
       </p>
       <p>
-        After a long while I leave shower's comfort and maneuver awkwardly around the other gym-goers to my locker. It is so difficult to remember that insofar as they are in my way I am in their ways. I come up with an idea for a bumper sticker:
+        After a long while I leave the shower's comfort and maneuver awkwardly around the other gym-goers to my locker. It is so difficult to remember that insofar as they are in my way I am in theirs. I come up with an idea for a bumper sticker:
       </p>
       <p>
         "We Are Traffic."
