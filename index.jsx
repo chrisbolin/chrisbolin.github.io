@@ -1,236 +1,123 @@
-let fx = {
-  limitUnit(x) {
-    return (x < 0) ? 0 : (
-      (x < 1) ? x : 1
-    );
-  },
-  isMobile() {
-    return navigator.userAgent.match(
-      /Mobile|iP(hone|od|ad)|Android|BlackBerry|IEMobile/
-    );
-  },
-  isSafari() {
-    const ua = navigator.userAgent;
-    return ua.match(/Safari/) && !ua.match(/CriOS|Chrome/);
-  },
-};
+const titleToId = (title, options = {}) => (
+  title ? (
+    (options.hash ? '#' : '')
+    + title.toLowerCase().split(' ').join('-')
+    ) : '#'
+);
 
-let ColorBar = React.createClass({
-  render() {
-    const height = fx.limitUnit(this.props.x) * 100;
-    return (
-      <div style={{
-        width: this.props.width,
-        height: height + '%',
-        backgroundColor: this.props.color,
-        left: this.props.left,
-        position: 'absolute',
-        bottom: 0,
-      }}/>
-    );
-  }
-});
+const PiecesApp = ({children = []}) => (
+  <div>
+    <Header pieces={children}/>
+    {children.map((piece, i, pieces) => (
+      React.cloneElement(piece, {
+        previousPiece: pieces[i-1],
+        nextPiece: pieces[i+1],
+        key: i,
+      })
+    ))}
+  </div>
+);
 
-let CardFront = React.createClass({
-  render() {
-    const x = this.props.x;
-    const zIndex = (x < 0.5) ? 1 : 0;
-    if (!zIndex) return null;
-    const scrollStyle = {
-      opacity: (1 - 10 * x),
-    };
-    return (
-      <div className='card-face front' style={{zIndex}}>
-        <div className='title'>
-          chris bolin
-          <hr/>
-        </div>
-        <div className="scroll" style={scrollStyle}>
-          (scroll)
-        </div>
-        <ColorBar color="#EDC919" left="0%" width="20%" x={x*5.2}/>
-        <ColorBar color="#76919A" left="20%" width="20%" x={x*4.7}/>
-        <ColorBar color="#257A97" left="40%" width="20%" x={x*4.4}/>
-        <ColorBar color="#7A486E" left="60%" width="20%" x={x*4}/>
-        <ColorBar color="#FD556F" left="80%" width="20%" x={x*3.5}/>
+const Header = ({pieces}) => (
+  <div className="header page-container">
+    <div className="homepage">
+      <a href="/">chris bolin</a>
+    </div>
+    <div className="page">
+      <div className="title">
+        <h1>Words</h1>
       </div>
-    );
-  }
-});
-
-let CardBack = React.createClass({
-  render() {
-    const x = this.props.x;
-    const zIndex = (x > 0.5) ? 1 : 0;
-    const colorH = 0.06;
-    if (!zIndex) return null;
-    return (
-      <div className='card-face back' style={{zIndex}}>
-        <ColorBar color="#EDC919" width="10%" left="0%" x={2.5*(1-x) + colorH}/>
-        <ColorBar color="#76919A" width="10%" left="10%" x={9*(1-x) + colorH}/>
-        <ColorBar color="#257A97" width="10%" left="20%" x={4*(1-x) + colorH}/>
-        <ColorBar color="#7A486E" width="10%" left="30%" x={6*(1-x) + colorH}/>
-        <ColorBar color="#EDC919" width="10%" left="40%" x={5*(1-x) + colorH}/>
-        <ColorBar color="#76919A" width="10%" left="50%" x={2*(1-x) + colorH}/>
-        <ColorBar color="#257A97" width="10%" left="60%" x={4*(1-x) + colorH}/>
-        <ColorBar color="#7A486E" width="10%" left="70%" x={8*(1-x) + colorH}/>
-        <ColorBar color="#EDC919" width="10%" left="80%" x={7*(1-x) + colorH}/>
-        <ColorBar color="#76919A" width="10%" left="90%" x={3*(1-x) + colorH}/>
+      <div className="links">
+        {pieces.map((piece, i) => <PieceLink piece={piece} key={i}/>)}
       </div>
-    );
-  }
-});
+      <hr/>
+    </div>
+  </div>
+);
 
-let CardPlane = React.createClass({
-  getStyle() {
-    const x = this.props.x;
-    const transform = `
-      rotateZ(${90 * x}deg)
-      rotateX(${180 * x}deg)
-      translate3d(${-50 * x}px, 0, 0)
-    `;
+const PieceLink = ({piece}) => (
+  <div className="link" key={piece.props.title}>
+    <a href={titleToId(piece.props.title, {hash: true})}>
+      {piece.props.title}
+    </a>
+  </div>
+);
 
-    return {
-      transform,
-      WebkitTransform: transform,
-    };
-  },
-  render() {
-    let zFront = this.props.x < 0.5 ? 1 : 0;
-    let zBack = !zFront;
-    return (
-      <div style={this.getStyle()} className='card-plane'>
-        <CardFront x={this.props.x}/>
-        <CardBack x={this.props.x}/>
-      </div>
-    )
-  },
-});
+const Piece = ({title, year, children, nextPiece = {props: {}}, previousPiece = {props: {}}, type = 'prose'}) => (
+  <div id={titleToId(title)} className="piece page-container">
+    <div className={`page ${type}`}>
+      <hr/>
+      <h1>{title}</h1>
+      <div className="year">{year}</div>
+      <div className="body">{children}</div>
+      <hr/>
+    </div>
+    <div className="nav-links">
+      <NavLink piece={previousPiece} type={'previous'}/>
+      <NavLink/>
+      <NavLink piece={nextPiece} type={'next'}/>
+    </div>
+  </div>
+);
 
-let Typer = React.createClass({
-  render() {
-    const x = fx.limitUnit(this.props.x);
-    if (!x) {
-      return null;
-    }
-    let letters = this.props.children.reduce((agg, element) => {
-      if (element.length) {
-        agg = agg.concat(element.split(''));
-      } else {
-        agg.push(element);
-      }
-      return agg;
-    }, []);
-    letters.push(' ');
-    const cursor = (x < 1) ? '|' : '';
-    const childrenSubset = letters.slice(0, x * letters.length);
-    return <span>{childrenSubset} {cursor} </span>;
-  }
-});
+const NavLink = ({piece, type}) => (
+  <a href={piece ? titleToId(piece.props.title, {hash: true}) : '#'}
+    className={`nav-link ${type || 'home'}`}
+    title={type || 'home'}
+    />
+);
 
-let Arrow = React.createClass({
-  render() {
-    const x = this.props.x;
-    const grey = Math.floor(255 * (1 - x));
-    const transform = `translateY(${ 20 * x }px)`;
-    const style = {
-      transform,
-      WebkitTransform: transform,
-      color: `rgb(${grey},${grey},${grey})`,
-      opacity: 10 * (1 - x),
-    };
-    return (
-      <div className="arrow" style={style}>&darr;</div>
-    );
-  },
-});
+const App = () => (
+  <PiecesApp>
+    <Piece title="Habitant Morbi" year="2016">
+<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+<p>Habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+    </Piece>
 
-let BackText = React.createClass({
-  render() {
-    return (
-      <div className="back-text">
-        <Typer x={this.props.x}>
-          chris bolin<br/>
-          wannabe polymath<br/>
-          cambridge, mass, usa<br/>
-          <br/>
-          bolin.chris@gmail.com
-        </Typer>
-      </div>
-    );
-  },
-});
+    <Piece title="Lorum Ipsum Dolor Sit Amet" year="2015" type="poem">
+      <p>
+        Line one something or another one something or another and then
+      </p>
+      <p>Then Two,</p>
+      <p>Finally the last.</p>
+      <br/>
+      <p>Then Two,</p>
+      <p>Finally the last.</p>
+    </Piece>
 
-let App = React.createClass({
-  getInitialState() {
-    return {x: 0};
-  },
-  appStyle: {
-    // longer scroll for desktop users
-    height: window.innerHeight * (fx.isMobile() ? 1.5 : 3),
-  },
-  handleScroll(e) {
-    const x = fx.limitUnit(window.scrollY / (
-      this.appStyle.height
-      - window.innerHeight
-    ));
-    this.setState({x});
-  },
+    <Piece title="Pellentesque" year="2015" type="poem">
+<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+<p>Vestibulum habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+    </Piece>
 
-  handleLegacyScroll(e) {
-    // handling for non-iOS mobile devices, until they allow painting while scrolling
-    // this creates a non-interactive animation instead :/
+    <Piece title="Tortor-quam" year="2015" type="poem">
+      <p>Seventeen.</p>
+    </Piece>
 
-    let x = this.state.x;
-    const interval = 10; // update in ms
-    const totalTime = 1000; // ms
+    <Piece title="Julian eu Libero" year="2015" type="poem">
+      <p>Line one something.</p>
+    </Piece>
 
-    e.preventDefault();
+    <Piece title="Turpis Egestas" year="2015" type="poem">
+      <p>Line one something.</p>
+    </Piece>
 
-    // don't queue up anything in the middle of animation
-    if (x !== 1 && x !== 0) return;
+    <Piece title="Et Eetus, Et Netus" year="2015" type="poem">
+      <p>Line one something.</p>
+    </Piece>
 
-    // 'scroll' up when at the bottom
-    const increment = interval / totalTime * ((x === 1) ? -1 : 1);
-    const intervalId = setInterval(() => {
-      x = fx.limitUnit(x + increment);
-      this.setState({x});
-      if (x === 0 || x === 1) {
-        clearInterval(intervalId);
-      }
-    }, interval);
+    <Piece title="Donec" year="2015" type="poem">
+      <p>Line one something.</p>
+    </Piece>
 
-  },
-  componentDidMount: function () {
-    this.container = document.getElementsByClassName('main');
-    // backup for non-safari mobile browsers
-    const handler = (fx.isMobile() && !fx.isSafari()) ?
-      this.handleLegacyScroll : this.handleScroll;
+    <Piece title="Et Malesuada?" year="2015" type="poem">
+      <p>Line one something.</p>
+    </Piece>
 
-    window.addEventListener('scroll', handler);
-    window.addEventListener('resize', handler);
-    window.addEventListener('touchmove', handler);
-    window.addEventListener('touchstart', handler);
-    window.addEventListener('click', handler);
-  },
-  render() {
-    const x = (this.state.x) * 1.3; // extra padding for slight scroll ups
-    const planeW = 0.9; // plane annimation weight (0-1)
-    const planeX = fx.limitUnit(x/planeW);
-    const typerX = fx.limitUnit(1/(1-planeW) * (-planeW + x));
-    return (
-      <div className='app' style={this.appStyle}>
-        <div className='container'>
-          <CardPlane x={planeX}/>
-          <Arrow x={x}/>
-          <BackText x={typerX}/>
-        </div>
-      </div>
-    );
-  },
-});
+  </PiecesApp>
+);
 
-React.render(
+ReactDOM.render(
   <App/>,
   document.getElementById('app')
 );

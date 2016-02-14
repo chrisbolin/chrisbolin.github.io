@@ -57,8 +57,16 @@ body {
   top: 90px;
   font-family: Inconsolata, monospace;
   color: white;
-  font-size: 14px;
+  font-size: 15px;
   width: 300px;
+}
+.back-text a {
+  color: white;
+}
+.back-text a:hover {
+  background-color: white;
+  color: #FD556F;
+  text-decoration: none;
 }
 
 .arrow {
