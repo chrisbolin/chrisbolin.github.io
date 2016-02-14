@@ -33,6 +33,15 @@ var Header = function Header(_ref2) {
     { className: 'header page-container' },
     React.createElement(
       'div',
+      { className: 'homepage' },
+      React.createElement(
+        'a',
+        { href: '/' },
+        'chris bolin'
+      )
+    ),
+    React.createElement(
+      'div',
       { className: 'page' },
       React.createElement(
         'div',
@@ -40,7 +49,7 @@ var Header = function Header(_ref2) {
         React.createElement(
           'h1',
           null,
-          'Some Words'
+          'Words'
         )
       ),
       React.createElement(
@@ -105,17 +114,19 @@ var Piece = function Piece(_ref4) {
     React.createElement(
       'div',
       { className: 'nav-links' },
-      React.createElement(NavLink, { piece: previousPiece, next: false }),
-      React.createElement(NavLink, { piece: nextPiece, next: true })
+      React.createElement(NavLink, { piece: previousPiece, type: 'previous' }),
+      React.createElement(NavLink, null),
+      React.createElement(NavLink, { piece: nextPiece, type: 'next' })
     )
   );
 };
 
 var NavLink = function NavLink(_ref5) {
   var piece = _ref5.piece;
-  var next = _ref5.next;
-  return React.createElement('a', { href: titleToId(piece.props.title, { hash: true }),
-    className: 'nav-link ' + (next ? 'next' : 'previous')
+  var type = _ref5.type;
+  return React.createElement('a', { href: piece ? titleToId(piece.props.title, { hash: true }) : '#',
+    className: 'nav-link ' + (type || 'home'),
+    title: type || 'home'
   });
 };
 

@@ -24,9 +24,12 @@ const PiecesApp = ({children = []}) => (
 
 const Header = ({pieces}) => (
   <div className="header page-container">
+    <div className="homepage">
+      <a href="/">chris bolin</a>
+    </div>
     <div className="page">
       <div className="title">
-        <h1>Some Words</h1>
+        <h1>Words</h1>
       </div>
       <div className="links">
         {pieces.map((piece, i) => <PieceLink piece={piece} key={i}/>)}
@@ -54,15 +57,17 @@ const Piece = ({title, year, children, nextPiece = {props: {}}, previousPiece = 
       <hr/>
     </div>
     <div className="nav-links">
-      <NavLink piece={previousPiece} next={false}/>
-      <NavLink piece={nextPiece} next={true}/>
+      <NavLink piece={previousPiece} type={'previous'}/>
+      <NavLink/>
+      <NavLink piece={nextPiece} type={'next'}/>
     </div>
   </div>
 );
 
-const NavLink = ({piece, next}) => (
-  <a href={titleToId(piece.props.title, {hash: true})}
-    className={`nav-link ${next ? 'next' : 'previous'}`}
+const NavLink = ({piece, type}) => (
+  <a href={piece ? titleToId(piece.props.title, {hash: true}) : '#'}
+    className={`nav-link ${type || 'home'}`}
+    title={type || 'home'}
     />
 );
 

@@ -37,11 +37,11 @@ a {
   &:hover {
     text-decoration: underline;
   }
-}  
+}
 
 .page-container {
   width: 600px;
-  padding-top: 20px; /* empty space when navigated by #id */  
+  padding-top: 20px; /* empty space when navigated by #id */
 }
 
 .page {
@@ -51,7 +51,14 @@ a {
 }
 
 .header {
-  margin: 40px auto 200px;
+  margin: 0 auto 200px;
+
+  .homepage {
+    font-family: $body-font;
+    text-align: right;
+    margin-bottom: 50px;
+    opacity: 0.5;
+  }
 
   .title {
     border-bottom: 1px solid $text-color;
@@ -65,8 +72,8 @@ a {
       background-color: $page-color;
       font-family: $header-font;
       font-weight: 700;
-    }      
-  }  
+    }
+  }
   .links {
     columns: 2 190px;
     column-gap: 30px;
@@ -82,37 +89,45 @@ a {
     &:visited {
       color: $link-color;
     }
-  }  
+  }
 }
 
 .nav-links{
+  margin-top: $arrow-dim * 2 + px;
   text-align: center;
 }
 .nav-link {
-  $dim: 15px;
   border: $arrow-dim + px solid $background-color;
   display: inline-block;
   opacity: 0.12;
   // position: absolute;
-  margin: $arrow-dim + px $arrow-dim/2 + px;    
+  margin: 0 $arrow-dim/2 + px;
   &.previous {
-    border-right: $arrow-dim + px solid $text-color;
+    border-right: $arrow-dim * 1.5 + px solid $text-color;
     left: 0px;
   }
   &.next {
-    border-left: $arrow-dim + px solid $text-color;
+    border-left: $arrow-dim * 1.5 + px solid $text-color;
     right: 0px;
+  }
+  &.home {
+    background-color: $text-color;
+    width: $arrow-dim * 1.5 + px;
+    height: $arrow-dim * 1.5 + px;
+    border-radius: $arrow-dim + px;
+    margin-bottom: $arrow-dim * 0.2 + px;
+    border: none;
   }
   &:hover {
     opacity: 1;
   }
   transition: 0.3s ease-out;
 }
-  
-  
+
+
 .piece {
   margin: 100px auto 300px;
-  
+
   .page {
     h1 {
       font-size: 48px;
@@ -128,7 +143,7 @@ a {
     }
 
     .body {
-      font-family: $body-font;    
+      font-family: $body-font;
     }
 
     hr {
@@ -141,27 +156,32 @@ a {
     &.prose {
       p + p { /* paragraphs following other paragraphs */
         margin-top: $body-font-size + px;
-      }    
+      }
     }
 
     &.poem {
       .body {
         text-indent: -2em;
         margin-left: 2em;
-      }    
+      }
     }
-  }  
+  }
 }
 
 } // end styling()
 
+// mobile
 @media screen and (max-width: 600px) {
-  @include styling($x-dim: 30, $arrow-dim: 10, $body-font-size: 20);
-  .page-container{
+  @include styling($x-dim: 30, $arrow-dim: 8, $body-font-size: 20);
+  .page-container {
     width: 100%;
+  }
+  .homepage {
+    margin-right: 30px;
   }
 }
 
+// desktop
 @media screen and (min-width: 601px) {
- @include styling($x-dim: 70, $arrow-dim: 12, $body-font-size: 16);
+ @include styling($x-dim: 70, $arrow-dim: 10, $body-font-size: 16);
 }
