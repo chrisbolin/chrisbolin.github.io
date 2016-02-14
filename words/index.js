@@ -220,12 +220,7 @@ var App = function App() {
       React.createElement(
         'p',
         null,
-        'I realize I have almost finished my oatmeal, spending these last minutes staring at the empty sink, chewing, contemplating the price of rent.'
-      ),
-      React.createElement(
-        'p',
-        null,
-        'I walk down the short hallway (creak, creak) to the living room. On the coffee table, next to a bold red skein of yarn and a bold red crocheted scarf, is my wife’s wedding ring. I quickly note the simple connection - the ring must have been an impediment to her crocheting last night and had to be removed - but not before experiencing a slight preamble to panic, seeing this symbolic object in a symbolically threatening pose. I briefly but vividly imagine a bitter fight and a discarded ring before I fade back to reality.'
+        'After my breakfast is prepared, I walk down the short hallway (creak, creak) to the living room. On the coffee table, next to a bold red skein of yarn and a bold red crocheted scarf, is my wife’s wedding ring. I quickly note the simple connection - the ring must have been an impediment to her crocheting last night and had to be removed - but not before experiencing a slight preamble to panic, seeing this symbolic object in a symbolically threatening pose. I briefly but vividly imagine a bitter fight and a discarded ring before I fade back to reality.'
       ),
       React.createElement(
         'p',
