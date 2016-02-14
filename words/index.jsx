@@ -254,7 +254,7 @@ if (typeof document !== 'undefined') {
   var qsrv = require('qsrv');
   qsrv.render({
     reactElement: <App/>,
-    templatePath: 'yo.html',
+    templatePath: 'index-template.html',
     elementId: 'app',
   });
 }
