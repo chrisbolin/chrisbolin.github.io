@@ -191,8 +191,8 @@ var BackText = React.createClass({
         ' ',
         React.createElement(
           'a',
-          { href: 'https://github.com/chrisbolin' },
-          'code'
+          { href: '/projects' },
+          'projects'
         ),
         ' ',
         ' ',

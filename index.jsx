@@ -165,7 +165,7 @@ let BackText = React.createClass({
           <br/>
           <br/>
           <a href="https://www.instagram.com/bolinchris/">photos</a> {' '}
-          <a href="https://github.com/chrisbolin">code</a> {' '}
+          <a href="/projects">projects</a> {' '}
           <a href="/words">words</a> {' '}
         </Typer>
       </div>
