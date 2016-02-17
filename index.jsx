@@ -162,6 +162,11 @@ let BackText = React.createClass({
           cambridge, mass, usa<br/>
           <br/>
           bolin.chris@gmail.com
+          <br/>
+          <br/>
+          <a href="https://www.instagram.com/bolinchris/">photos</a> {' '}
+          <a href="https://github.com/chrisbolin">code</a> {' '}
+          <a href="/words">words</a> {' '}
         </Typer>
       </div>
     );
@@ -217,8 +222,6 @@ let App = React.createClass({
     window.addEventListener('scroll', handler);
     window.addEventListener('resize', handler);
     window.addEventListener('touchmove', handler);
-    window.addEventListener('touchstart', handler);
-    window.addEventListener('click', handler);
   },
   render() {
     const x = (this.state.x) * 1.3; // extra padding for slight scroll ups

@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "run": "divshot s",
+    "start": "divshot s",
     "build": "babel index.jsx > index.js; node index.js > index.html"
   },
   "dependencies": {

@@ -1,5 +1,12 @@
 'use strict';
 
+if (typeof document === 'undefined') {
+  // server inputs and spoofing
+  var React = require('react');
+  var window = {};
+  var navigator = { userAgent: '' };
+}
+
 var fx = {
   limitUnit: function limitUnit(x) {
     return x < 0 ? 0 : x < 1 ? x : 1;
@@ -269,4 +276,15 @@ var App = React.createClass({
   }
 });
 
-React.render(React.createElement(App, null), document.getElementById('app'));
+if (typeof document !== 'undefined') {
+  // BROWSER
+  ReactDOM.render(React.createElement(App, null), document.getElementById('app'));
+} else {
+  var qsrv = require('qsrv');
+  qsrv.render({
+    reactElement: React.createElement(App, null),
+    templatePath: 'index-template.html',
+    elementId: 'app'
+  });
+}
+
