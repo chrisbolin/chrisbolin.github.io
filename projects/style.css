@@ -96,6 +96,10 @@ h1, h2 {
 .box .links a + a {
   margin-left: 20px;
 }
+.box:hover h1, .box:hover h2 {
+  -webkit-animation: glitch 1.8s ease-out;
+          animation: glitch 1.8s ease-out;
+}
 .box:nth-child(5n) h2 {
   background-color: #D39EE8;
 }
@@ -110,4 +114,34 @@ h1, h2 {
 }
 .box:nth-child(5n+4) h2 {
   background-color: #FFD36E;
+}
+
+@-webkit-keyframes glitch {
+  from {
+    -webkit-filter: none;
+            filter: none;
+  }
+  20% {
+    -webkit-filter: blur(2px);
+            filter: blur(2px);
+  }
+  to {
+    -webkit-filter: none;
+            filter: none;
+  }
+}
+
+@keyframes glitch {
+  from {
+    -webkit-filter: none;
+            filter: none;
+  }
+  20% {
+    -webkit-filter: blur(2px);
+            filter: blur(2px);
+  }
+  to {
+    -webkit-filter: none;
+            filter: none;
+  }
 }
