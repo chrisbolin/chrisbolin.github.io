@@ -7,6 +7,7 @@ body {
 
 .container {
   position: fixed;
+  width: 100%;
 }
 
 .card-plane {
@@ -42,8 +43,6 @@ body {
   font-size: 12px;
 }
 .card-plane .card-face.back {
-  color: white;
-  background-color: #FD556F;
   /* reversed for the back of the card */
   width: 320px;
   height: 182.85714px;
@@ -76,4 +75,53 @@ body {
   text-align: center;
   width: 100%;
   top: 320px;
+}
+
+#links {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 9vmin;
+  padding: 4vmin;
+  font-weight: 900;
+  width: 100vmin;
+  margin: auto;
+  position: relative;
+}
+#links .line {
+  line-height: 7.5vmin;
+  margin-bottom: 2.5vmin;
+}
+#links .line:nth-of-type(5n+1) {
+  color: #FD556F;
+}
+#links .line:nth-of-type(5n+2) {
+  color: #EDC919;
+}
+#links .line:nth-of-type(5n+3) {
+  color: #76919A;
+}
+#links .line:nth-of-type(5n+4) {
+  color: #257A97;
+}
+#links .line:nth-of-type(5n+5) {
+  color: #7A486E;
+}
+#links a {
+  color: black;
+  border-bottom: 2px dotted black;
+  margin-bottom: -2px;
+  text-decoration: none;
+  display: inline-block;
+  color: inherit;
+  border-color: inherit;
+}
+#links a:hover {
+  border-bottom-style: solid;
+}
+#links .slash {
+  font-weight: 200;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
 }

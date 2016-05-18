@@ -2,12 +2,13 @@
 @import url(https://fonts.googleapis.com/css?family=Playfair+Display:400italic);
 
 body {
-  background-color: white;
-  margin: 0;
+  background-color: #f9f9f9;
+  margin: 0;  
 }
 
 .container {
   position: fixed;
+  width: 100%;
 }
 
 $card-height: 320;
@@ -23,12 +24,12 @@ $offset: ($card-height - $card-width) / 2;
     width: 100%;
     height: 100%;
     position: absolute;
-
-    &.front {
+    
+    &.front {     
       background-color: black;
       color: white;
       font-style: italic;
-      font-family: 'Playfair Display', Serif;
+      font-family: 'Playfair Display', Serif;      
       .title {
         font-size: 21px;
         padding: 22px 22px;
@@ -39,22 +40,20 @@ $offset: ($card-height - $card-width) / 2;
       .scroll {
         position: absolute;
         text-align: center;
-        width: 100%;
+        width: 100%;            
         color: #7D7D7D;
         bottom: -30px;
-        font-size: 12px;
-      }
+        font-size: 12px;       
+      }      
     }
-
+    
     &.back {
-      color: white;
-      background-color: #FD556F;
       /* reversed for the back of the card */
       width: $card-height + px;
       height: $card-width + px;
-      transform: rotateZ(90deg) rotateX(180deg) translate3d($offset+px, -$offset+px, 0px);
+      transform: rotateZ(90deg) rotateX(180deg) translate3d($offset+px, -$offset+px, 0px); 
     }
-  }
+  }  
 }
 
 .back-text {
@@ -63,8 +62,16 @@ $offset: ($card-height - $card-width) / 2;
   top: 90px;
   font-family: Inconsolata, monospace;
   color: white;
-  font-size: 14px;
+  font-size: 15px;
   width: 300px;
+  a {
+    color: white;
+    &:hover {
+      background-color: white;
+      color: #FD556F;
+      text-decoration: none;
+    }
+  }
 }
 
 .arrow {
@@ -74,4 +81,58 @@ $offset: ($card-height - $card-width) / 2;
   text-align: center;
   width: 100%;
   top: $card-height + px;
+} 
+
+#links {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 9vmin;
+  padding: 4vmin;
+  font-weight: 900;
+  width: 100vmin;
+  margin: auto;
+  position: relative;
+  
+  .line {
+    line-height: 7.5vmin;
+    margin-bottom: 2.5vmin;
+    &:nth-of-type(5n+1){
+      color: #FD556F;
+    }
+    &:nth-of-type(5n+2){
+      color: #EDC919;
+    }
+    &:nth-of-type(5n+3){
+      color: #76919A;
+    }
+    &:nth-of-type(5n+4){
+      color: #257A97;
+    }
+    &:nth-of-type(5n+5){
+      color: #7A486E;
+    }  
+  }
+
+  a {
+    color: black;
+    border-bottom: 2px dotted black;
+    margin-bottom: -2px;
+    text-decoration: none;
+    display: inline-block;
+    color: inherit;
+    border-color: inherit;  
+  }
+
+  a:hover {
+    border-bottom-style: solid;
+  }
+
+  .slash {
+    font-weight: 200;
+  }  
+}
+
+
+body {
+  margin: 0;
+  overflow-x: hidden;
 }

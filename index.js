@@ -1,12 +1,5 @@
 'use strict';
 
-if (typeof document === 'undefined') {
-  // server inputs and spoofing
-  var React = require('react');
-  var window = {};
-  var navigator = { userAgent: '' };
-}
-
 var fx = {
   limitUnit: function limitUnit(x) {
     return x < 0 ? 0 : x < 1 ? x : 1;
@@ -72,21 +65,25 @@ var CardBack = React.createClass({
   render: function render() {
     var x = this.props.x;
     var zIndex = x > 0.5 ? 1 : 0;
-    var colorH = 0.06;
+    var style = {
+      zIndex: zIndex,
+      backgroundColor: 'rgba(0,0,0,' + 20 * (1 - x) + ')'
+    };
+
     if (!zIndex) return null;
     return React.createElement(
       'div',
-      { className: 'card-face back', style: { zIndex: zIndex } },
-      React.createElement(ColorBar, { color: '#EDC919', width: '10%', left: '0%', x: 2.5 * (1 - x) + colorH }),
-      React.createElement(ColorBar, { color: '#76919A', width: '10%', left: '10%', x: 9 * (1 - x) + colorH }),
-      React.createElement(ColorBar, { color: '#257A97', width: '10%', left: '20%', x: 4 * (1 - x) + colorH }),
-      React.createElement(ColorBar, { color: '#7A486E', width: '10%', left: '30%', x: 6 * (1 - x) + colorH }),
-      React.createElement(ColorBar, { color: '#EDC919', width: '10%', left: '40%', x: 5 * (1 - x) + colorH }),
-      React.createElement(ColorBar, { color: '#76919A', width: '10%', left: '50%', x: 2 * (1 - x) + colorH }),
-      React.createElement(ColorBar, { color: '#257A97', width: '10%', left: '60%', x: 4 * (1 - x) + colorH }),
-      React.createElement(ColorBar, { color: '#7A486E', width: '10%', left: '70%', x: 8 * (1 - x) + colorH }),
-      React.createElement(ColorBar, { color: '#EDC919', width: '10%', left: '80%', x: 7 * (1 - x) + colorH }),
-      React.createElement(ColorBar, { color: '#76919A', width: '10%', left: '90%', x: 3 * (1 - x) + colorH })
+      { className: 'card-face back', style: style },
+      React.createElement(ColorBar, { color: '#EDC919', width: '10%', left: '0%', x: 2 * (1 - x) }),
+      React.createElement(ColorBar, { color: '#76919A', width: '10%', left: '10%', x: 1 * (1 - x) }),
+      React.createElement(ColorBar, { color: '#257A97', width: '10%', left: '20%', x: 3 * (1 - x) }),
+      React.createElement(ColorBar, { color: '#7A486E', width: '10%', left: '30%', x: 4 * (1 - x) }),
+      React.createElement(ColorBar, { color: '#EDC919', width: '10%', left: '40%', x: 2 * (1 - x) }),
+      React.createElement(ColorBar, { color: '#76919A', width: '10%', left: '50%', x: 2 * (1 - x) }),
+      React.createElement(ColorBar, { color: '#257A97', width: '10%', left: '60%', x: 1 * (1 - x) }),
+      React.createElement(ColorBar, { color: '#7A486E', width: '10%', left: '70%', x: 3 * (1 - x) }),
+      React.createElement(ColorBar, { color: '#EDC919', width: '10%', left: '80%', x: 4 * (1 - x) }),
+      React.createElement(ColorBar, { color: '#76919A', width: '10%', left: '90%', x: 1 * (1 - x) })
     );
   }
 });
@@ -95,7 +92,7 @@ var CardPlane = React.createClass({
   displayName: 'CardPlane',
   getStyle: function getStyle() {
     var x = this.props.x;
-    var transform = '\n      rotateZ(' + 90 * x + 'deg)\n      rotateX(' + 180 * x + 'deg)\n      translate3d(' + -50 * x + 'px, 0, 0)\n    ';
+    var transform = '\n      rotateZ(' + 90 * x + 'deg)\n      rotateX(' + 180 * x + 'deg)\n      translate3d(' + -50 * x + 'px, 0, 0)\n      scale(' + (1 + x * x * x * x * 10) + ')\n    ';
 
     return {
       transform: transform,
@@ -110,35 +107,6 @@ var CardPlane = React.createClass({
       { style: this.getStyle(), className: 'card-plane' },
       React.createElement(CardFront, { x: this.props.x }),
       React.createElement(CardBack, { x: this.props.x })
-    );
-  }
-});
-
-var Typer = React.createClass({
-  displayName: 'Typer',
-  render: function render() {
-    var x = fx.limitUnit(this.props.x);
-    if (!x) {
-      return null;
-    }
-    var letters = this.props.children.reduce(function (agg, element) {
-      if (element.length) {
-        agg = agg.concat(element.split(''));
-      } else {
-        agg.push(element);
-      }
-      return agg;
-    }, []);
-    letters.push(' ');
-    var cursor = x < 1 ? '|' : '';
-    var childrenSubset = letters.slice(0, x * letters.length);
-    return React.createElement(
-      'span',
-      null,
-      childrenSubset,
-      ' ',
-      cursor,
-      ' '
     );
   }
 });
@@ -163,50 +131,113 @@ var Arrow = React.createClass({
   }
 });
 
-var BackText = React.createClass({
-  displayName: 'BackText',
-  render: function render() {
-    return React.createElement(
-      'div',
-      { className: 'back-text' },
+var Link = function Link(props) {
+  return React.createElement(
+    'div',
+    { className: 'line' },
+    props.children
+  );
+};
+
+var Slash = function Slash(props) {
+  return React.createElement(
+    'span',
+    { className: 'slash' },
+    ' / '
+  );
+};
+
+var Links = function Links(_ref) {
+  var x = _ref.x;
+
+  // Links do not show until
+  var progress = x < 0.7 ? 0 : (x - 0.7) / 0.3;
+  var opacity = progress;
+  var display = progress ? 'inherit' : 'none';
+  var style = {
+    display: display,
+    opacity: opacity
+  };
+  return React.createElement(
+    'div',
+    { id: 'links', style: style },
+    React.createElement(
+      Link,
+      null,
+      'chris bolin'
+    ),
+    React.createElement(
+      Link,
+      null,
+      'wannabe polymath'
+    ),
+    React.createElement(
+      Link,
+      null,
+      'cambridge, mass, usa'
+    ),
+    React.createElement(
+      Link,
+      null,
       React.createElement(
-        Typer,
-        { x: this.props.x },
-        'chris bolin',
-        React.createElement('br', null),
-        'wannabe polymath',
-        React.createElement('br', null),
-        'cambridge, mass, usa',
-        React.createElement('br', null),
-        React.createElement('br', null),
-        'bolin.chris@gmail.com',
-        React.createElement('br', null),
-        React.createElement('br', null),
-        React.createElement(
-          'a',
-          { href: 'https://www.instagram.com/bolinchris/' },
-          'photos'
-        ),
-        ' ',
-        ' ',
-        React.createElement(
-          'a',
-          { href: '/projects' },
-          'projects'
-        ),
-        ' ',
-        ' ',
-        React.createElement(
-          'a',
-          { href: '/words' },
-          'words'
-        ),
-        ' ',
-        ' '
+        'a',
+        { href: 'https://www.jumpshell.com' },
+        'dayjob'
+      ),
+      React.createElement(Slash, null),
+      React.createElement(
+        'a',
+        { href: 'https://www.instagram.com/bolinchris' },
+        'photos'
       )
-    );
-  }
-});
+    ),
+    React.createElement(
+      Link,
+      null,
+      React.createElement(
+        'a',
+        { href: 'https://twitter.com/bolinchris' },
+        'twitter'
+      ),
+      React.createElement(Slash, null),
+      React.createElement(
+        'a',
+        { href: 'https://codepen.io/chrisbolin' },
+        'codepen'
+      )
+    ),
+    React.createElement(
+      Link,
+      null,
+      React.createElement(
+        'a',
+        { href: 'mailto:bolin.chris@gmail.com' },
+        'email'
+      ),
+      React.createElement(Slash, null),
+      React.createElement(
+        'a',
+        { href: '/words' },
+        'words'
+      )
+    ),
+    React.createElement(
+      Link,
+      null,
+      React.createElement(
+        'a',
+        { href: '/enchiridion' },
+        'enchiridion'
+      ),
+      React.createElement(Slash, null),
+      React.createElement(
+        'a',
+        { href: 'https://github.com/chrisbolin/gibrish' },
+        'gibrish'
+      )
+    )
+  );
+};
 
 var App = React.createClass({
   displayName: 'App',
@@ -258,10 +289,8 @@ var App = React.createClass({
     window.addEventListener('touchmove', handler);
   },
   render: function render() {
-    var x = this.state.x * 1.3; // extra padding for slight scroll ups
-    var planeW = 0.9; // plane annimation weight (0-1)
-    var planeX = fx.limitUnit(x / planeW);
-    var typerX = fx.limitUnit(1 / (1 - planeW) * (-planeW + x));
+    var x = this.state.x; // extra padding for slight scroll ups
+    var planeX = fx.limitUnit(x);
     return React.createElement(
       'div',
       { className: 'app', style: this.appStyle },
@@ -270,21 +299,10 @@ var App = React.createClass({
         { className: 'container' },
         React.createElement(CardPlane, { x: planeX }),
         React.createElement(Arrow, { x: x }),
-        React.createElement(BackText, { x: typerX })
+        React.createElement(Links, { x: x })
       )
     );
   }
 });
 
-if (typeof document !== 'undefined') {
-  // BROWSER
-  ReactDOM.render(React.createElement(App, null), document.getElementById('app'));
-} else {
-  var qsrv = require('qsrv');
-  qsrv.render({
-    reactElement: React.createElement(App, null),
-    templatePath: 'index-template.html',
-    elementId: 'app'
-  });
-}
-
+React.render(React.createElement(App, null), document.getElementById('app'));

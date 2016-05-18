@@ -1,10 +1,3 @@
-if (typeof document === 'undefined') {
-  // server inputs and spoofing
-  var React = require('react');
-  var window = {};
-  var navigator = { userAgent: '' };
-}
-
 let fx = {
   limitUnit(x) {
     return (x < 0) ? 0 : (
@@ -69,20 +62,24 @@ let CardBack = React.createClass({
   render() {
     const x = this.props.x;
     const zIndex = (x > 0.5) ? 1 : 0;
-    const colorH = 0.06;
+    const style = {
+      zIndex,
+      backgroundColor: `rgba(0,0,0,${20*(1-x)})`,
+    }
+
     if (!zIndex) return null;
     return (
-      <div className='card-face back' style={{zIndex}}>
-        <ColorBar color="#EDC919" width="10%" left="0%" x={2.5*(1-x) + colorH}/>
-        <ColorBar color="#76919A" width="10%" left="10%" x={9*(1-x) + colorH}/>
-        <ColorBar color="#257A97" width="10%" left="20%" x={4*(1-x) + colorH}/>
-        <ColorBar color="#7A486E" width="10%" left="30%" x={6*(1-x) + colorH}/>
-        <ColorBar color="#EDC919" width="10%" left="40%" x={5*(1-x) + colorH}/>
-        <ColorBar color="#76919A" width="10%" left="50%" x={2*(1-x) + colorH}/>
-        <ColorBar color="#257A97" width="10%" left="60%" x={4*(1-x) + colorH}/>
-        <ColorBar color="#7A486E" width="10%" left="70%" x={8*(1-x) + colorH}/>
-        <ColorBar color="#EDC919" width="10%" left="80%" x={7*(1-x) + colorH}/>
-        <ColorBar color="#76919A" width="10%" left="90%" x={3*(1-x) + colorH}/>
+      <div className='card-face back' style={style}>
+        <ColorBar color="#EDC919" width="10%" left="0%" x={2*(1-x)}/>
+        <ColorBar color="#76919A" width="10%" left="10%" x={1*(1-x)}/>
+        <ColorBar color="#257A97" width="10%" left="20%" x={3*(1-x)}/>
+        <ColorBar color="#7A486E" width="10%" left="30%" x={4*(1-x)}/>
+        <ColorBar color="#EDC919" width="10%" left="40%" x={2*(1-x)}/>
+        <ColorBar color="#76919A" width="10%" left="50%" x={2*(1-x)}/>
+        <ColorBar color="#257A97" width="10%" left="60%" x={1*(1-x)}/>
+        <ColorBar color="#7A486E" width="10%" left="70%" x={3*(1-x)}/>
+        <ColorBar color="#EDC919" width="10%" left="80%" x={4*(1-x)}/>
+        <ColorBar color="#76919A" width="10%" left="90%" x={1*(1-x)}/>
       </div>
     );
   }
@@ -95,6 +92,7 @@ let CardPlane = React.createClass({
       rotateZ(${90 * x}deg)
       rotateX(${180 * x}deg)
       translate3d(${-50 * x}px, 0, 0)
+      scale(${1 + (x*x*x*x*10)})
     `;
 
     return {
@@ -114,27 +112,6 @@ let CardPlane = React.createClass({
   },
 });
 
-let Typer = React.createClass({
-  render() {
-    const x = fx.limitUnit(this.props.x);
-    if (!x) {
-      return null;
-    }
-    let letters = this.props.children.reduce((agg, element) => {
-      if (element.length) {
-        agg = agg.concat(element.split(''));
-      } else {
-        agg.push(element);
-      }
-      return agg;
-    }, []);
-    letters.push(' ');
-    const cursor = (x < 1) ? '|' : '';
-    const childrenSubset = letters.slice(0, x * letters.length);
-    return <span>{childrenSubset} {cursor} </span>;
-  }
-});
-
 let Arrow = React.createClass({
   render() {
     const x = this.props.x;
@@ -152,28 +129,49 @@ let Arrow = React.createClass({
   },
 });
 
-let BackText = React.createClass({
-  render() {
-    return (
-      <div className="back-text">
-        <Typer x={this.props.x}>
-          chris bolin<br/>
-          wannabe polymath<br/>
-          cambridge, mass, usa<br/>
-          <br/>
-          bolin.chris@gmail.com
-          <br/>
-          <br/>
-          <a href="https://www.instagram.com/bolinchris/">photos</a> {' '}
-          <a href="/projects">projects</a> {' '}
-          <a href="/words">words</a> {' '}
-        </Typer>
-      </div>
-    );
-  },
-});
+const Link = props => <div className="line">{props.children}</div>;
 
-let App = React.createClass({
+const Slash = props => <span className="slash">{' / '}</span>;
+
+const Links = ({x}) => {
+  // Links do not show until
+  const progress = (x < 0.7) ? 0 : (x - 0.7)/0.3;
+  const opacity = progress;
+  const display = progress ? 'inherit' : 'none';
+  const style = {
+    display,
+    opacity,
+  };
+  return (
+    <div id="links" style={style}>
+      <Link>chris bolin</Link>
+      <Link>wannabe polymath</Link>
+      <Link>cambridge, mass, usa</Link>
+      <Link>
+        <a href="https://www.jumpshell.com">dayjob</a>
+        <Slash/>
+        <a href="https://www.instagram.com/bolinchris">photos</a>
+      </Link>
+      <Link>
+        <a href="https://twitter.com/bolinchris">twitter</a>
+        <Slash/>
+        <a href="https://codepen.io/chrisbolin">codepen</a>
+      </Link>
+      <Link>
+        <a href="mailto:bolin.chris@gmail.com">email</a>
+        <Slash/>
+        <a href="/words">words</a>
+      </Link>
+      <Link>
+        <a href="/enchiridion">enchiridion</a>
+        <Slash/>
+        <a href="https://github.com/chrisbolin/gibrish">gibrish</a>
+      </Link>
+    </div>
+  );
+}
+
+const App = React.createClass({
   getInitialState() {
     return {x: 0};
   },
@@ -224,33 +222,21 @@ let App = React.createClass({
     window.addEventListener('touchmove', handler);
   },
   render() {
-    const x = (this.state.x) * 1.3; // extra padding for slight scroll ups
-    const planeW = 0.9; // plane annimation weight (0-1)
-    const planeX = fx.limitUnit(x/planeW);
-    const typerX = fx.limitUnit(1/(1-planeW) * (-planeW + x));
+    const x = (this.state.x); // extra padding for slight scroll ups
+    const planeX = fx.limitUnit(x);
     return (
       <div className='app' style={this.appStyle}>
         <div className='container'>
           <CardPlane x={planeX}/>
           <Arrow x={x}/>
-          <BackText x={typerX}/>
+          <Links x={x}/>
         </div>
       </div>
     );
   },
 });
 
-if (typeof document !== 'undefined') {
-  // BROWSER
-  ReactDOM.render(
-    <App/>,
-    document.getElementById('app')
-  );
-} else {
-  var qsrv = require('qsrv');
-  qsrv.render({
-    reactElement: <App/>,
-  templatePath: 'index-template.html',
-    elementId: 'app',
-  });
-}
+React.render(
+  <App/>,
+  document.getElementById('app')
+);
