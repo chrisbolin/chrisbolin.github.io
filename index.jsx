@@ -64,22 +64,22 @@ let CardBack = React.createClass({
     const zIndex = (x > 0.5) ? 1 : 0;
     const style = {
       zIndex,
-      backgroundColor: `rgba(0,0,0,${20*(1-x)})`,
+      backgroundColor: 'black',
     }
 
     if (!zIndex) return null;
     return (
       <div className='card-face back' style={style}>
         <ColorBar color="#EDC919" width="10%" left="0%" x={2*(1-x)}/>
-        <ColorBar color="#76919A" width="10%" left="10%" x={1*(1-x)}/>
-        <ColorBar color="#257A97" width="10%" left="20%" x={3*(1-x)}/>
-        <ColorBar color="#7A486E" width="10%" left="30%" x={4*(1-x)}/>
-        <ColorBar color="#EDC919" width="10%" left="40%" x={2*(1-x)}/>
-        <ColorBar color="#76919A" width="10%" left="50%" x={2*(1-x)}/>
-        <ColorBar color="#257A97" width="10%" left="60%" x={1*(1-x)}/>
-        <ColorBar color="#7A486E" width="10%" left="70%" x={3*(1-x)}/>
-        <ColorBar color="#EDC919" width="10%" left="80%" x={4*(1-x)}/>
-        <ColorBar color="#76919A" width="10%" left="90%" x={1*(1-x)}/>
+        <ColorBar color="#76919A" width="10%" left="10%" x={2.1*(1-x)}/>
+        <ColorBar color="#257A97" width="10%" left="20%" x={2.2*(1-x)}/>
+        <ColorBar color="#7A486E" width="10%" left="30%" x={2.3*(1-x)}/>
+        <ColorBar color="#EDC919" width="10%" left="40%" x={2.4*(1-x)}/>
+        <ColorBar color="#76919A" width="10%" left="50%" x={2.5*(1-x)}/>
+        <ColorBar color="#257A97" width="10%" left="60%" x={2.6*(1-x)}/>
+        <ColorBar color="#7A486E" width="10%" left="70%" x={2.7*(1-x)}/>
+        <ColorBar color="#EDC919" width="10%" left="80%" x={2.8*(1-x)}/>
+        <ColorBar color="#76919A" width="10%" left="90%" x={2.9*(1-x)}/>
       </div>
     );
   }
