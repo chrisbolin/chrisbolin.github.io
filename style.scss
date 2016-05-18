@@ -1,9 +1,9 @@
-@import url(https://fonts.googleapis.com/css?family=Inconsolata);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,900);
 @import url(https://fonts.googleapis.com/css?family=Playfair+Display:400italic);
 
 body {
   background-color: #f9f9f9;
-  margin: 0;  
+  margin: 0;
 }
 
 .container {
@@ -24,12 +24,12 @@ $offset: ($card-height - $card-width) / 2;
     width: 100%;
     height: 100%;
     position: absolute;
-    
-    &.front {     
+
+    &.front {
       background-color: black;
       color: white;
       font-style: italic;
-      font-family: 'Playfair Display', Serif;      
+      font-family: 'Playfair Display', Serif;
       .title {
         font-size: 21px;
         padding: 22px 22px;
@@ -40,20 +40,20 @@ $offset: ($card-height - $card-width) / 2;
       .scroll {
         position: absolute;
         text-align: center;
-        width: 100%;            
+        width: 100%;
         color: #7D7D7D;
         bottom: -30px;
-        font-size: 12px;       
-      }      
+        font-size: 12px;
+      }
     }
-    
+
     &.back {
       /* reversed for the back of the card */
       width: $card-height + px;
       height: $card-width + px;
-      transform: rotateZ(90deg) rotateX(180deg) translate3d($offset+px, -$offset+px, 0px); 
+      transform: rotateZ(90deg) rotateX(180deg) translate3d($offset+px, -$offset+px, 0px);
     }
-  }  
+  }
 }
 
 .back-text {
@@ -81,7 +81,7 @@ $offset: ($card-height - $card-width) / 2;
   text-align: center;
   width: 100%;
   top: $card-height + px;
-} 
+}
 
 #links {
   font-family: 'Source Sans Pro', sans-serif;
@@ -91,7 +91,7 @@ $offset: ($card-height - $card-width) / 2;
   width: 100vmin;
   margin: auto;
   position: relative;
-  
+
   .line {
     line-height: 7.5vmin;
     margin-bottom: 2.5vmin;
@@ -109,7 +109,7 @@ $offset: ($card-height - $card-width) / 2;
     }
     &:nth-of-type(5n+5){
       color: #7A486E;
-    }  
+    }
   }
 
   a {
@@ -119,7 +119,7 @@ $offset: ($card-height - $card-width) / 2;
     text-decoration: none;
     display: inline-block;
     color: inherit;
-    border-color: inherit;  
+    border-color: inherit;
   }
 
   a:hover {
@@ -128,7 +128,7 @@ $offset: ($card-height - $card-width) / 2;
 
   .slash {
     font-weight: 200;
-  }  
+  }
 }
 
 
