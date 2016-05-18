@@ -146,7 +146,7 @@ const Links = ({x}) => {
     <div id="links" style={style}>
       <Link>chris bolin</Link>
       <Link>wannabe polymath</Link>
-      <Link>cambridge, mass, usa</Link>
+      <Link>cambridge, ma, usa</Link>
       <Link>
         <a href="https://www.jumpshell.com">dayjob</a>
         <Slash/>

@@ -174,7 +174,7 @@ var Links = function Links(_ref) {
     React.createElement(
       Link,
       null,
-      'cambridge, mass, usa'
+      'cambridge, ma, usa'
     ),
     React.createElement(
       Link,
