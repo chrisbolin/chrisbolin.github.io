@@ -1,6 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,900);
 @import url(https://fonts.googleapis.com/css?family=Playfair+Display:400italic);
-
 body {
   background-color: #f9f9f9;
   margin: 0;
@@ -86,6 +85,7 @@ body {
   width: 100vmin;
   margin: auto;
   position: relative;
+  text-shadow: black -5px 0px 0px, black 5px 0px 0px;
 }
 #links .line {
   line-height: 7.5vmin;
@@ -108,8 +108,9 @@ body {
 }
 #links a {
   color: black;
-  border-bottom: 2px dotted black;
-  margin-bottom: -2px;
+  border-bottom: 3px dashed black;
+  margin-bottom: -3px;
+  padding-bottom: 3px;
   text-decoration: none;
   display: inline-block;
   color: inherit;
@@ -117,6 +118,7 @@ body {
 }
 #links a:hover {
   border-bottom-style: solid;
+  font-style: italic;
 }
 #links .slash {
   font-weight: 200;
