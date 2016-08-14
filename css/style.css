@@ -3,6 +3,17 @@
 body {
   background-color: #f9f9f9;
   margin: 0;
+  overflow-x: hidden;
+}
+body ::-moz-selection {
+  background: #EDC919;
+}
+body ::selection {
+  background: #EDC919;
+}
+
+.app {
+  background-color: #f9f9f9;
 }
 
 .container {
@@ -50,24 +61,6 @@ body {
           transform: rotateZ(90deg) rotateX(180deg) translate3d(68.57143px, -68.57143px, 0px);
 }
 
-.back-text {
-  position: fixed;
-  left: calc(50vw -  182.85714px + 40px);
-  top: 90px;
-  font-family: Inconsolata, monospace;
-  color: white;
-  font-size: 15px;
-  width: 300px;
-}
-.back-text a {
-  color: white;
-}
-.back-text a:hover {
-  background-color: white;
-  color: #FD556F;
-  text-decoration: none;
-}
-
 .arrow {
   font-size: 24px;
   font-family: 'Times New Roman', serif;
@@ -85,7 +78,6 @@ body {
   width: 100vmin;
   margin: auto;
   position: relative;
-  text-shadow: black -5px 0px 0px, black 5px 0px 0px;
 }
 #links .line {
   line-height: 7.5vmin;
@@ -108,9 +100,9 @@ body {
 }
 #links a {
   color: black;
-  border-bottom: 3px dashed black;
-  margin-bottom: -3px;
-  padding-bottom: 3px;
+  border-bottom: 0.7vmin solid black;
+  margin-bottom: -0.7vmin;
+  padding-bottom: 0.6vmin;
   text-decoration: none;
   display: inline-block;
   color: inherit;
@@ -122,9 +114,4 @@ body {
 }
 #links .slash {
   font-weight: 200;
-}
-
-body {
-  margin: 0;
-  overflow-x: hidden;
 }

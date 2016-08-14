@@ -38,7 +38,7 @@ let CardFront = React.createClass({
     if (!zIndex) return null;
     const scrollStyle = {
       opacity: (1 - 10 * x),
-    };
+    }; 
     return (
       <div className='card-face front' style={{zIndex}}>
         <div className='title'>
@@ -47,13 +47,13 @@ let CardFront = React.createClass({
         </div>
         <div className="scroll" style={scrollStyle}>
           (scroll)
-        </div>
+        </div>    
         <ColorBar color="#EDC919" left="0%" width="20%" x={x*5.2}/>
         <ColorBar color="#76919A" left="20%" width="20%" x={x*4.7}/>
         <ColorBar color="#257A97" left="40%" width="20%" x={x*4.4}/>
         <ColorBar color="#7A486E" left="60%" width="20%" x={x*4}/>
         <ColorBar color="#FD556F" left="80%" width="20%" x={x*3.5}/>
-      </div>
+      </div>      
     );
   }
 });
@@ -66,7 +66,7 @@ let CardBack = React.createClass({
       zIndex,
       backgroundColor: 'black',
     }
-
+    
     if (!zIndex) return null;
     return (
       <div className='card-face back' style={style}>
@@ -78,7 +78,7 @@ let CardBack = React.createClass({
         <ColorBar color="#76919A" width="10%" left="50%" x={2.5*(1-x)}/>
         <ColorBar color="#257A97" width="10%" left="60%" x={2.6*(1-x)}/>
         <ColorBar color="#7A486E" width="10%" left="70%" x={2.7*(1-x)}/>
-        <ColorBar color="#EDC919" width="10%" left="80%" x={2.8*(1-x)}/>
+        <ColorBar color="#EDC919" width="10%" left="80%" x={2.8*(1-x)}/>        
         <ColorBar color="#76919A" width="10%" left="90%" x={2.9*(1-x)}/>
       </div>
     );
@@ -88,13 +88,16 @@ let CardBack = React.createClass({
 let CardPlane = React.createClass({
   getStyle() {
     const x = this.props.x;
+    const rotateX = 180  * (
+      (x < 0.5) ? x : fx.limitUnit(x * 2 - 0.5)
+    );
     const transform = `
       rotateZ(${90 * x}deg)
-      rotateX(${180 * x}deg)
+      rotateX(${rotateX}deg)
       translate3d(${-50 * x}px, 0, 0)
       scale(${1 + (x*x*x*x*10)})
     `;
-
+  
     return {
       transform,
       WebkitTransform: transform,
@@ -129,45 +132,67 @@ let Arrow = React.createClass({
   },
 });
 
-const Link = props => <div className="line">{props.children}</div>;
+const Line = ({children, x, show}) => (
+  <div
+    style={{
+      opacity: (x > show) ? (x-show)/(1-show) : 0,
+    }}
+    className="line">
+      {children}
+  </div>
+);
 
 const Slash = props => <span className="slash">{' / '}</span>;
 
-const Links = ({x}) => {
-  // Links do not show until
+const A = ({children, href}) => <a href={href} target="_blank">
+  {children}
+</a>;
+
+const BackText = ({x}) => {
+  // Text does not show until x < 0.7
   const progress = (x < 0.7) ? 0 : (x - 0.7)/0.3;
-  const opacity = progress;
   const display = progress ? 'inherit' : 'none';
+  const shaddowOpacity = fx.limitUnit((progress - 0.5)*2);
+  const textShadow = `
+    rgba(0,0,0,${shaddowOpacity}) 0.5vmin 0 0,
+    rgba(0,0,0,${shaddowOpacity}) 0.5vmin 0.5vmin 0,
+    rgba(0,0,0,${shaddowOpacity}) 0.5vmin -0.5vmin 0,
+    rgba(0,0,0,${shaddowOpacity}) -0.5vmin 0 0,
+    rgba(0,0,0,${shaddowOpacity}) -0.5vmin 0.5vmin 0,    
+    rgba(0,0,0,${shaddowOpacity}) -0.5vmin -0.5vmin 0
+  `;
+
   const style = {
     display,
-    opacity,
+    textShadow,
   };
+
   return (
     <div id="links" style={style}>
-      <Link>chris bolin</Link>
-      <Link>wannabe polymath</Link>
-      <Link>cambridge, ma, usa</Link>
-      <Link>
-        <a href="https://www.jumpshell.com">dayjob</a>
+      <Line x={x} show={0.78}>chris bolin</Line>
+      <Line x={x} show={0.81}>wannabe polymath</Line>
+      <Line x={x} show={0.84}>cambridge, ma, usa</Line>      
+      <Line x={x} show={0.87}>
+        <A href="https://www.formidable.com">dayjob</A>
         <Slash/>
-        <a href="https://www.instagram.com/bolinchris">photos</a>
-      </Link>
-      <Link>
-        <a href="https://twitter.com/bolinchris">twitter</a>
+        <A href="https://www.jumpshell.com">nightshift</A>
+      </Line>
+      <Line x={x} show={0.90}>
+        <A href="https://twitter.com/bolinchris">twitter</A>
+        <Slash/>    
+        <A href="https://codepen.io/chrisbolin">codepen</A>
+      </Line>
+      <Line x={x} show={0.93}>
+        <A href="https://www.instagram.com/bolinchris">instagram</A>        
+        <Slash/>        
+        <A href="mailto:bolin.chris@gmail.com">email</A>
+      </Line>
+      <Line x={x} show={0.96}>
+        <A href="/enchiridion">enchiridion</A>
         <Slash/>
-        <a href="https://codepen.io/chrisbolin">codepen</a>
-      </Link>
-      <Link>
-        <a href="mailto:bolin.chris@gmail.com">email</a>
-        <Slash/>
-        <a href="/words">words</a>
-      </Link>
-      <Link>
-        <a href="/enchiridion">enchiridion</a>
-        <Slash/>
-        <a href="https://github.com/chrisbolin/gibrish">gibrish</a>
-      </Link>
-    </div>
+        <A href="/words">words</A>
+      </Line>
+    </div>    
   );
 }
 
@@ -186,20 +211,20 @@ const App = React.createClass({
     ));
     this.setState({x});
   },
-
+  
   handleLegacyScroll(e) {
     // handling for non-iOS mobile devices, until they allow painting while scrolling
     // this creates a non-interactive animation instead :/
-
+    
     let x = this.state.x;
     const interval = 10; // update in ms
     const totalTime = 1000; // ms
-
+    
     e.preventDefault();
-
+    
     // don't queue up anything in the middle of animation
     if (x !== 1 && x !== 0) return;
-
+    
     // 'scroll' up when at the bottom
     const increment = interval / totalTime * ((x === 1) ? -1 : 1);
     const intervalId = setInterval(() => {
@@ -209,18 +234,18 @@ const App = React.createClass({
         clearInterval(intervalId);
       }
     }, interval);
-
+    
   },
   componentDidMount: function () {
     this.container = document.getElementsByClassName('main');
     // backup for non-safari mobile browsers
     const handler = (fx.isMobile() && !fx.isSafari()) ?
       this.handleLegacyScroll : this.handleScroll;
-
+    
     window.addEventListener('scroll', handler);
     window.addEventListener('resize', handler);
     window.addEventListener('touchmove', handler);
-  },
+  },  
   render() {
     const x = (this.state.x); // extra padding for slight scroll ups
     const planeX = fx.limitUnit(x);
@@ -229,9 +254,9 @@ const App = React.createClass({
         <div className='container'>
           <CardPlane x={planeX}/>
           <Arrow x={x}/>
-          <Links x={x}/>
+          <BackText x={x}/>
         </div>
-      </div>
+      </div>      
     );
   },
 });

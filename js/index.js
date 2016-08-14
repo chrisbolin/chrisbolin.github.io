@@ -92,7 +92,8 @@ var CardPlane = React.createClass({
   displayName: 'CardPlane',
   getStyle: function getStyle() {
     var x = this.props.x;
-    var transform = '\n      rotateZ(' + 90 * x + 'deg)\n      rotateX(' + 180 * x + 'deg)\n      translate3d(' + -50 * x + 'px, 0, 0)\n      scale(' + (1 + x * x * x * x * 10) + ')\n    ';
+    var rotateX = 180 * (x < 0.5 ? x : fx.limitUnit(x * 2 - 0.5));
+    var transform = '\n      rotateZ(' + 90 * x + 'deg)\n      rotateX(' + rotateX + 'deg)\n      translate3d(' + -50 * x + 'px, 0, 0)\n      scale(' + (1 + x * x * x * x * 10) + ')\n    ';
 
     return {
       transform: transform,
@@ -131,11 +132,18 @@ var Arrow = React.createClass({
   }
 });
 
-var Link = function Link(props) {
+var Line = function Line(_ref) {
+  var children = _ref.children;
+  var x = _ref.x;
+  var show = _ref.show;
   return React.createElement(
     'div',
-    { className: 'line' },
-    props.children
+    {
+      style: {
+        opacity: x > show ? (x - show) / (1 - show) : 0
+      },
+      className: 'line' },
+    children
   );
 };
 
@@ -147,93 +155,106 @@ var Slash = function Slash(props) {
   );
 };
 
-var Links = function Links(_ref) {
-  var x = _ref.x;
+var A = function A(_ref2) {
+  var children = _ref2.children;
+  var href = _ref2.href;
+  return React.createElement(
+    'a',
+    { href: href, target: '_blank' },
+    children
+  );
+};
 
-  // Links do not show until
+var BackText = function BackText(_ref3) {
+  var x = _ref3.x;
+
+  // Text does not show until x < 0.7
   var progress = x < 0.7 ? 0 : (x - 0.7) / 0.3;
-  var opacity = progress;
   var display = progress ? 'inherit' : 'none';
+  var shaddowOpacity = fx.limitUnit((progress - 0.5) * 2);
+  var textShadow = '\n    rgba(0,0,0,' + shaddowOpacity + ') 0.5vmin 0 0,\n    rgba(0,0,0,' + shaddowOpacity + ') 0.5vmin 0.5vmin 0,\n    rgba(0,0,0,' + shaddowOpacity + ') 0.5vmin -0.5vmin 0,\n    rgba(0,0,0,' + shaddowOpacity + ') -0.5vmin 0 0,\n    rgba(0,0,0,' + shaddowOpacity + ') -0.5vmin 0.5vmin 0,    \n    rgba(0,0,0,' + shaddowOpacity + ') -0.5vmin -0.5vmin 0\n  ';
+
   var style = {
     display: display,
-    opacity: opacity
+    textShadow: textShadow
   };
+
   return React.createElement(
     'div',
     { id: 'links', style: style },
     React.createElement(
-      Link,
-      null,
+      Line,
+      { x: x, show: 0.78 },
       'chris bolin'
     ),
     React.createElement(
-      Link,
-      null,
+      Line,
+      { x: x, show: 0.81 },
       'wannabe polymath'
     ),
     React.createElement(
-      Link,
-      null,
+      Line,
+      { x: x, show: 0.84 },
       'cambridge, ma, usa'
     ),
     React.createElement(
-      Link,
-      null,
+      Line,
+      { x: x, show: 0.87 },
       React.createElement(
-        'a',
-        { href: 'https://www.jumpshell.com' },
+        A,
+        { href: 'https://www.formidable.com' },
         'dayjob'
       ),
       React.createElement(Slash, null),
       React.createElement(
-        'a',
-        { href: 'https://www.instagram.com/bolinchris' },
-        'photos'
+        A,
+        { href: 'https://www.jumpshell.com' },
+        'nightshift'
       )
     ),
     React.createElement(
-      Link,
-      null,
+      Line,
+      { x: x, show: 0.90 },
       React.createElement(
-        'a',
+        A,
         { href: 'https://twitter.com/bolinchris' },
         'twitter'
       ),
       React.createElement(Slash, null),
       React.createElement(
-        'a',
+        A,
         { href: 'https://codepen.io/chrisbolin' },
         'codepen'
       )
     ),
     React.createElement(
-      Link,
-      null,
+      Line,
+      { x: x, show: 0.93 },
       React.createElement(
-        'a',
-        { href: 'mailto:bolin.chris@gmail.com' },
-        'email'
+        A,
+        { href: 'https://www.instagram.com/bolinchris' },
+        'instagram'
       ),
       React.createElement(Slash, null),
       React.createElement(
-        'a',
-        { href: '/words' },
-        'words'
+        A,
+        { href: 'mailto:bolin.chris@gmail.com' },
+        'email'
       )
     ),
     React.createElement(
-      Link,
-      null,
+      Line,
+      { x: x, show: 0.96 },
       React.createElement(
-        'a',
+        A,
         { href: '/enchiridion' },
         'enchiridion'
       ),
       React.createElement(Slash, null),
       React.createElement(
-        'a',
-        { href: 'https://github.com/chrisbolin/gibrish' },
-        'gibrish'
+        A,
+        { href: '/words' },
+        'words'
       )
     )
   );
@@ -299,7 +320,7 @@ var App = React.createClass({
         { className: 'container' },
         React.createElement(CardPlane, { x: planeX }),
         React.createElement(Arrow, { x: x }),
-        React.createElement(Links, { x: x })
+        React.createElement(BackText, { x: x })
       )
     );
   }
