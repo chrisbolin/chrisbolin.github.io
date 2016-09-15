@@ -150,7 +150,7 @@ var Line = function Line(_ref) {
 var Slash = function Slash(props) {
   return React.createElement(
     'span',
-    { className: 'slash' },
+    null,
     ' / '
   );
 };
@@ -217,8 +217,8 @@ var BackText = function BackText(_ref3) {
       { x: x, show: 0.90 },
       React.createElement(
         A,
-        { href: 'https://twitter.com/bolinchris' },
-        'twitter'
+        { href: '/tessellate' },
+        'tessellate'
       ),
       React.createElement(Slash, null),
       React.createElement(
@@ -232,21 +232,6 @@ var BackText = function BackText(_ref3) {
       { x: x, show: 0.93 },
       React.createElement(
         A,
-        { href: 'https://www.instagram.com/bolinchris' },
-        'instagram'
-      ),
-      React.createElement(Slash, null),
-      React.createElement(
-        A,
-        { href: 'mailto:bolin.chris@gmail.com' },
-        'email'
-      )
-    ),
-    React.createElement(
-      Line,
-      { x: x, show: 0.96 },
-      React.createElement(
-        A,
         { href: '/enchiridion' },
         'enchiridion'
       ),
@@ -255,6 +240,27 @@ var BackText = function BackText(_ref3) {
         A,
         { href: '/words' },
         'words'
+      )
+    ),
+    React.createElement(
+      Line,
+      { x: x, show: 0.96 },
+      React.createElement(
+        A,
+        { href: 'https://twitter.com/bolinchris' },
+        'twtr'
+      ),
+      React.createElement(Slash, null),
+      React.createElement(
+        A,
+        { href: 'https://www.instagram.com/bolinchris' },
+        'instgrm'
+      ),
+      React.createElement(Slash, null),
+      React.createElement(
+        A,
+        { href: 'mailto:bolin.chris@gmail.com' },
+        'mail'
       )
     )
   );
@@ -327,3 +333,9 @@ var App = React.createClass({
 });
 
 ReactDOM.render(React.createElement(App, null), document.getElementById('app'));
+
+var greeting = '\n /88                          \n| 88                          \n| 8888888   /888888  /88   /88\n| 88__  88 /88__  88| 88  | 88\n| 88  \\ 88| 88888888| 88  | 88\n| 88  | 88| 88_____/| 88  | 88\n| 88  | 88|  8888888|  8888888\n|__/  |__/ \\_______/ \\____  88\n                    /88  | 88\n                   |  888888/\n                    \\______/ \n';
+
+console.log(greeting);
+console.log('want the code thing?');
+console.log('https://codepen.io/chrisbolin/pen/regMgE');
