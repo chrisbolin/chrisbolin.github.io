@@ -38,7 +38,7 @@ let CardFront = React.createClass({
     if (!zIndex) return null;
     const scrollStyle = {
       opacity: (1 - 10 * x),
-    }; 
+    };
     return (
       <div className='card-face front' style={{zIndex}}>
         <div className='title'>
@@ -47,13 +47,13 @@ let CardFront = React.createClass({
         </div>
         <div className="scroll" style={scrollStyle}>
           (scroll)
-        </div>    
+        </div>
         <ColorBar color="#EDC919" left="0%" width="20%" x={x*5.2}/>
         <ColorBar color="#76919A" left="20%" width="20%" x={x*4.7}/>
         <ColorBar color="#257A97" left="40%" width="20%" x={x*4.4}/>
         <ColorBar color="#7A486E" left="60%" width="20%" x={x*4}/>
         <ColorBar color="#FD556F" left="80%" width="20%" x={x*3.5}/>
-      </div>      
+      </div>
     );
   }
 });
@@ -66,7 +66,7 @@ let CardBack = React.createClass({
       zIndex,
       backgroundColor: 'black',
     }
-    
+
     if (!zIndex) return null;
     return (
       <div className='card-face back' style={style}>
@@ -78,7 +78,7 @@ let CardBack = React.createClass({
         <ColorBar color="#76919A" width="10%" left="50%" x={2.5*(1-x)}/>
         <ColorBar color="#257A97" width="10%" left="60%" x={2.6*(1-x)}/>
         <ColorBar color="#7A486E" width="10%" left="70%" x={2.7*(1-x)}/>
-        <ColorBar color="#EDC919" width="10%" left="80%" x={2.8*(1-x)}/>        
+        <ColorBar color="#EDC919" width="10%" left="80%" x={2.8*(1-x)}/>
         <ColorBar color="#76919A" width="10%" left="90%" x={2.9*(1-x)}/>
       </div>
     );
@@ -97,7 +97,7 @@ let CardPlane = React.createClass({
       translate3d(${-50 * x}px, 0, 0)
       scale(${1 + (x*x*x*x*10)})
     `;
-  
+
     return {
       transform,
       WebkitTransform: transform,
@@ -158,7 +158,7 @@ const BackText = ({x}) => {
     rgba(0,0,0,${shaddowOpacity}) 0.5vmin 0.5vmin 0,
     rgba(0,0,0,${shaddowOpacity}) 0.5vmin -0.5vmin 0,
     rgba(0,0,0,${shaddowOpacity}) -0.5vmin 0 0,
-    rgba(0,0,0,${shaddowOpacity}) -0.5vmin 0.5vmin 0,    
+    rgba(0,0,0,${shaddowOpacity}) -0.5vmin 0.5vmin 0,
     rgba(0,0,0,${shaddowOpacity}) -0.5vmin -0.5vmin 0
   `;
 
@@ -171,7 +171,7 @@ const BackText = ({x}) => {
     <div id="links" style={style}>
       <Line x={x} show={0.78}>chris bolin</Line>
       <Line x={x} show={0.81}>wannabe polymath</Line>
-      <Line x={x} show={0.84}>cambridge, ma, usa</Line>      
+      <Line x={x} show={0.84}>cambridge, ma, usa</Line>
       <Line x={x} show={0.87}>
         <A href="https://www.formidable.com">dayjob</A>
         <Slash/>
@@ -179,12 +179,12 @@ const BackText = ({x}) => {
       </Line>
       <Line x={x} show={0.90}>
         <A href="https://twitter.com/bolinchris">twitter</A>
-        <Slash/>    
+        <Slash/>
         <A href="https://codepen.io/chrisbolin">codepen</A>
       </Line>
       <Line x={x} show={0.93}>
-        <A href="https://www.instagram.com/bolinchris">instagram</A>        
-        <Slash/>        
+        <A href="https://www.instagram.com/bolinchris">instagram</A>
+        <Slash/>
         <A href="mailto:bolin.chris@gmail.com">email</A>
       </Line>
       <Line x={x} show={0.96}>
@@ -192,7 +192,7 @@ const BackText = ({x}) => {
         <Slash/>
         <A href="/words">words</A>
       </Line>
-    </div>    
+    </div>
   );
 }
 
@@ -211,20 +211,20 @@ const App = React.createClass({
     ));
     this.setState({x});
   },
-  
+
   handleLegacyScroll(e) {
     // handling for non-iOS mobile devices, until they allow painting while scrolling
     // this creates a non-interactive animation instead :/
-    
+
     let x = this.state.x;
     const interval = 10; // update in ms
     const totalTime = 1000; // ms
-    
+
     e.preventDefault();
-    
+
     // don't queue up anything in the middle of animation
     if (x !== 1 && x !== 0) return;
-    
+
     // 'scroll' up when at the bottom
     const increment = interval / totalTime * ((x === 1) ? -1 : 1);
     const intervalId = setInterval(() => {
@@ -234,18 +234,18 @@ const App = React.createClass({
         clearInterval(intervalId);
       }
     }, interval);
-    
+
   },
   componentDidMount: function () {
     this.container = document.getElementsByClassName('main');
     // backup for non-safari mobile browsers
     const handler = (fx.isMobile() && !fx.isSafari()) ?
       this.handleLegacyScroll : this.handleScroll;
-    
+
     window.addEventListener('scroll', handler);
     window.addEventListener('resize', handler);
     window.addEventListener('touchmove', handler);
-  },  
+  },
   render() {
     const x = (this.state.x); // extra padding for slight scroll ups
     const planeX = fx.limitUnit(x);
@@ -256,12 +256,12 @@ const App = React.createClass({
           <Arrow x={x}/>
           <BackText x={x}/>
         </div>
-      </div>      
+      </div>
     );
   },
 });
 
-React.render(
+ReactDOM.render(
   <App/>,
   document.getElementById('app')
 );
