@@ -43,6 +43,7 @@ body ::selection {
   padding: 22px 22px;
 }
 .card-plane .card-face.front .title hr {
+  border-style: solid;
   margin: 7px 0;
 }
 .card-plane .card-face.front .scroll {
@@ -109,9 +110,5 @@ body ::selection {
   border-color: inherit;
 }
 #links a:hover {
-  border-bottom-style: solid;
   font-style: italic;
-}
-#links .slash {
-  font-weight: 200;
 }

@@ -44,6 +44,7 @@ $offset: ($card-height - $card-width) / 2;
         font-size: 21px;
         padding: 22px 22px;
         hr {
+          border-style: solid;
           margin: 7px 0;
         }
       }
@@ -116,11 +117,6 @@ $offset: ($card-height - $card-width) / 2;
   }
 
   a:hover {
-    border-bottom-style: solid;
     font-style: italic;
-  }
-
-  .slash {
-    font-weight: 200;
   }
 }
