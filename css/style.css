@@ -108,7 +108,10 @@ body ::selection {
   display: inline-block;
   color: inherit;
   border-color: inherit;
+  -webkit-transition: background-color 300ms ease-out;
+  transition: background-color 300ms ease-out;
 }
 #links a:hover {
   font-style: italic;
+  background-color: currentColor;
 }

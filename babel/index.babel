@@ -188,12 +188,10 @@ const BackText = ({x}) => {
         <A href="/words">words</A>
       </Line>
       <Line x={x} show={0.96}>
-        <A href="https://twitter.com/bolinchris">twtr</A>
+        <A href="https://twitter.com/bolinchris">twitter</A>
         <Slash/>
-        <A href="https://www.instagram.com/bolinchris">instgrm</A>
-        <Slash/>
-        <A href="mailto:bolin.chris@gmail.com">mail</A>
-      </Line>
+        <A href="https://www.instagram.com/bolinchris">instagram</A>
+       </Line>
     </div>
   );
 }
@@ -283,5 +281,5 @@ const greeting = `
 `;
 
 console.log(greeting);
-console.log('want the code thing?');
+console.log('source?');
 console.log('https://codepen.io/chrisbolin/pen/regMgE');

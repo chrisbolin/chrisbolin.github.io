@@ -248,19 +248,13 @@ var BackText = function BackText(_ref3) {
       React.createElement(
         A,
         { href: 'https://twitter.com/bolinchris' },
-        'twtr'
+        'twitter'
       ),
       React.createElement(Slash, null),
       React.createElement(
         A,
         { href: 'https://www.instagram.com/bolinchris' },
-        'instgrm'
-      ),
-      React.createElement(Slash, null),
-      React.createElement(
-        A,
-        { href: 'mailto:bolin.chris@gmail.com' },
-        'mail'
+        'instagram'
       )
     )
   );
@@ -337,5 +331,5 @@ ReactDOM.render(React.createElement(App, null), document.getElementById('app'));
 var greeting = '\n /88                          \n| 88                          \n| 8888888   /888888  /88   /88\n| 88__  88 /88__  88| 88  | 88\n| 88  \\ 88| 88888888| 88  | 88\n| 88  | 88| 88_____/| 88  | 88\n| 88  | 88|  8888888|  8888888\n|__/  |__/ \\_______/ \\____  88\n                    /88  | 88\n                   |  888888/\n                    \\______/ \n';
 
 console.log(greeting);
-console.log('want the code thing?');
+console.log('source?');
 console.log('https://codepen.io/chrisbolin/pen/regMgE');

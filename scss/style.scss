@@ -113,10 +113,12 @@ $offset: ($card-height - $card-width) / 2;
     text-decoration: none;
     display: inline-block;
     color: inherit;
-    border-color: inherit;  
+    border-color: inherit;
+    transition: background-color 300ms ease-out;    
   }
 
   a:hover {
     font-style: italic;
+    background-color: currentColor;
   }
 }
