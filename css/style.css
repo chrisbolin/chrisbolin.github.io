@@ -1,7 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,900);
 @import url(https://fonts.googleapis.com/css?family=Playfair+Display:400italic);
-body {
+html {
   background-color: #f9f9f9;
+}
+
+body {
   margin: 0;
   overflow-x: hidden;
 }

@@ -273,6 +273,7 @@ var App = React.createClass({
   handleScroll: function handleScroll(e) {
     var x = fx.limitUnit(window.scrollY / (this.appStyle.height - window.innerHeight));
     this.setState({ x: x });
+    document.documentElement.style.backgroundColor = x < 0.5 ? "#f9f9f9" : "black";
   },
   handleLegacyScroll: function handleLegacyScroll(e) {
     var _this = this;
