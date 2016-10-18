@@ -178,14 +178,14 @@ const BackText = ({x}) => {
         <A href="https://www.jumpshell.com">nightshift</A>
       </Line>
       <Line x={x} show={0.90}>
-        <A href="/tessellate">tessellate</A>
+        <A href="/skycoins">skycoins</A>
         <Slash/>
-        <A href="https://codepen.io/chrisbolin">codepen</A>
+        <A href="/tessellate">tessellate</A>
       </Line>
       <Line x={x} show={0.93}>
-        <A href="/enchiridion">enchiridion</A>
+        <A href="https://codepen.io/chrisbolin">codepen</A>
         <Slash/>
-        <A href="/words">words</A>
+        <A href="/enchiridion">enchiridion</A>
       </Line>
       <Line x={x} show={0.96}>
         <A href="https://twitter.com/bolinchris">twitter</A>
@@ -281,5 +281,7 @@ const greeting = `
 `;
 
 console.log(greeting);
-console.log('source?');
-console.log('https://codepen.io/chrisbolin/pen/regMgE');
+console.log('source:');
+console.log('https://github.com/chrisbolin/chrisbolin.github.io');
+console.log('email:');
+console.log('bolin.chris@gmail.com');

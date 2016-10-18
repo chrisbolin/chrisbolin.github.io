@@ -127,7 +127,7 @@ var Arrow = React.createClass({
     return React.createElement(
       'div',
       { className: 'arrow', style: style },
-      '↓'
+      '\u2193'
     );
   }
 });
@@ -172,7 +172,7 @@ var BackText = function BackText(_ref3) {
   var progress = x < 0.7 ? 0 : (x - 0.7) / 0.3;
   var display = progress ? 'inherit' : 'none';
   var shaddowOpacity = fx.limitUnit((progress - 0.5) * 2);
-  var textShadow = '\n    rgba(0,0,0,' + shaddowOpacity + ') 0.5vmin 0 0,\n    rgba(0,0,0,' + shaddowOpacity + ') 0.5vmin 0.5vmin 0,\n    rgba(0,0,0,' + shaddowOpacity + ') 0.5vmin -0.5vmin 0,\n    rgba(0,0,0,' + shaddowOpacity + ') -0.5vmin 0 0,\n    rgba(0,0,0,' + shaddowOpacity + ') -0.5vmin 0.5vmin 0,    \n    rgba(0,0,0,' + shaddowOpacity + ') -0.5vmin -0.5vmin 0\n  ';
+  var textShadow = '\n    rgba(0,0,0,' + shaddowOpacity + ') 0.5vmin 0 0,\n    rgba(0,0,0,' + shaddowOpacity + ') 0.5vmin 0.5vmin 0,\n    rgba(0,0,0,' + shaddowOpacity + ') 0.5vmin -0.5vmin 0,\n    rgba(0,0,0,' + shaddowOpacity + ') -0.5vmin 0 0,\n    rgba(0,0,0,' + shaddowOpacity + ') -0.5vmin 0.5vmin 0,\n    rgba(0,0,0,' + shaddowOpacity + ') -0.5vmin -0.5vmin 0\n  ';
 
   var style = {
     display: display,
@@ -217,14 +217,14 @@ var BackText = function BackText(_ref3) {
       { x: x, show: 0.90 },
       React.createElement(
         A,
-        { href: '/tessellate' },
-        'tessellate'
+        { href: '/skycoins' },
+        'skycoins'
       ),
       React.createElement(Slash, null),
       React.createElement(
         A,
-        { href: 'https://codepen.io/chrisbolin' },
-        'codepen'
+        { href: '/tessellate' },
+        'tessellate'
       )
     ),
     React.createElement(
@@ -232,14 +232,14 @@ var BackText = function BackText(_ref3) {
       { x: x, show: 0.93 },
       React.createElement(
         A,
-        { href: '/enchiridion' },
-        'enchiridion'
+        { href: 'https://codepen.io/chrisbolin' },
+        'codepen'
       ),
       React.createElement(Slash, null),
       React.createElement(
         A,
-        { href: '/words' },
-        'words'
+        { href: '/enchiridion' },
+        'enchiridion'
       )
     ),
     React.createElement(
@@ -328,8 +328,10 @@ var App = React.createClass({
 
 ReactDOM.render(React.createElement(App, null), document.getElementById('app'));
 
-var greeting = '\n /88                          \n| 88                          \n| 8888888   /888888  /88   /88\n| 88__  88 /88__  88| 88  | 88\n| 88  \\ 88| 88888888| 88  | 88\n| 88  | 88| 88_____/| 88  | 88\n| 88  | 88|  8888888|  8888888\n|__/  |__/ \\_______/ \\____  88\n                    /88  | 88\n                   |  888888/\n                    \\______/ \n';
+var greeting = '\n /88\n| 88\n| 8888888   /888888  /88   /88\n| 88__  88 /88__  88| 88  | 88\n| 88  \\ 88| 88888888| 88  | 88\n| 88  | 88| 88_____/| 88  | 88\n| 88  | 88|  8888888|  8888888\n|__/  |__/ \\_______/ \\____  88\n                    /88  | 88\n                   |  888888/\n                    \\______/\n';
 
 console.log(greeting);
-console.log('source?');
-console.log('https://codepen.io/chrisbolin/pen/regMgE');
+console.log('source:');
+console.log('https://github.com/chrisbolin/chrisbolin.github.io');
+console.log('email:');
+console.log('bolin.chris@gmail.com');
