@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,900);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:900);
 @import url(https://fonts.googleapis.com/css?family=Playfair+Display:400italic);
 html {
   background-color: #f9f9f9;
@@ -9,10 +9,10 @@ body {
   overflow-x: hidden;
 }
 body ::-moz-selection {
-  background: #EDC919;
+  background: none;
 }
 body ::selection {
-  background: #EDC919;
+  background: none;
 }
 
 .app {
@@ -48,6 +48,7 @@ body ::selection {
 .card-plane .card-face.front .title hr {
   border-style: solid;
   margin: 7px 0;
+  color: inherit;
 }
 .card-plane .card-face.front .scroll {
   position: absolute;
@@ -111,10 +112,10 @@ body ::selection {
   display: inline-block;
   color: inherit;
   border-color: inherit;
-  -webkit-transition: background-color 300ms ease-out;
-  transition: background-color 300ms ease-out;
+  -webkit-transition: color 500ms ease-out, border-color 500ms ease-out;
+  transition: color 500ms ease-out, border-color 500ms ease-out;
 }
 #links a:hover {
-  font-style: italic;
-  background-color: currentColor;
+  color: #bbb;
+  border-color: #bbb;
 }
