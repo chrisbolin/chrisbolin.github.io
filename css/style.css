@@ -9,10 +9,10 @@ body {
   overflow-x: hidden;
 }
 body ::-moz-selection {
-  background: none;
+  background: #222;
 }
 body ::selection {
-  background: none;
+  background: #222;
 }
 
 .app {
