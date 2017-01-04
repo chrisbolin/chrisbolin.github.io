@@ -170,8 +170,7 @@ const BackText = ({x}) => {
   return (
     <div id="links" style={style}>
       <Line x={x} show={0.78}>chris bolin</Line>
-      <Line x={x} show={0.81}>wannabe polymath</Line>
-      <Line x={x} show={0.84}>cambridge, ma, usa</Line>
+      <Line x={x} show={0.83}>wannabe polymath</Line>
       <Line x={x} show={0.87}>
         <A href="https://www.formidable.com">dayjob</A>
         <Slash/>

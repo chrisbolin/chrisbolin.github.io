@@ -189,13 +189,8 @@ var BackText = function BackText(_ref3) {
     ),
     React.createElement(
       Line,
-      { x: x, show: 0.81 },
+      { x: x, show: 0.83 },
       'wannabe polymath'
-    ),
-    React.createElement(
-      Line,
-      { x: x, show: 0.84 },
-      'cambridge, ma, usa'
     ),
     React.createElement(
       Line,
@@ -273,7 +268,7 @@ var App = React.createClass({
   handleScroll: function handleScroll(e) {
     var x = fx.limitUnit(window.scrollY / (this.appStyle.height - window.innerHeight));
     this.setState({ x: x });
-    document.documentElement.style.backgroundColor = x < 0.5 ? "#f9f9f9" : "black";
+    document.documentElement.style.backgroundColor = x < 0.5 ? null : "black";
   },
   handleLegacyScroll: function handleLegacyScroll(e) {
     var _this = this;
