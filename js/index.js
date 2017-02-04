@@ -7,9 +7,9 @@ var fx = {
   isMobile: function isMobile() {
     return navigator.userAgent.match(/Mobile|iP(hone|od|ad)|Android|BlackBerry|IEMobile/);
   },
-  isSafari: function isSafari() {
+  enableMobileInteraction: function enableMobileInteraction() {
     var ua = navigator.userAgent;
-    return ua.match(/Safari/) && !ua.match(/CriOS|Chrome/);
+    return ua.match(/Safari/) && !ua.match(/CriOS|Chrome/) || ua.match(/Android/);
   }
 };
 
@@ -299,7 +299,7 @@ var App = React.createClass({
   componentDidMount: function componentDidMount() {
     this.container = document.getElementsByClassName('main');
     // backup for non-safari mobile browsers
-    var handler = fx.isMobile() && !fx.isSafari() ? this.handleLegacyScroll : this.handleScroll;
+    var handler = fx.isMobile() && !fx.enableMobileInteraction() ? this.handleLegacyScroll : this.handleScroll;
 
     window.addEventListener('scroll', handler);
     window.addEventListener('resize', handler);

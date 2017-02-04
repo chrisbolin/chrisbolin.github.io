@@ -9,9 +9,10 @@ let fx = {
       /Mobile|iP(hone|od|ad)|Android|BlackBerry|IEMobile/
     );
   },
-  isSafari() {
+  enableMobileInteraction() {
     const ua = navigator.userAgent;
-    return ua.match(/Safari/) && !ua.match(/CriOS|Chrome/);
+    return (ua.match(/Safari/) && !ua.match(/CriOS|Chrome/))
+      || ua.match(/Android/);
   },
 };
 
@@ -239,7 +240,7 @@ const App = React.createClass({
   componentDidMount: function () {
     this.container = document.getElementsByClassName('main');
     // backup for non-safari mobile browsers
-    const handler = (fx.isMobile() && !fx.isSafari()) ?
+    const handler = (fx.isMobile() && !fx.enableMobileInteraction()) ?
       this.handleLegacyScroll : this.handleScroll;
 
     window.addEventListener('scroll', handler);
