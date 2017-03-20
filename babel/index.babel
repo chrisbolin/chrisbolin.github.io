@@ -65,7 +65,7 @@ let CardBack = React.createClass({
     const zIndex = (x > 0.5) ? 1 : 0;
     const style = {
       zIndex,
-      backgroundColor: 'black',
+      backgroundColor: '#240f1f',
     }
 
     if (!zIndex) return null;
@@ -125,7 +125,7 @@ let Arrow = React.createClass({
       transform,
       WebkitTransform: transform,
       color: `rgb(${grey},${grey},${grey})`,
-      opacity: 10 * (1 - x),
+      opacity: fx.limitUnit(10 * (0.9 - x)),
     };
     return (
       <div className="arrow" style={style}>&darr;</div>
@@ -154,13 +154,14 @@ const BackText = ({x}) => {
   const progress = (x < 0.7) ? 0 : (x - 0.7)/0.3;
   const display = progress ? 'inherit' : 'none';
   const shaddowOpacity = fx.limitUnit((progress - 0.5)*2);
+  const shaddowColor = `rgba(36,15,31,${shaddowOpacity})`;
   const textShadow = `
-    rgba(0,0,0,${shaddowOpacity}) 0.5vmin 0 0,
-    rgba(0,0,0,${shaddowOpacity}) 0.5vmin 0.5vmin 0,
-    rgba(0,0,0,${shaddowOpacity}) 0.5vmin -0.5vmin 0,
-    rgba(0,0,0,${shaddowOpacity}) -0.5vmin 0 0,
-    rgba(0,0,0,${shaddowOpacity}) -0.5vmin 0.5vmin 0,
-    rgba(0,0,0,${shaddowOpacity}) -0.5vmin -0.5vmin 0
+    ${shaddowColor} 0.5vmin 0 0,
+    ${shaddowColor} 0.5vmin 0.5vmin 0,
+    ${shaddowColor} 0.5vmin -0.5vmin 0,
+    ${shaddowColor} -0.5vmin 0 0,
+    ${shaddowColor} -0.5vmin 0.5vmin 0,
+    ${shaddowColor} -0.5vmin -0.5vmin 0
   `;
 
   const style = {
@@ -210,7 +211,7 @@ const App = React.createClass({
       - window.innerHeight
     ));
     this.setState({x});
-    document.documentElement.style.backgroundColor = x < 0.5 ? null : "black";
+    document.documentElement.style.backgroundColor = x < 0.5 ? null : "#240f1f";
   },
 
   handleLegacyScroll(e) {

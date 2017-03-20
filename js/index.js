@@ -67,7 +67,7 @@ var CardBack = React.createClass({
     var zIndex = x > 0.5 ? 1 : 0;
     var style = {
       zIndex: zIndex,
-      backgroundColor: 'black'
+      backgroundColor: '#240f1f'
     };
 
     if (!zIndex) return null;
@@ -122,7 +122,7 @@ var Arrow = React.createClass({
       transform: transform,
       WebkitTransform: transform,
       color: 'rgb(' + grey + ',' + grey + ',' + grey + ')',
-      opacity: 10 * (1 - x)
+      opacity: fx.limitUnit(10 * (0.9 - x))
     };
     return React.createElement(
       'div',
@@ -172,7 +172,8 @@ var BackText = function BackText(_ref3) {
   var progress = x < 0.7 ? 0 : (x - 0.7) / 0.3;
   var display = progress ? 'inherit' : 'none';
   var shaddowOpacity = fx.limitUnit((progress - 0.5) * 2);
-  var textShadow = '\n    rgba(0,0,0,' + shaddowOpacity + ') 0.5vmin 0 0,\n    rgba(0,0,0,' + shaddowOpacity + ') 0.5vmin 0.5vmin 0,\n    rgba(0,0,0,' + shaddowOpacity + ') 0.5vmin -0.5vmin 0,\n    rgba(0,0,0,' + shaddowOpacity + ') -0.5vmin 0 0,\n    rgba(0,0,0,' + shaddowOpacity + ') -0.5vmin 0.5vmin 0,\n    rgba(0,0,0,' + shaddowOpacity + ') -0.5vmin -0.5vmin 0\n  ';
+  var shaddowColor = 'rgba(36,15,31,' + shaddowOpacity + ')';
+  var textShadow = '\n    ' + shaddowColor + ' 0.5vmin 0 0,\n    ' + shaddowColor + ' 0.5vmin 0.5vmin 0,\n    ' + shaddowColor + ' 0.5vmin -0.5vmin 0,\n    ' + shaddowColor + ' -0.5vmin 0 0,\n    ' + shaddowColor + ' -0.5vmin 0.5vmin 0,\n    ' + shaddowColor + ' -0.5vmin -0.5vmin 0\n  ';
 
   var style = {
     display: display,
@@ -268,7 +269,7 @@ var App = React.createClass({
   handleScroll: function handleScroll(e) {
     var x = fx.limitUnit(window.scrollY / (this.appStyle.height - window.innerHeight));
     this.setState({ x: x });
-    document.documentElement.style.backgroundColor = x < 0.5 ? null : "black";
+    document.documentElement.style.backgroundColor = x < 0.5 ? null : "#240f1f";
   },
   handleLegacyScroll: function handleLegacyScroll(e) {
     var _this = this;

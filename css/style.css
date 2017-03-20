@@ -36,7 +36,7 @@ body ::selection {
   position: absolute;
 }
 .card-plane .card-face.front {
-  background-color: black;
+  background-color: #240f1f;
   color: white;
   font-style: italic;
   font-family: 'Playfair Display', Serif;
@@ -104,8 +104,7 @@ body ::selection {
   color: #7A486E;
 }
 #links a {
-  color: black;
-  border-bottom: 0.7vmin solid black;
+  border-bottom: 0.7vmin solid white;
   margin-bottom: -0.7vmin;
   padding-bottom: 0.6vmin;
   text-decoration: none;
