@@ -199,13 +199,13 @@ var BackText = function BackText(_ref3) {
       React.createElement(
         A,
         { href: 'https://www.formidable.com' },
-        'dayjob'
+        'formidable'
       ),
       React.createElement(Slash, null),
       React.createElement(
         A,
-        { href: 'https://www.jumpshell.com' },
-        'nightshift'
+        { href: 'https://rookievagabonds.tumblr.com' },
+        'travels'
       )
     ),
     React.createElement(

@@ -174,9 +174,9 @@ const BackText = ({x}) => {
       <Line x={x} show={0.78}>chris bolin</Line>
       <Line x={x} show={0.83}>wannabe polymath</Line>
       <Line x={x} show={0.87}>
-        <A href="https://www.formidable.com">dayjob</A>
+        <A href="https://www.formidable.com">formidable</A>
         <Slash/>
-        <A href="https://www.jumpshell.com">nightshift</A>
+        <A href="https://rookievagabonds.tumblr.com">travels</A>
       </Line>
       <Line x={x} show={0.90}>
         <A href="/skycoins">skycoins</A>
