@@ -1,6 +1,8 @@
 {
   "scripts": {
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "serve": "python -m SimpleHTTPServer",
+    "build": "webpack -p --env=prod"
   },
   "dependencies": {
     "react-hot-loader": "next",
