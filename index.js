@@ -1,3 +1,6 @@
+import React from "react";
+import ReactDOM from "react-dom";
+
 let fx = {
   limitUnit(x) {
     return (x < 0) ? 0 : (

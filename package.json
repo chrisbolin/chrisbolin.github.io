@@ -1,7 +1,7 @@
 {
   "scripts": {
     "start": "python -m SimpleHTTPServer",
-    "build": "babel babel/index.babel -o js/index.js"
+    "build": "webpack"
   },
   "dependencies": {
     "babel-cli": "^6.16.0",
@@ -10,5 +10,13 @@
     "babel-preset-stage-0": "^6.5.0",
     "react": "^0.14.7",
     "react-dom": "^0.14.7"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-env": "^1.4.0",
+    "react": "^0.14.9",
+    "react-dom": "^0.14.9",
+    "webpack": "^2.4.1"
   }
 }
