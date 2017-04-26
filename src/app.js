@@ -188,14 +188,17 @@ const BackText = ({x}) => {
   );
 }
 
-export default React.createClass({
-  getInitialState() {
-    return {x: 0};
-  },
-  appStyle: {
-    // longer scroll for desktop users
-    height: window.innerHeight * (fx.isMobile() ? 1.5 : 3),
-  },
+export default class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      x: 0,
+    };
+    this.appStyle = {
+      // longer scroll for desktop users
+      height: window.innerHeight * (fx.isMobile() ? 1.5 : 3),
+    };
+  }
   handleScroll(e) {
     const x = fx.limitUnit(window.scrollY / (
       this.appStyle.height
@@ -203,7 +206,7 @@ export default React.createClass({
     ));
     this.setState({x});
     document.documentElement.style.backgroundColor = x < 0.5 ? null : "#240f1f";
-  },
+  }
 
   handleLegacyScroll(e) {
     // handling for non-iOS mobile devices, until they allow painting while scrolling
@@ -228,17 +231,17 @@ export default React.createClass({
       }
     }, interval);
 
-  },
-  componentDidMount: function () {
+  }
+  componentDidMount() {
     this.container = document.getElementsByClassName('main');
     // backup for non-safari mobile browsers
     const handler = (fx.isMobile() && !fx.enableMobileInteraction()) ?
-      this.handleLegacyScroll : this.handleScroll;
+      this.handleLegacyScroll.bind(this) : this.handleScroll.bind(this);
 
     window.addEventListener('scroll', handler);
     window.addEventListener('resize', handler);
     window.addEventListener('touchmove', handler);
-  },
+  }
   render() {
     const x = (this.state.x); // extra padding for slight scroll ups
     const planeX = fx.limitUnit(x);
@@ -251,5 +254,5 @@ export default React.createClass({
         </div>
       </div>
     );
-  },
-});
+  }
+};
