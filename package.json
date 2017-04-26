@@ -2,13 +2,13 @@
   "scripts": {
     "start": "webpack-dev-server",
     "serve": "python -m SimpleHTTPServer",
-    "build": "webpack -p --env=prod"
+    "build-js": "webpack -p --env=prod",
+    "build-markup": "export NODE_ENV='production' && node scripts/markup.js > index.html",
+    "build": "yarn build-js && yarn build-markup"
   },
   "dependencies": {
     "react-hot-loader": "next",
-    "webpack-dev-server": "^2.4.4"
-  },
-  "devDependencies": {
+    "webpack-dev-server": "^2.4.4",
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
     "babel-preset-env": "^1.4.0",
@@ -16,7 +16,6 @@
     "babel-preset-react": "^6.5.0",
     "react": "^0.14.9",
     "react-dom": "^0.14.9",
-    "react-hot-loader": "^1.3.1",
     "webpack": "^2.4.1"
   },
   "license": "MIT"

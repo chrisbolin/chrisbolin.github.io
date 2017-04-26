@@ -3,10 +3,7 @@ import ReactDOM from "react-dom";
 
 import App from './app';
 
-ReactDOM.render(
-  <App/>,
-  document.getElementById('app')
-);
+const appElement = document.getElementById('app');
 
 const greeting = `
  /88
@@ -20,10 +17,15 @@ const greeting = `
                     /88  | 88
                    |  888888/
                     \\______/
+
+bolin.chris@gmail.com
+
+source: https://github.com/chrisbolin/chrisbolin.github.io
 `;
 
-console.log(greeting);
-console.log('source:');
-console.log('https://github.com/chrisbolin/chrisbolin.github.io');
-console.log('email:');
-console.log('bolin.chris@gmail.com');
+if (appElement) {
+  ReactDOM.render(<App/>, appElement);
+  console.log(greeting);
+} else {
+  global.App = App;
+}
