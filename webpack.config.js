@@ -61,13 +61,9 @@ const devExports = {
   },
 
   plugins: [
-    new HtmlWebpackPlugin({
-      template: resolve(__dirname, 'index.base.html'),
-    }),
-    new ExtractTextWebpackPlugin('styles.css'),
+    ...baseExports.plugins,
     new webpack.HotModuleReplacementPlugin(), // enable HMR globally
     new webpack.NamedModulesPlugin(), // prints more readable module names in browser console
-    new StyleExtHtmlWebpackPlugin(),
   ],
 };
 
