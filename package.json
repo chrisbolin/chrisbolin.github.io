@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "start": "webpack-dev-server",
-    "serve": "python -m SimpleHTTPServer",
+    "dev": "webpack-dev-server",
+    "prod": "python -m SimpleHTTPServer",
     "build-js": "webpack -p --env=prod",
     "build-markup": "export NODE_ENV='production' && node scripts/markup.js > index.html",
     "build": "yarn build-js && yarn build-markup"
