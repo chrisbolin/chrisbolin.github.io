@@ -32,7 +32,7 @@ const ColorBar = ({x, width, left, color}) => {
   );
 }
 
-const CardFront = ({x}) => {
+const CardFront = ({x, mounted}) => {
   const zIndex = (x < 0.5) ? 1 : 0;
   if (!zIndex) return null;
   const scrollStyle = {
@@ -44,7 +44,7 @@ const CardFront = ({x}) => {
         chris bolin
         <hr/>
       </div>
-      <div className="scroll" style={scrollStyle}>
+      <div className={`scroll ${mounted || 'hidden'}`} style={scrollStyle}>
         (scroll)
       </div>
       <ColorBar color="#EDC919" left="0%" width="20%" x={x*5.2}/>
@@ -103,7 +103,7 @@ class CardPlane extends React.Component {
     const zBack = !zFront;
     return (
       <div style={this.getStyle()} className='card-plane'>
-        <CardFront x={this.props.x}/>
+        <CardFront x={this.props.x} mounted={this.props.mounted}/>
         <CardBack x={this.props.x}/>
       </div>
     )
@@ -193,6 +193,7 @@ export default class App extends React.Component {
     super();
     this.state = {
       x: 0,
+      mounted: false,
     };
     this.appStyle = {
       // longer scroll for desktop users
@@ -241,6 +242,8 @@ export default class App extends React.Component {
     window.addEventListener('scroll', handler);
     window.addEventListener('resize', handler);
     window.addEventListener('touchmove', handler);
+
+    this.setState({ mounted: true });
   }
   render() {
     const x = (this.state.x); // extra padding for slight scroll ups
@@ -248,7 +251,7 @@ export default class App extends React.Component {
     return (
       <div className='app' style={this.appStyle}>
         <div className='container'>
-          <CardPlane x={planeX}/>
+          <CardPlane x={planeX} mounted={this.state.mounted}/>
           <Arrow x={x}/>
           <BackText x={x}/>
         </div>
