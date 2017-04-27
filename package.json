@@ -3,7 +3,7 @@
     "dev": "webpack-dev-server",
     "prod": "python -m SimpleHTTPServer",
     "build-js": "webpack -p --env=prod",
-    "build-markup": "export NODE_ENV='production' && node scripts/markup.js > index.html",
+    "build-markup": "export NODE_ENV='production' && node scripts/markup.js > index.base.html",
     "build": "yarn build-js && yarn build-markup"
   },
   "dependencies": {
@@ -13,11 +13,16 @@
     "babel-preset-env": "^1.4.0",
     "babel-preset-es2015": "^6.5.0",
     "babel-preset-react": "^6.5.0",
+    "css-loader": "^0.28.0",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "html-webpack-plugin": "^2.28.0",
     "preact": "^8.1.0",
     "preact-compat": "^3.15.0",
     "react": "^0.14.9",
     "react-dom": "^0.14.9",
     "react-hot-loader": "next",
+    "style-ext-html-webpack-plugin": "^3.4.1",
+    "style-loader": "^0.16.1",
     "webpack": "^2.4.1",
     "webpack-dev-server": "^2.4.4"
   },

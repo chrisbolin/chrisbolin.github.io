@@ -1,5 +1,8 @@
 const { resolve } = require('path');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
+const StyleExtHtmlWebpackPlugin = require('style-ext-html-webpack-plugin');
 
 const baseExports = {
   context: resolve(__dirname, 'src'),
@@ -19,8 +22,24 @@ const baseExports = {
         use: [ 'babel-loader' ],
         exclude: /node_modules/
       },
+      {
+        test: /\.css$/,
+        loader: ExtractTextWebpackPlugin.extract({
+          use: 'css-loader',
+          fallback: 'style-loader',
+        }),
+        exclude: /node_modules/
+      },
     ],
   },
+
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: resolve(__dirname, 'index.base.html'),
+    }),
+    new ExtractTextWebpackPlugin('styles.css'),
+    new StyleExtHtmlWebpackPlugin(),
+  ],
 };
 
 const devExports = {
@@ -42,8 +61,13 @@ const devExports = {
   },
 
   plugins: [
+    new HtmlWebpackPlugin({
+      template: resolve(__dirname, 'index.base.html'),
+    }),
+    new ExtractTextWebpackPlugin('styles.css'),
     new webpack.HotModuleReplacementPlugin(), // enable HMR globally
     new webpack.NamedModulesPlugin(), // prints more readable module names in browser console
+    new StyleExtHtmlWebpackPlugin(),
   ],
 };
 
