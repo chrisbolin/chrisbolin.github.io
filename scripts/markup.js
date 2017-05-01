@@ -6,14 +6,12 @@ const ReactDOMServer = require('react-dom/server');
 require('../bundle.js');
 
 const App = global.App;
-const template = fs.readFileSync('index.template.html', 'utf8');
 const renderedApp = ReactDOMServer.renderToString(
   React.createElement(App)
 );
 
-console.log(
-  template.replace('{{APP}}', renderedApp)
-);
+const template = fs.readFileSync('index.html', 'utf8');
+fs.writeFileSync('index.html', template.replace('{{APP}}', renderedApp));
 
 function spoofBrowser() {
   window = {};

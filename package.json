@@ -2,9 +2,9 @@
   "scripts": {
     "dev": "webpack-dev-server",
     "prod": "python -m SimpleHTTPServer",
-    "build-js": "webpack -p --env=prod",
-    "build-markup": "export NODE_ENV='production' && node scripts/markup.js > index.base.html",
-    "build": "yarn build-js && yarn build-markup"
+    "build-webpack": "webpack -p --env=prod",
+    "build-markup": "export NODE_ENV='production' && node scripts/markup.js",
+    "build": "yarn build-webpack && yarn build-markup"
   },
   "dependencies": {
     "babel-core": "^6.24.1",

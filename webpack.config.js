@@ -35,7 +35,7 @@ const baseExports = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: resolve(__dirname, 'index.base.html'),
+      template: resolve(__dirname, 'index.template.html'),
     }),
     new ExtractTextWebpackPlugin('styles.css'),
     new StyleExtHtmlWebpackPlugin(),
