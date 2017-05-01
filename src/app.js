@@ -196,15 +196,12 @@ export default class App extends React.Component {
       x: 0,
       mounted: false,
     };
-    this.appStyle = {
-      // longer scroll for desktop users
-      height: window.innerHeight * (fx.isMobile() ? 1.5 : 3),
-    };
+    // longer scroll for desktop users
+    this.scrollLength = (fx.isMobile() ? 1.5 : 3);
   }
   handleScroll(e) {
     const x = fx.limitUnit(window.scrollY / (
-      this.appStyle.height
-      - window.innerHeight
+      window.innerHeight * (this.scrollLength - 1)
     ));
     this.setState({x});
     document.documentElement.style.backgroundColor = x < 0.5 ? null : "#240f1f";
@@ -249,8 +246,11 @@ export default class App extends React.Component {
   render() {
     const x = (this.state.x); // extra padding for slight scroll ups
     const planeX = fx.limitUnit(x);
+    const appStyle = {
+      height: this.state.mounted ? `${this.scrollLength * 100}vh` : 'auto'
+    };
     return (
-      <div className='app' style={this.appStyle}>
+      <div className='app' style={appStyle}>
         <div className='container'>
           <CardPlane x={planeX} mounted={this.state.mounted}/>
           <Arrow x={x}/>
