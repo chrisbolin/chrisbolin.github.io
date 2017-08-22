@@ -164,21 +164,26 @@ const BackText = ({x}) => {
   return (
     <div id="links" style={style}>
       <Line x={x} show={0.78}>chris bolin</Line>
-      <Line x={x} show={0.83}>wannabe polymath</Line>
-      <Line x={x} show={0.87}>
+      <Line x={x} show={0.82}>wannabe polymath</Line>
+      <Line x={x} show={0.85}>
         <A href="https://www.formidable.com">formidable</A>
+        <Slash/>
+        <A href="/offline/">offline</A>
+      </Line>
+      <Line x={x} show={0.87}>
+				<A href="/skycoins/">skycoins</A>
         <Slash/>
         <A href="https://rookievagabonds.tumblr.com">travels</A>
       </Line>
       <Line x={x} show={0.90}>
-        <A href="/skycoins">skycoins</A>
+				<A href="/tessellate/">tessellate</A>
         <Slash/>
-        <A href="/tessellate">tessellate</A>
+				<A href="/words/">words</A>
       </Line>
       <Line x={x} show={0.93}>
-        <A href="https://codepen.io/chrisbolin">codepen</A>
+				<A href="/enchiridion">enchiridion</A>
         <Slash/>
-        <A href="/enchiridion">enchiridion</A>
+				<A href="https://codepen.io/chrisbolin">codepen</A>
       </Line>
       <Line x={x} show={0.96}>
         <A href="https://twitter.com/bolinchris">twitter</A>
