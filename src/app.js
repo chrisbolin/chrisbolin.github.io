@@ -181,14 +181,14 @@ const BackText = ({x}) => {
 				<A href="/words/">words</A>
       </Line>
       <Line x={x} show={0.93}>
-				<A href="/enchiridion">enchiridion</A>
+				<A href="https://www.instagram.com/bolinchris">instagram</A>
         <Slash/>
-				<A href="https://codepen.io/chrisbolin">codepen</A>
+				<A href="/enchiridion/">enchiridion</A>
       </Line>
       <Line x={x} show={0.96}>
         <A href="https://twitter.com/bolinchris">twitter</A>
         <Slash/>
-        <A href="https://www.instagram.com/bolinchris">instagram</A>
+				<A href="/about/">about</A>
        </Line>
     </div>
   );
