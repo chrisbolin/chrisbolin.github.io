@@ -137,9 +137,15 @@ const Line = ({children, x, show}) => (
 
 const Slash = props => <span>{' / '}</span>;
 
-const A = ({children, href}) => <a href={href} target="_blank">
-  {children}
-</a>;
+const A = ({children, href, sameWindow}) => (
+	<a
+		href={href}
+		target={sameWindow ? '_self' : '_blank'}
+		rel="noopener noreferrer"
+	>
+	  {children}
+	</a>
+);
 
 const BackText = ({x}) => {
   // Text does not show until x < 0.7
@@ -188,7 +194,7 @@ const BackText = ({x}) => {
       <Line x={x} show={0.96}>
         <A href="/enchiridion/">enchiridion</A>
         <Slash/>
-				<A href="/about/">about</A>
+				<A href="/about/" sameWindow>about</A>
        </Line>
     </div>
   );
