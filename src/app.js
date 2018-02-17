@@ -178,31 +178,31 @@ const BackText = ({ x }) => {
         wannabe polymath
       </Line>
       <Line x={x} show={0.85}>
-        <A href="https://www.formidable.com">formidable</A>
+        <A href="/about/" sameWindow>
+          about
+        </A>
         <Slash />
-        <A href="/offline/">offline</A>
+        <A href="https://thedisconnect.co">disconnect</A>
       </Line>
       <Line x={x} show={0.87}>
-        <A href="/skycoins/">skycoins</A>
+        <A href="/offline/">offline</A>
         <Slash />
-        <A href="https://rookievagabonds.tumblr.com">travels</A>
+        <A href="/skycoins/">skycoins</A>
       </Line>
       <Line x={x} show={0.9}>
         <A href="/tessellate/">tessellate</A>
         <Slash />
-        <A href="/words/">words</A>
+        <A href="https://rookievagabonds.tumblr.com">travels</A>
       </Line>
       <Line x={x} show={0.93}>
+        <A href="/words/">words</A>
+        <Slash />
+        <A href="https://www.formidable.com">formidable</A>
+      </Line>
+      <Line x={x} show={0.96}>
         <A href="https://twitter.com/bolinchris">twitter</A>
         <Slash />
         <A href="https://www.instagram.com/bolinchris">instagram</A>
-      </Line>
-      <Line x={x} show={0.96}>
-        <A href="/enchiridion/">enchiridion</A>
-        <Slash />
-        <A href="/about/" sameWindow>
-          about
-        </A>
       </Line>
     </div>
   );
