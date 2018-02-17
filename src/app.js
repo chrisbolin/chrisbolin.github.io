@@ -3,9 +3,7 @@ import styleSheet from "../style.css";
 
 const fx = {
   limitUnit(x) {
-    return (x < 0) ? 0 : (
-      (x < 1) ? x : 1
-    );
+    return x < 0 ? 0 : x < 1 ? x : 1;
   },
   isMobile() {
     return navigator.userAgent.match(
@@ -14,144 +12,148 @@ const fx = {
   },
   enableMobileInteraction() {
     const ua = navigator.userAgent;
-    return (ua.match(/Safari/) && !ua.match(/CriOS|Chrome/))
-      || ua.match(/Android/);
-  },
+    return (
+      (ua.match(/Safari/) && !ua.match(/CriOS|Chrome/)) || ua.match(/Android/)
+    );
+  }
 };
 
-const ColorBar = ({x, width, left, color}) => {
+const ColorBar = ({ x, width, left, color }) => {
   const height = fx.limitUnit(x) * 100;
   return (
-    <div style={{
-      width,
-      height: height + '%',
-      backgroundColor: color,
-      left,
-      position: 'absolute',
-      bottom: 0,
-    }}/>
+    <div
+      style={{
+        width,
+        height: height + "%",
+        backgroundColor: color,
+        left,
+        position: "absolute",
+        bottom: 0
+      }}
+    />
   );
-}
+};
 
-const CardFront = ({x, mounted}) => {
-  const zIndex = (x < 0.5) ? 1 : 0;
+const CardFront = ({ x, mounted }) => {
+  const zIndex = x < 0.5 ? 1 : 0;
   if (!zIndex) return null;
   const scrollStyle = {
-    opacity: (1 - 10 * x),
+    opacity: 1 - 10 * x
   };
   return (
-    <div className='card-face front' style={{zIndex}}>
-      <div className='title'>
+    <div className="card-face front" style={{ zIndex }}>
+      <div className="title">
         chris bolin
-        <hr/>
+        <hr />
       </div>
-      <div className={`scroll ${mounted || 'hidden'}`} style={scrollStyle}>
+      <div className={`scroll ${mounted || "hidden"}`} style={scrollStyle}>
         (scroll)
       </div>
-      <ColorBar color="#EDC919" left="0%" width="20%" x={x*5.2}/>
-      <ColorBar color="#76919A" left="20%" width="20%" x={x*4.7}/>
-      <ColorBar color="#257A97" left="40%" width="20%" x={x*4.4}/>
-      <ColorBar color="#7A486E" left="60%" width="20%" x={x*4}/>
-      <ColorBar color="#FD556F" left="80%" width="20%" x={x*3.5}/>
+      <ColorBar color="#EDC919" left="0%" width="20%" x={x * 5.2} />
+      <ColorBar color="#76919A" left="20%" width="20%" x={x * 4.7} />
+      <ColorBar color="#257A97" left="40%" width="20%" x={x * 4.4} />
+      <ColorBar color="#7A486E" left="60%" width="20%" x={x * 4} />
+      <ColorBar color="#FD556F" left="80%" width="20%" x={x * 3.5} />
     </div>
   );
-}
+};
 
-const CardBack = ({x}) => {
-  const zIndex = (x > 0.5) ? 1 : 0;
+const CardBack = ({ x }) => {
+  const zIndex = x > 0.5 ? 1 : 0;
   const style = {
     zIndex,
-    backgroundColor: '#240f1f',
-  }
+    backgroundColor: "#240f1f"
+  };
 
-  if (!zIndex) return <div/>;
+  if (!zIndex) return <div />;
   return (
-    <div className='card-face back' style={style}>
-      <ColorBar color="#EDC919" width="10%" left="0%" x={2*(1-x)}/>
-      <ColorBar color="#76919A" width="10%" left="10%" x={2.1*(1-x)}/>
-      <ColorBar color="#257A97" width="10%" left="20%" x={2.2*(1-x)}/>
-      <ColorBar color="#7A486E" width="10%" left="30%" x={2.3*(1-x)}/>
-      <ColorBar color="#EDC919" width="10%" left="40%" x={2.4*(1-x)}/>
-      <ColorBar color="#76919A" width="10%" left="50%" x={2.5*(1-x)}/>
-      <ColorBar color="#257A97" width="10%" left="60%" x={2.6*(1-x)}/>
-      <ColorBar color="#7A486E" width="10%" left="70%" x={2.7*(1-x)}/>
-      <ColorBar color="#EDC919" width="10%" left="80%" x={2.8*(1-x)}/>
-      <ColorBar color="#76919A" width="10%" left="90%" x={2.9*(1-x)}/>
+    <div className="card-face back" style={style}>
+      <ColorBar color="#EDC919" width="10%" left="0%" x={2 * (1 - x)} />
+      <ColorBar color="#76919A" width="10%" left="10%" x={2.1 * (1 - x)} />
+      <ColorBar color="#257A97" width="10%" left="20%" x={2.2 * (1 - x)} />
+      <ColorBar color="#7A486E" width="10%" left="30%" x={2.3 * (1 - x)} />
+      <ColorBar color="#EDC919" width="10%" left="40%" x={2.4 * (1 - x)} />
+      <ColorBar color="#76919A" width="10%" left="50%" x={2.5 * (1 - x)} />
+      <ColorBar color="#257A97" width="10%" left="60%" x={2.6 * (1 - x)} />
+      <ColorBar color="#7A486E" width="10%" left="70%" x={2.7 * (1 - x)} />
+      <ColorBar color="#EDC919" width="10%" left="80%" x={2.8 * (1 - x)} />
+      <ColorBar color="#76919A" width="10%" left="90%" x={2.9 * (1 - x)} />
     </div>
   );
-}
+};
 
 class CardPlane extends React.Component {
   getStyle() {
     const x = this.props.x;
-    const rotateX = 180  * (
-      (x < 0.5) ? x : fx.limitUnit(x * 2 - 0.5)
-    );
+    const rotateX = 180 * (x < 0.5 ? x : fx.limitUnit(x * 2 - 0.5));
     const transform = `
       rotateZ(${90 * x}deg)
       rotateX(${rotateX}deg)
       translate3d(${-50 * x}px, 0, 0)
-      scale(${1 + (x*x*x*x*10)})
+      scale(${1 + x * x * x * x * 10})
     `;
 
     return {
       transform,
-      WebkitTransform: transform,
+      WebkitTransform: transform
     };
   }
   render() {
     const zFront = this.props.x < 0.5 ? 1 : 0;
     const zBack = !zFront;
     return (
-      <div style={this.getStyle()} className='card-plane'>
-        <CardFront x={this.props.x} mounted={this.props.mounted}/>
-        <CardBack x={this.props.x}/>
+      <div style={this.getStyle()} className="card-plane">
+        <CardFront x={this.props.x} mounted={this.props.mounted} />
+        <CardBack x={this.props.x} />
       </div>
-    )
+    );
   }
 }
 
-const Arrow = ({x}) => {
+const Arrow = ({ x }) => {
   const grey = Math.floor(255 * (1 - x));
-  const transform = `translateY(${ 20 * x }px)`;
+  const transform = `translateY(${20 * x}px)`;
   const style = {
     transform,
     WebkitTransform: transform,
     color: `rgb(${grey},${grey},${grey})`,
-    opacity: fx.limitUnit(10 * (0.9 - x)),
+    opacity: fx.limitUnit(10 * (0.9 - x))
   };
   return (
-    <div className="arrow" style={style}>&darr;</div>
+    <div className="arrow" style={style}>
+      &darr;
+    </div>
   );
 };
 
-const Line = ({children, x, show}) => (
+const Line = ({ children, x, show }) => (
   <div
     style={{
-      opacity: (x > show) ? (x-show)/(1-show) : 0,
+      opacity: x > show ? (x - show) / (1 - show) : 0
     }}
-    className="line">
-      {children}
+    className="line"
+  >
+    {children}
   </div>
 );
 
-const Slash = props => <span>{' / '}</span>;
+const Slash = props => <span>{" / "}</span>;
 
-const A = ({children, href, sameWindow}) => (
-	<a
-		href={href}
-		target={sameWindow ? '_self' : '_blank'}
-		rel="noopener noreferrer"
-	>
-	  {children}
-	</a>
+const A = ({ children, href, sameWindow }) => (
+  <a
+    href={href}
+    target={sameWindow ? "_self" : "_blank"}
+    rel="noopener noreferrer"
+  >
+    {children}
+  </a>
 );
 
-const BackText = ({x}) => {
+const BackText = ({ x }) => {
   // Text does not show until x < 0.7
-  const progress = (x < 0.7) ? 0 : (x - 0.7)/0.3;
-  const display = progress ? 'inherit' : 'none';
-  const shaddowOpacity = fx.limitUnit((progress - 0.5)*2);
+  const progress = x < 0.7 ? 0 : (x - 0.7) / 0.3;
+  const display = progress ? "inherit" : "none";
+  const shaddowOpacity = fx.limitUnit((progress - 0.5) * 2);
   const shaddowColor = `rgba(36,15,31,${shaddowOpacity})`;
   const textShadow = `
     ${shaddowColor} 0.5vmin 0 0,
@@ -164,57 +166,63 @@ const BackText = ({x}) => {
 
   const style = {
     display,
-    textShadow,
+    textShadow
   };
 
   return (
     <div id="links" style={style}>
-      <Line x={x} show={0.78}>chris bolin</Line>
-      <Line x={x} show={0.82}>wannabe polymath</Line>
+      <Line x={x} show={0.78}>
+        chris bolin
+      </Line>
+      <Line x={x} show={0.82}>
+        wannabe polymath
+      </Line>
       <Line x={x} show={0.85}>
         <A href="https://www.formidable.com">formidable</A>
-        <Slash/>
+        <Slash />
         <A href="/offline/">offline</A>
       </Line>
       <Line x={x} show={0.87}>
-				<A href="/skycoins/">skycoins</A>
-        <Slash/>
+        <A href="/skycoins/">skycoins</A>
+        <Slash />
         <A href="https://rookievagabonds.tumblr.com">travels</A>
       </Line>
-      <Line x={x} show={0.90}>
-				<A href="/tessellate/">tessellate</A>
-        <Slash/>
-				<A href="/words/">words</A>
+      <Line x={x} show={0.9}>
+        <A href="/tessellate/">tessellate</A>
+        <Slash />
+        <A href="/words/">words</A>
       </Line>
       <Line x={x} show={0.93}>
-				<A href="https://twitter.com/bolinchris">twitter</A>
-				<Slash/>
-				<A href="https://www.instagram.com/bolinchris">instagram</A>
+        <A href="https://twitter.com/bolinchris">twitter</A>
+        <Slash />
+        <A href="https://www.instagram.com/bolinchris">instagram</A>
       </Line>
       <Line x={x} show={0.96}>
         <A href="/enchiridion/">enchiridion</A>
-        <Slash/>
-				<A href="/about/" sameWindow>about</A>
-       </Line>
+        <Slash />
+        <A href="/about/" sameWindow>
+          about
+        </A>
+      </Line>
     </div>
   );
-}
+};
 
 export default class App extends React.Component {
   constructor() {
     super();
     this.state = {
       x: 0,
-      mounted: false,
+      mounted: false
     };
     // longer scroll for desktop users
-    this.scrollLength = (fx.isMobile() ? 1.5 : 3);
+    this.scrollLength = fx.isMobile() ? 1.5 : 3;
   }
   handleScroll(e) {
-    const x = fx.limitUnit(window.scrollY / (
-      window.innerHeight * (this.scrollLength - 1)
-    ));
-    this.setState({x});
+    const x = fx.limitUnit(
+      window.scrollY / (window.innerHeight * (this.scrollLength - 1))
+    );
+    this.setState({ x });
     document.documentElement.style.backgroundColor = x < 0.5 ? null : "#240f1f";
   }
 
@@ -232,42 +240,43 @@ export default class App extends React.Component {
     if (x !== 1 && x !== 0) return;
 
     // 'scroll' up when at the bottom
-    const increment = interval / totalTime * ((x === 1) ? -1 : 1);
+    const increment = interval / totalTime * (x === 1 ? -1 : 1);
     const intervalId = setInterval(() => {
       x = fx.limitUnit(x + increment);
-      this.setState({x});
+      this.setState({ x });
       if (x === 0 || x === 1) {
         clearInterval(intervalId);
       }
     }, interval);
-
   }
   componentDidMount() {
-    this.container = document.getElementsByClassName('main');
+    this.container = document.getElementsByClassName("main");
     // backup for non-safari mobile browsers
-    const handler = (fx.isMobile() && !fx.enableMobileInteraction()) ?
-      this.handleLegacyScroll.bind(this) : this.handleScroll.bind(this);
+    const handler =
+      fx.isMobile() && !fx.enableMobileInteraction()
+        ? this.handleLegacyScroll.bind(this)
+        : this.handleScroll.bind(this);
 
-    window.addEventListener('scroll', handler);
-    window.addEventListener('resize', handler);
-    window.addEventListener('touchmove', handler);
+    window.addEventListener("scroll", handler);
+    window.addEventListener("resize", handler);
+    window.addEventListener("touchmove", handler);
 
     this.setState({ mounted: true });
   }
   render() {
-    const x = (this.state.x); // extra padding for slight scroll ups
+    const x = this.state.x; // extra padding for slight scroll ups
     const planeX = fx.limitUnit(x);
     const appStyle = {
-      height: this.state.mounted ? `${this.scrollLength * 100}vh` : 'auto'
+      height: this.state.mounted ? `${this.scrollLength * 100}vh` : "auto"
     };
     return (
-      <div className='app' style={appStyle}>
-        <div className='container'>
-          <CardPlane x={planeX} mounted={this.state.mounted}/>
-          <Arrow x={x}/>
-          <BackText x={x}/>
+      <div className="app" style={appStyle}>
+        <div className="container">
+          <CardPlane x={planeX} mounted={this.state.mounted} />
+          <Arrow x={x} />
+          <BackText x={x} />
         </div>
       </div>
     );
   }
-};
+}
