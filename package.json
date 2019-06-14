@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "webpack-dev-server",
+    "start": "webpack-dev-server",
     "prod": "python -m SimpleHTTPServer",
     "build-webpack": "webpack -p --env=prod",
     "build-markup": "export NODE_ENV='production' && node scripts/markup.js",
