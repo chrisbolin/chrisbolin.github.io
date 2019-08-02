@@ -16,8 +16,6 @@
     "css-loader": "^0.28.0",
     "extract-text-webpack-plugin": "^2.1.0",
     "html-webpack-plugin": "^2.28.0",
-    "preact": "^8.1.0",
-    "preact-compat": "^3.15.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-hot-loader": "next",
