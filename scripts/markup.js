@@ -11,7 +11,7 @@ const renderedApp = ReactDOMServer.renderToString(
 );
 
 const template = fs.readFileSync('index.html', 'utf8');
-fs.writeFileSync('index.html', template.replace('{{APP}}', renderedApp));
+fs.writeFileSync('index.html', template.replace('{{ APP }}', renderedApp));
 
 function spoofBrowser() {
   window = {};
