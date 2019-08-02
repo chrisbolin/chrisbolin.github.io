@@ -1,26 +1,28 @@
+const fs = require("fs");
+const React = require("react");
+const ReactDOMServer = require("react-dom/server");
+const noop = () => {};
 spoofBrowser();
 
-const fs = require('fs');
-const React = require('react');
-const ReactDOMServer = require('react-dom/server');
-require('../bundle.js');
+require("../bundle.js");
 
 const App = global.App;
-const renderedApp = ReactDOMServer.renderToString(
-  React.createElement(App)
-);
+const renderedApp = ReactDOMServer.renderToString(React.createElement(App));
 
-const template = fs.readFileSync('index.html', 'utf8');
-fs.writeFileSync('index.html', template.replace('{{ APP }}', renderedApp));
+const template = fs.readFileSync("index.html", "utf8");
+fs.writeFileSync(
+  "index.html",
+  template.replace("<!-- STATIC_RENDER -->", renderedApp)
+);
 
 function spoofBrowser() {
   window = {};
   navigator = {
     userAgent: {
-      match() { return false },
+      match: noop
     }
   };
   document = {
-    getElementById() { return false; },
+    getElementById: noop
   };
-};
+}
