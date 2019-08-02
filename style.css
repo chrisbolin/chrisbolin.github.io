@@ -27,7 +27,7 @@ body ::selection {
   position: absolute;
   width: 182.85714px;
   height: 320px;
-  margin: 50px calc(50vw -  91.42857px);
+  margin: 50px calc(50vw - 91.42857px);
 }
 .card-plane .card-face {
   width: 100%;
@@ -38,10 +38,10 @@ body ::selection {
   background-color: #240f1f;
   color: white;
   font-style: italic;
-  font-family: 'Playfair Display', Serif;
+  font-family: "Baskerville", "Times New Roman", "Droid Serif", "Times", serif;
 }
 .card-plane .card-face.front .title {
-  font-size: 21px;
+  font-size: 26px;
   padding: 22px 22px;
 }
 .card-plane .card-face.front .title hr {
@@ -53,21 +53,23 @@ body ::selection {
   position: absolute;
   text-align: center;
   width: 100%;
-  color: #7D7D7D;
+  color: #7d7d7d;
   bottom: -30px;
-  font-size: 12px;
+  font-size: 16px;
 }
 .card-plane .card-face.back {
   /* reversed for the back of the card */
   width: 320px;
   height: 182.85714px;
-  -webkit-transform: rotateZ(90deg) rotateX(180deg) translate3d(68.57143px, -68.57143px, 0px);
-          transform: rotateZ(90deg) rotateX(180deg) translate3d(68.57143px, -68.57143px, 0px);
+  -webkit-transform: rotateZ(90deg) rotateX(180deg)
+    translate3d(68.57143px, -68.57143px, 0px);
+  transform: rotateZ(90deg) rotateX(180deg)
+    translate3d(68.57143px, -68.57143px, 0px);
 }
 
 .arrow {
   font-size: 24px;
-  font-family: 'Times New Roman', serif;
+  font-family: "Times New Roman", serif;
   position: fixed;
   text-align: center;
   width: 100%;
@@ -75,7 +77,7 @@ body ::selection {
 }
 
 #links {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-size: 9vmin;
   padding: 4vmin;
   font-weight: 900;
@@ -87,20 +89,20 @@ body ::selection {
   line-height: 7.5vmin;
   margin-bottom: 2.5vmin;
 }
-#links .line:nth-of-type(5n+1) {
-  color: #FD556F;
+#links .line:nth-of-type(5n + 1) {
+  color: #fd556f;
 }
-#links .line:nth-of-type(5n+2) {
-  color: #EDC919;
+#links .line:nth-of-type(5n + 2) {
+  color: #edc919;
 }
-#links .line:nth-of-type(5n+3) {
-  color: #76919A;
+#links .line:nth-of-type(5n + 3) {
+  color: #76919a;
 }
-#links .line:nth-of-type(5n+4) {
-  color: #257A97;
+#links .line:nth-of-type(5n + 4) {
+  color: #257a97;
 }
-#links .line:nth-of-type(5n+5) {
-  color: #7A486E;
+#links .line:nth-of-type(5n + 5) {
+  color: #7a486e;
 }
 #links a {
   border-bottom: 0.7vmin solid white;

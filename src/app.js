@@ -240,7 +240,7 @@ export default class App extends React.Component {
     if (x !== 1 && x !== 0) return;
 
     // 'scroll' up when at the bottom
-    const increment = interval / totalTime * (x === 1 ? -1 : 1);
+    const increment = (interval / totalTime) * (x === 1 ? -1 : 1);
     const intervalId = setInterval(() => {
       x = fx.limitUnit(x + increment);
       this.setState({ x });
