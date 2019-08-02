@@ -45,7 +45,7 @@ const baseExports = {
 const devExports = {
   entry: [
     "react-hot-loader/patch", // activate HMR for React
-    "webpack-dev-server/client?http://localhost:8080",
+    "webpack-dev-server/client?http://localhost:3003",
     // bundle client for webpack-dev-server and connect to the provided endpoint
     "webpack/hot/only-dev-server",
     // only hot reload for successful updates
@@ -57,6 +57,7 @@ const devExports = {
   devServer: {
     hot: true, // enable HMR on the server
     contentBase: __dirname, // match the output path
+    port: 3003,
     publicPath: "/" // match the output `publicPath`
   },
 
