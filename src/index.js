@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import App from './app';
+import App from "./app";
 
-const appElement = document.getElementById('app');
+const appElement = document.getElementById("app");
 
 const greeting = `
  /88
@@ -18,13 +18,13 @@ const greeting = `
                    |  888888/
                     \\______/
 
-bolin.chris@gmail.com
+say hi: bolin.chris@gmail.com
 
-source: https://github.com/chrisbolin/chrisbolin.github.io
+see source: https://github.com/chrisbolin/chrisbolin.github.io
 `;
 
 if (appElement) {
-  ReactDOM.render(<App/>, appElement);
+  ReactDOM.render(<App />, appElement);
   console.log(greeting);
 } else {
   global.App = App;

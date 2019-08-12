@@ -1,5 +1,4 @@
 import React from "react";
-import styleSheet from "../style.css";
 
 const fx = {
   limitUnit(x) {

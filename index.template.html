@@ -23,6 +23,133 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
     />
+    <style>
+      html {
+        background-color: #f9f9f9;
+      }
+
+      body {
+        margin: 0;
+        overflow-x: hidden;
+      }
+      body ::-moz-selection {
+        background: rgba(255, 255, 255, 0.3);
+      }
+      body ::selection {
+        background: rgba(255, 255, 255, 0.3);
+      }
+
+      .app {
+        background-color: #f9f9f9;
+      }
+
+      .container {
+        position: fixed;
+        width: 100%;
+      }
+
+      .card-plane {
+        position: absolute;
+        width: 182px;
+        height: 320px;
+        margin: 50px calc(50vw - 91px);
+      }
+      .card-plane .card-face {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+      }
+      .card-plane .card-face.front {
+        background-color: #240f1f;
+        color: white;
+        font-style: italic;
+        font-family: "Baskerville", "Times New Roman", "Droid Serif", "Times",
+          serif;
+      }
+      .card-plane .card-face.front .title {
+        font-size: 26px;
+        padding: 22px 22px;
+      }
+      .card-plane .card-face.front .title hr {
+        border-style: solid;
+        margin: 7px 0;
+        color: inherit;
+      }
+      .scroll {
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        color: #7d7d7d;
+        bottom: -30px;
+        font-size: 16px;
+      }
+      .card-plane .card-face.back {
+        /* reversed for the back of the card */
+        width: 320px;
+        height: 182.85714px;
+        -webkit-transform: rotateZ(90deg) rotateX(180deg)
+          translate3d(68.57143px, -68.57143px, 0px);
+        transform: rotateZ(90deg) rotateX(180deg)
+          translate3d(68.57143px, -68.57143px, 0px);
+      }
+
+      .arrow {
+        font-size: 24px;
+        font-family: "Times New Roman", serif;
+        position: fixed;
+        text-align: center;
+        width: 100%;
+        top: 320px;
+      }
+
+      #links {
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+          Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
+        font-size: 9vmin;
+        padding: 4vmin;
+        font-weight: 800;
+        width: 100vmin;
+        margin: auto;
+        position: relative;
+      }
+      #links .line {
+        line-height: 7.5vmin;
+        margin-bottom: 2.5vmin;
+      }
+      #links .line:nth-of-type(5n + 1) {
+        color: #fd556f;
+      }
+      #links .line:nth-of-type(5n + 2) {
+        color: #edc919;
+      }
+      #links .line:nth-of-type(5n + 3) {
+        color: #76919a;
+      }
+      #links .line:nth-of-type(5n + 4) {
+        color: #257a97;
+      }
+      #links .line:nth-of-type(5n + 5) {
+        color: #7a486e;
+      }
+      #links a {
+        border-bottom: 0.7vmin solid white;
+        margin-bottom: -0.7vmin;
+        padding-bottom: 0.6vmin;
+        text-decoration: none;
+        display: inline-block;
+        color: inherit;
+        border-color: inherit;
+        -webkit-transition: color 500ms ease-out, border-color 500ms ease-out;
+        transition: color 500ms ease-out, border-color 500ms ease-out;
+      }
+      #links a:hover {
+        color: #bbb;
+        border-color: #bbb;
+      }
+      .hidden {
+        opacity: 0 !important;
+      }
+    </style>
   </head>
   <body>
     <div id="app"><!-- STATIC_RENDER --></div>

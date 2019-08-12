@@ -2,7 +2,6 @@ const { resolve } = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ExtractTextWebpackPlugin = require("extract-text-webpack-plugin");
-const StyleExtHtmlWebpackPlugin = require("style-ext-html-webpack-plugin");
 
 const baseExports = {
   context: resolve(__dirname, "src"),
@@ -21,14 +20,6 @@ const baseExports = {
         test: /\.js$/,
         use: ["babel-loader"],
         exclude: /node_modules/
-      },
-      {
-        test: /\.css$/,
-        loader: ExtractTextWebpackPlugin.extract({
-          use: "css-loader",
-          fallback: "style-loader"
-        }),
-        exclude: /node_modules/
       }
     ]
   },
@@ -36,9 +27,7 @@ const baseExports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: resolve(__dirname, "index.template.html")
-    }),
-    new ExtractTextWebpackPlugin("styles.css"),
-    new StyleExtHtmlWebpackPlugin()
+    })
   ]
 };
 
