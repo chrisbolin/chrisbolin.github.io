@@ -17,10 +17,11 @@ const markupRendered = markupTemplate.replace(
   renderedApp
 );
 const markupMinified = htmlMinify(markupRendered, {
-  minifyCSS: true,
-  removeTagWhitespace: true,
+  collapseInlineTagWhitespace: true,
   collapseWhitespace: true,
-  collapseInlineTagWhitespace: true
+  minifyCSS: true,
+  minifyJS: true,
+  removeTagWhitespace: true
 });
 
 fs.writeFileSync("index.html", markupMinified);
