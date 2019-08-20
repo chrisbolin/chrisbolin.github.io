@@ -125,84 +125,132 @@ const Arrow = ({ x }) => {
   );
 };
 
-const Line = ({ children, x, show }) => (
-  <div
-    style={{
-      opacity: x > show ? (x - show) / (1 - show) : 0
-    }}
-    className="line"
-  >
-    {children}
-  </div>
-);
+const links = {
+  // main
+  "The Disconnect": "https://thedisconnect.co/",
+  Formidable: "https://formidable.com/",
 
-const Slash = props => <span>{" / "}</span>;
+  // work
+  "U of Denver":
+    "https://daniels.du.edu/entrepreneurship/entrepreneurship-degree-programs",
+  Jumpshell: "https://www.jumpshell.com/",
+  Autotegrity: "https://www.cogolabs.com/portfolio/autotegrity",
+  NI: "http://www.ni.com/",
+  "MIT EBM Lab": "http://web.mit.edu/ebm/www/",
 
-const A = ({ children, href, sameWindow }) => (
+  // projects
+  "Offline Only": "https://chris.bolin.co/offline/",
+  Elements: "https://chris.bolin.co/elements/",
+  Tessellate: "https://chris.bolin.co/tessellate/",
+  Enchiridion: "https://chris.bolin.co/enchiridion/",
+  Skycoins: "https://chris.bolin.co/skycoins/",
+  Shipwrecked: "http://www.blurb.com/books/1234410-shipwrecked",
+  Travels: "https://rookievagabonds.tumblr.com/",
+
+  // talks
+  DinosaurJS: "https://www.youtube.com/watch?v=nhuvY0CT064",
+  "SXSW me Convention": "https://www.youtube.com/watch?v=6wjqLAaCAyw",
+  "Offline Websites": "https://www.youtube.com/watch?v=iavC1oWvtJ8&t=2591s",
+  Debugging: "https://www.youtube.com/watch?v=ccG9L2Pg4io&t=1035",
+
+  // press
+  Lifehacker:
+    "https://lifehacker.com/you-cant-read-this-website-until-you-turn-off-your-inte-1822776654",
+  Vice:
+    "https://motherboard.vice.com/en_us/article/kzzgjn/this-website-only-works-when-youre-offline",
+  CBC:
+    "http://www.cbc.ca/radio/spark/want-to-look-at-this-guy-s-website-go-offline-1.4281329",
+  CJR:
+    "https://www.cjr.org/innovations/disconnect-magazine-only-works-offline.php",
+  "Le Monde":
+    "http://www.lemonde.fr/big-browser/article/2017/08/29/et-si-se-deconnecter-vous-aidait-a-mieux-profiter-des-richesses-d-internet_5177910_4832693.html",
+  "The Next Web":
+    "https://thenextweb.com/insider/2017/08/21/this-manifesto-against-internet-addiction-can-only-be-viewed-offline/",
+
+  // edu
+  "Computational Engineering": "https://computationalengineering.mit.edu/",
+  "numerical simulation of environmental impact":
+    "http://dspace.mit.edu/handle/1721.1/82189",
+
+  // contact
+  Email: "mailto:bolin.chris@gmail.com",
+  Insta: "https://www.instagram.com/bolinchris/",
+  Twitter: "https://twitter.com/bolinchris"
+};
+
+const A = props => (
   <a
-    href={href}
-    target={sameWindow ? "_self" : "_blank"}
+    href={links[props.children] || console.error("NOT FOUND:", props.children)}
+    target="_blank"
     rel="noopener noreferrer"
-  >
-    {children}
-  </a>
+    {...props}
+  />
 );
 
-const BackText = ({ x }) => {
-  // Text does not show until x < 0.7
-  const progress = x < 0.7 ? 0 : (x - 0.7) / 0.3;
-  const display = progress ? "inherit" : "none";
-  const shaddowOpacity = fx.limitUnit((progress - 0.5) * 2);
-  const shaddowColor = `rgba(36,15,31,${shaddowOpacity})`;
-  const textShadow = `
-    ${shaddowColor} 0.5vmin 0 0,
-    ${shaddowColor} 0.5vmin 0.5vmin 0,
-    ${shaddowColor} 0.5vmin -0.5vmin 0,
-    ${shaddowColor} -0.5vmin 0 0,
-    ${shaddowColor} -0.5vmin 0.5vmin 0,
-    ${shaddowColor} -0.5vmin -0.5vmin 0
-  `;
+const AboutText = ({ progress }) => {
+  const y = 1 - progress;
+  return (
+    <div
+      id="about"
+      style={{
+        transform: `
+          translateY(${-60 * y}vh)
+          scale(${progress})
+          rotateZ(${y * 60}deg)
+        `,
+        opacity: progress
+      }}
+    >
+      <p>
+        <b>[Chris Bolin]</b> Software engineer + artist in Denver. Engineering,{" "}
+        <A>Formidable</A>. Founder, <A>The Disconnect</A>.
+      </p>
 
-  const style = {
-    display,
-    textShadow
-  };
+      <p>
+        <b>[Projects]</b> <A>Offline Only</A>, <A>Tessellate</A>,{" "}
+        <A>Skycoins</A>, <A>Elements</A>, <A>Enchiridion</A>, <A>Travels</A>,{" "}
+        <A>Shipwrecked</A>.
+      </p>
+
+      <p>
+        <b>[Talks]</b> <A>SXSW me Convention</A>, <A>DinosaurJS</A>,{" "}
+        <A>Debugging</A>, <A>Offline Websites</A>.
+      </p>
+
+      <p>
+        <b>[Press]</b> <A>Vice</A>, <A>Lifehacker</A>, <A>CBC</A>, <A>CJR</A>,{" "}
+        <A>Le Monde</A>, <A>The Next Web</A>.
+      </p>
+
+      <p>
+        <b>[Work]</b> VP Engineering, <A>Formidable</A>. Adjunct,{" "}
+        <A>U of Denver</A>. Engineer, <A>Jumpshell</A>. Data scientist,{" "}
+        <A>Autotegrity</A>. Researcher, <A>MIT EBM Lab</A>. Engineer, <A>NI</A>.
+      </p>
+
+      <p>
+        <b>[Edu]</b> Master’s <A>Computational Engineering</A>, MIT,{" "}
+        <A>numerical simulation of environmental impact</A>. BS Mechanical
+        Engineering, U of Nebraska.
+      </p>
+
+      <p>
+        <b>[Contact]</b> <A>Email</A>, <A>Twitter</A>, <A>Insta</A>.
+      </p>
+    </div>
+  );
+};
+
+const Back = ({ x }) => {
+  // Text does not show until minX
+  const minX = 0.75;
+  const display = x > minX ? "inherit" : "none";
+  const progress = Math.max((x - minX) / (1 - minX), 0);
+  const style = { display };
 
   return (
-    <div id="links" style={style}>
-      <Line x={x} show={0.78}>
-        chris bolin
-      </Line>
-      <Line x={x} show={0.82}>
-        wannabe polymath
-      </Line>
-      <Line x={x} show={0.85}>
-        <A href="/about/" sameWindow>
-          about
-        </A>
-        <Slash />
-        <A href="https://thedisconnect.co">disconnect</A>
-      </Line>
-      <Line x={x} show={0.87}>
-        <A href="/offline/">offline</A>
-        <Slash />
-        <A href="/skycoins/">skycoins</A>
-      </Line>
-      <Line x={x} show={0.9}>
-        <A href="/tessellate/">tessellate</A>
-        <Slash />
-        <A href="https://rookievagabonds.tumblr.com">travels</A>
-      </Line>
-      <Line x={x} show={0.93}>
-        <A href="/words/">words</A>
-        <Slash />
-        <A href="https://www.formidable.com">formidable</A>
-      </Line>
-      <Line x={x} show={0.96}>
-        <A href="https://twitter.com/bolinchris">twitter</A>
-        <Slash />
-        <A href="https://www.instagram.com/bolinchris">instagram</A>
-      </Line>
+    <div id="back" style={style}>
+      <AboutText progress={progress} />
     </div>
   );
 };
@@ -272,9 +320,9 @@ export default class App extends React.Component {
       <div className="app" style={appStyle}>
         <div className="container">
           <CardPlane x={planeX} mounted={this.state.mounted} />
-          <Arrow x={x} />
-          <BackText x={x} />
+          <Back x={x} />
         </div>
+        <Arrow x={x} />
       </div>
     );
   }
