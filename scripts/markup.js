@@ -27,7 +27,9 @@ const markupMinified = htmlMinify(markupRendered, {
 fs.writeFileSync("index.html", markupMinified);
 
 function spoofBrowser() {
-  window = {};
+  window = {
+    __ssr__: true
+  };
   navigator = {
     userAgent: {
       match: noop

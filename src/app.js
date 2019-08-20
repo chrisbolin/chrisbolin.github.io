@@ -175,7 +175,7 @@ const links = {
     "http://dspace.mit.edu/handle/1721.1/82189",
 
   // contact
-  Email: "mailto:bolin.chris@gmail.com",
+  Email: "<!--email_off-->mailto:bolin.chris@gmail.com<!--/email_off-->",
   Insta: "https://www.instagram.com/bolinchris/",
   Twitter: "https://twitter.com/bolinchris"
 };
@@ -236,9 +236,11 @@ const AboutText = ({ progress }) => {
         Engineering, U of Nebraska.
       </p>
 
-      <p>
-        <b>[Contact]</b> <A>Email</A>, <A>Twitter</A>, <A>Insta</A>.
-      </p>
+      {!window.__ssr__ && (
+        <p>
+          <b>[Contact]</b> <A>Email</A>, <A>Twitter</A>, <A>Insta</A>.
+        </p>
+      )}
     </div>
   );
 };
