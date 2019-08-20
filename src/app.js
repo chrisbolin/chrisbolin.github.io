@@ -42,7 +42,7 @@ const CardFront = ({ x, mounted }) => {
   return (
     <div className="card-face front" style={{ zIndex }}>
       <div className="title">
-        chris bolin
+        wannabe polymath
         <hr />
       </div>
       <div className={`scroll ${mounted || "hidden"}`} style={scrollStyle}>
@@ -112,11 +112,13 @@ class CardPlane extends React.Component {
 const Arrow = ({ x }) => {
   const grey = Math.floor(255 * (1 - x));
   const transform = `translateY(${20 * x}px)`;
+  const opacity = fx.limitUnit(10 * (0.9 - x));
   const style = {
     transform,
     WebkitTransform: transform,
     color: `rgb(${grey},${grey},${grey})`,
-    opacity: fx.limitUnit(10 * (0.9 - x))
+    opacity,
+    display: opacity > 0 ? "block" : "none"
   };
   return (
     <div className="arrow" style={style}>
@@ -249,7 +251,7 @@ const Back = ({ x }) => {
   const style = { display };
 
   return (
-    <div id="back" style={style}>
+    <div id="back-content" style={style}>
       <AboutText progress={progress} />
     </div>
   );
