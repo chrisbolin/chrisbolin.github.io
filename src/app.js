@@ -236,11 +236,9 @@ const AboutText = ({ progress }) => {
         Engineering, U of Nebraska.
       </p>
 
-      {!window.__ssr__ && (
-        <p>
-          <b>[Contact]</b> <A>Email</A>, <A>Twitter</A>, <A>Insta</A>.
-        </p>
-      )}
+      <p>
+        <b>[Contact]</b> <A>Twitter</A>, <A>Insta</A>.
+      </p>
     </div>
   );
 };
