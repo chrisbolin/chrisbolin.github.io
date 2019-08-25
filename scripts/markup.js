@@ -17,7 +17,6 @@ const markupRendered = markupTemplate.replace(
   renderedApp
 );
 const markupMinified = htmlMinify(markupRendered, {
-  collapseInlineTagWhitespace: true,
   collapseWhitespace: true,
   minifyCSS: true,
   minifyJS: true,
