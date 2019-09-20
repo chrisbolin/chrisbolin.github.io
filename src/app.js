@@ -198,7 +198,7 @@ const AboutText = ({ progress }) => {
         transform: `
           translateY(${-60 * y}vh)
           scale(${progress})
-          rotateZ(${y * 60}deg)
+          rotateZ(-${y * 10}deg)
         `,
         opacity: progress
       }}
@@ -272,39 +272,9 @@ export default class App extends React.Component {
       window.scrollY / (window.innerHeight * (this.scrollLength - 1))
     );
     this.setState({ x });
-    document.documentElement.style.backgroundColor = x < 0.5 ? null : "#240f1f";
-  }
-
-  handleLegacyScroll(e) {
-    // handling for non-iOS mobile devices, until they allow painting while scrolling
-    // this creates a non-interactive animation instead :/
-
-    let x = this.state.x;
-    const interval = 10; // update in ms
-    const totalTime = 1000; // ms
-
-    e.preventDefault();
-
-    // don't queue up anything in the middle of animation
-    if (x !== 1 && x !== 0) return;
-
-    // 'scroll' up when at the bottom
-    const increment = (interval / totalTime) * (x === 1 ? -1 : 1);
-    const intervalId = setInterval(() => {
-      x = fx.limitUnit(x + increment);
-      this.setState({ x });
-      if (x === 0 || x === 1) {
-        clearInterval(intervalId);
-      }
-    }, interval);
   }
   componentDidMount() {
-    this.container = document.getElementsByClassName("main");
-    // backup for non-safari mobile browsers
-    const handler =
-      fx.isMobile() && !fx.enableMobileInteraction()
-        ? this.handleLegacyScroll.bind(this)
-        : this.handleScroll.bind(this);
+    const handler = this.handleScroll.bind(this);
 
     window.addEventListener("scroll", handler);
     window.addEventListener("resize", handler);
@@ -313,7 +283,7 @@ export default class App extends React.Component {
     this.setState({ mounted: true });
   }
   render() {
-    const x = fx.limitUnit(this.state.x); // extra padding for slight scroll ups
+    const { x } = this.state; // extra padding for slight scroll ups
     const backgroundTransitionPoint = 0.95;
     const backgroundLightness =
       x > backgroundTransitionPoint
