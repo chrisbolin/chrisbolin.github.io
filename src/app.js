@@ -5,15 +5,7 @@ const fx = {
     return x < 0 ? 0 : x < 1 ? x : 1;
   },
   isMobile() {
-    return navigator.userAgent.match(
-      /Mobile|iP(hone|od|ad)|Android|BlackBerry|IEMobile/
-    );
-  },
-  enableMobileInteraction() {
-    const ua = navigator.userAgent;
-    return (
-      (ua.match(/Safari/) && !ua.match(/CriOS|Chrome/)) || ua.match(/Android/)
-    );
+    return navigator.userAgent.match(/Mobile|iP(hone|od|ad)|Android|IEMobile/);
   }
 };
 
