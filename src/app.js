@@ -313,15 +313,20 @@ export default class App extends React.Component {
     this.setState({ mounted: true });
   }
   render() {
-    const x = this.state.x; // extra padding for slight scroll ups
-    const planeX = fx.limitUnit(x);
+    const x = fx.limitUnit(this.state.x); // extra padding for slight scroll ups
+    const backgroundTransitionPoint = 0.95;
+    const backgroundLightness =
+      x > backgroundTransitionPoint
+        ? (1 - x) / (1 - backgroundTransitionPoint)
+        : 1;
     const appStyle = {
-      height: this.state.mounted ? `${this.scrollLength * 100}vh` : "auto"
+      height: this.state.mounted ? `${this.scrollLength * 100}vh` : "auto",
+      backgroundColor: `hsl(0, 0%, ${100 * backgroundLightness}%)`
     };
     return (
       <div className="app" style={appStyle}>
         <div className="container">
-          <CardPlane x={planeX} mounted={this.state.mounted} />
+          <CardPlane x={x} mounted={this.state.mounted} />
           <Back x={x} />
         </div>
         <Arrow x={x} />
