@@ -72,33 +72,31 @@ const CardBack = ({ x }) => {
   );
 };
 
-class CardPlane extends React.Component {
-  getStyle() {
-    const x = this.props.x;
-    const rotateX = 180 * (x < 0.5 ? x : fx.limitUnit(x * 2 - 0.5));
-    const transform = `
+const cardPlaneStyle = x => {
+  const rotateX = 180 * (x < 0.5 ? x : fx.limitUnit(x * 2 - 0.5));
+  const transform = `
       rotateZ(${90 * x}deg)
       rotateX(${rotateX}deg)
       translate3d(${-50 * x}px, 0, 0)
       scale(${1 + x * x * x * x * 10})
     `;
 
-    return {
-      transform,
-      WebkitTransform: transform
-    };
-  }
-  render() {
-    const zFront = this.props.x < 0.5 ? 1 : 0;
-    const zBack = !zFront;
-    return (
-      <div style={this.getStyle()} className="card-plane">
-        <CardFront x={this.props.x} mounted={this.props.mounted} />
-        <CardBack x={this.props.x} />
-      </div>
-    );
-  }
-}
+  return {
+    transform,
+    WebkitTransform: transform
+  };
+};
+
+const CardPlane = ({ x, mounted }) => {
+  const zFront = x < 0.5 ? 1 : 0;
+  const zBack = !zFront;
+  return (
+    <div style={cardPlaneStyle(x)} className="card-plane">
+      <CardFront x={x} mounted={mounted} />
+      <CardBack x={x} />
+    </div>
+  );
+};
 
 const Arrow = ({ x }) => {
   const grey = Math.floor(255 * (1 - x));
@@ -274,7 +272,7 @@ export default class App extends React.Component {
     this.setState({ mounted: true });
   }
   render() {
-    const { x } = this.state; // extra padding for slight scroll ups
+    const { x } = this.state;
     const backgroundTransitionPoint = 0.95;
     const backgroundAlpha =
       x > backgroundTransitionPoint
