@@ -52,8 +52,7 @@ const CardFront = ({ x, mounted }) => {
 const CardBack = ({ x }) => {
   const zIndex = x > 0.5 ? 1 : 0;
   const style = {
-    zIndex,
-    backgroundColor: "#240f1f"
+    zIndex
   };
 
   if (!zIndex) return <div />;
@@ -277,13 +276,13 @@ export default class App extends React.Component {
   render() {
     const { x } = this.state; // extra padding for slight scroll ups
     const backgroundTransitionPoint = 0.95;
-    const backgroundLightness =
+    const backgroundAlpha =
       x > backgroundTransitionPoint
-        ? (1 - x) / (1 - backgroundTransitionPoint)
-        : 1;
+        ? (x - backgroundTransitionPoint) / (1 - backgroundTransitionPoint)
+        : 0;
     const appStyle = {
       height: this.state.mounted ? `${this.scrollLength * 100}vh` : "auto",
-      backgroundColor: `hsl(0, 0%, ${100 * backgroundLightness}%)`
+      backgroundColor: `hsla(314, 41%, 10%, ${backgroundAlpha})`
     };
     return (
       <div className="app" style={appStyle}>
