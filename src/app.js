@@ -44,7 +44,7 @@ const CardFront = ({ x, mounted }) => {
       <ColorBar color="#76919A" left="20%" width="20%" x={x * 4.7} />
       <ColorBar color="#257A97" left="40%" width="20%" x={x * 4.4} />
       <ColorBar color="#7A486E" left="60%" width="20%" x={x * 4} />
-      <ColorBar color="#FD556F" left="80%" width="20%" x={x * 3.5} />
+      <ColorBar color="hsl(351, 98%, 66%)" left="80%" width="20%" x={x * 3.5} />
     </div>
   );
 };
@@ -58,16 +58,12 @@ const CardBack = ({ x }) => {
   if (!zIndex) return <div />;
   return (
     <div className="card-face back" style={style}>
-      <ColorBar color="#EDC919" width="10%" left="0%" x={2 * (1 - x)} />
-      <ColorBar color="#76919A" width="10%" left="10%" x={2.1 * (1 - x)} />
-      <ColorBar color="#257A97" width="10%" left="20%" x={2.2 * (1 - x)} />
-      <ColorBar color="#7A486E" width="10%" left="30%" x={2.3 * (1 - x)} />
-      <ColorBar color="#EDC919" width="10%" left="40%" x={2.4 * (1 - x)} />
-      <ColorBar color="#76919A" width="10%" left="50%" x={2.5 * (1 - x)} />
-      <ColorBar color="#257A97" width="10%" left="60%" x={2.6 * (1 - x)} />
-      <ColorBar color="#7A486E" width="10%" left="70%" x={2.7 * (1 - x)} />
-      <ColorBar color="#EDC919" width="10%" left="80%" x={2.8 * (1 - x)} />
-      <ColorBar color="#76919A" width="10%" left="90%" x={2.9 * (1 - x)} />
+      <ColorBar
+        color={`hsl(${151 + x * 400}, 98%, 66%)`}
+        width="100%"
+        left="0%"
+        x={2 * (1 - x)}
+      />
     </div>
   );
 };
