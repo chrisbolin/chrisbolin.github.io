@@ -187,7 +187,7 @@ const AboutText = ({ progress }) => {
         transform: `
           translateY(${-60 * y}vh)
           scale(${progress})
-          rotateZ(-${y * 10}deg)
+          rotateZ(-${y * 15}deg)
         `,
         opacity: progress
       }}
