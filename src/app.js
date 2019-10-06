@@ -9,6 +9,24 @@ const fx = {
   }
 };
 
+const colors = [
+  { value: "#810d7e", barXScale: 5.2, gradientPosition: "15%" },
+  { value: "#b75353", barXScale: 4.7, gradientPosition: "36%" },
+  { value: "#a0c94d", barXScale: 4.4, gradientPosition: "59%" },
+  { value: "#708396", barXScale: 4, gradientPosition: "81%" },
+  { value: "#3f20ff", barXScale: 3.5, gradientPosition: "100%" }
+];
+
+const radialBackground = `
+  radial-gradient(
+    circle,
+    black 0%,
+    ${colors.map(
+      ({ value, gradientPosition }) => `${value} ${gradientPosition}`
+    )}
+    )
+`;
+
 const ColorBar = ({ x, width, left, color }) => {
   const height = fx.limitUnit(x) * 100;
   return (
@@ -40,11 +58,14 @@ const CardFront = ({ x, mounted }) => {
       <div className={`scroll ${mounted || "hidden"}`} style={scrollStyle}>
         (scroll)
       </div>
-      <ColorBar color="#810d7e" left="0%" width="20%" x={x * 5.2} />
-      <ColorBar color="#b75353" left="20%" width="20%" x={x * 4.7} />
-      <ColorBar color="#a0c94d" left="40%" width="20%" x={x * 4.4} />
-      <ColorBar color="#708396" left="60%" width="20%" x={x * 4} />
-      <ColorBar color="#3f20ff" left="80%" width="20%" x={x * 3.5} />
+      {colors.map(({ value, barXScale }, index) => (
+        <ColorBar
+          color={value}
+          left={`${index * 20}%`}
+          width="20%"
+          x={x * barXScale}
+        />
+      ))}
     </div>
   );
 };
@@ -54,9 +75,7 @@ const CardBack = ({ x }) => {
 
   const style = {
     zIndex,
-    background: `
-      radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(129,13,126,1) 15%, rgba(183,83,83,1) 36%, rgba(160,201,77,1) 59%, rgba(112,131,150,1) 81%, rgba(63,32,255,1) 100%)
-    `
+    background: radialBackground
   };
 
   return <div className="card-face back" style={style}></div>;
@@ -177,7 +196,7 @@ const AboutText = ({ progress }) => {
         transform: `
           translateY(${-20 * y}vh)
           scale(${progress})
-          rotateZ(-${y * 15 + 2}deg)
+          rotateZ(-${y * 15 + 0}deg)
         `,
         opacity: progress
       }}
