@@ -40,32 +40,26 @@ const CardFront = ({ x, mounted }) => {
       <div className={`scroll ${mounted || "hidden"}`} style={scrollStyle}>
         (scroll)
       </div>
-      <ColorBar color="#EDC919" left="0%" width="20%" x={x * 5.2} />
-      <ColorBar color="#76919A" left="20%" width="20%" x={x * 4.7} />
-      <ColorBar color="#257A97" left="40%" width="20%" x={x * 4.4} />
-      <ColorBar color="#7A486E" left="60%" width="20%" x={x * 4} />
-      <ColorBar color="hsl(351, 98%, 66%)" left="80%" width="20%" x={x * 3.5} />
+      <ColorBar color="#810d7e" left="0%" width="20%" x={x * 5.2} />
+      <ColorBar color="#b75353" left="20%" width="20%" x={x * 4.7} />
+      <ColorBar color="#a0c94d" left="40%" width="20%" x={x * 4.4} />
+      <ColorBar color="#708396" left="60%" width="20%" x={x * 4} />
+      <ColorBar color="#3f20ff" left="80%" width="20%" x={x * 3.5} />
     </div>
   );
 };
 
 const CardBack = ({ x }) => {
   const zIndex = x > 0.5 ? 1 : 0;
+
   const style = {
-    zIndex
+    zIndex,
+    background: `
+      radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(129,13,126,1) 15%, rgba(183,83,83,1) 36%, rgba(160,201,77,1) 59%, rgba(112,131,150,1) 81%, rgba(63,32,255,1) 100%)
+    `
   };
 
-  if (!zIndex) return <div />;
-  return (
-    <div className="card-face back" style={style}>
-      <ColorBar
-        color={`hsl(${151 + x * 400}, 98%, 66%)`}
-        width="100%"
-        left="0%"
-        x={2 * (1 - x)}
-      />
-    </div>
-  );
+  return <div className="card-face back" style={style}></div>;
 };
 
 const cardPlaneStyle = x => {
@@ -74,7 +68,7 @@ const cardPlaneStyle = x => {
       rotateZ(${90 * x}deg)
       rotateX(${rotateX}deg)
       translate3d(${-50 * x}px, 0, 0)
-      scale(${1 + x * x * x * x * 10})
+      scale(${1 + x * x * x * x * 20})
     `;
 
   return {
@@ -181,9 +175,9 @@ const AboutText = ({ progress }) => {
       id="about"
       style={{
         transform: `
-          translateY(${-60 * y}vh)
+          translateY(${-20 * y}vh)
           scale(${progress})
-          rotateZ(-${y * 15}deg)
+          rotateZ(-${y * 15 + 2}deg)
         `,
         opacity: progress
       }}
@@ -276,7 +270,7 @@ export default class App extends React.Component {
         : 0;
     const appStyle = {
       height: this.state.mounted ? `${this.scrollLength * 100}vh` : "auto",
-      backgroundColor: `hsla(314, 41%, 10%, ${backgroundAlpha})`
+      backgroundColor: `rgba(171, 166, 81, ${backgroundAlpha})`
     };
     return (
       <div className="app" style={appStyle}>
