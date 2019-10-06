@@ -10,11 +10,11 @@ const fx = {
 };
 
 const colors = [
-  { value: "#810d7e", barXScale: 5.2, gradientPosition: "15%" },
-  { value: "#b75353", barXScale: 4.7, gradientPosition: "36%" },
-  { value: "#a0c94d", barXScale: 4.4, gradientPosition: "59%" },
-  { value: "#708396", barXScale: 4, gradientPosition: "81%" },
-  { value: "#3f20ff", barXScale: 3.5, gradientPosition: "100%" }
+  { value: "#42BAFF", barXScale: 5.2, gradientPosition: "25%" },
+  { value: "#A33CE8", barXScale: 4.7, gradientPosition: "36%" },
+  { value: "#E8BF3C", barXScale: 4.4, gradientPosition: "59%" },
+  { value: "#6AFF40", barXScale: 4, gradientPosition: "81%" },
+  { value: "#FF6E50", barXScale: 3.5, gradientPosition: "100%" }
 ];
 
 const radialBackground = `
