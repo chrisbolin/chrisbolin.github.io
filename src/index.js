@@ -5,9 +5,9 @@ import App from "./app";
 
 const appElement = document.getElementById("app");
 
-const greeting = `say hi: bolin.chris@gmail.com
+const greeting = `hey there
 
-see source: https://github.com/chrisbolin/chrisbolin.github.io`;
+source @ https://github.com/chrisbolin/chrisbolin.github.io`;
 
 if (appElement) {
   ReactDOM.render(<App />, appElement);

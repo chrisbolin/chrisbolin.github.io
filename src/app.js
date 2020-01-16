@@ -170,12 +170,7 @@ const links = {
   // edu
   "Computational Engineering": "https://computationalengineering.mit.edu/",
   "numerical simulation of environmental impact":
-    "http://dspace.mit.edu/handle/1721.1/82189",
-
-  // contact
-  Email: "<!--email_off-->mailto:bolin.chris@gmail.com<!--/email_off-->",
-  Insta: "https://www.instagram.com/bolinchris/",
-  Twitter: "https://twitter.com/bolinchris"
+    "http://dspace.mit.edu/handle/1721.1/82189"
 };
 
 const A = props => (
@@ -185,6 +180,16 @@ const A = props => (
     rel="noopener noreferrer"
     {...props}
   />
+);
+
+const EmailButton = () => (
+  <button
+    onClick={() => {
+      window.open("mailto:bolin.chris@gmail.com");
+    }}
+  >
+    Email
+  </button>
 );
 
 const AboutText = ({ progress }) => {
@@ -235,7 +240,7 @@ const AboutText = ({ progress }) => {
       </p>
 
       <p>
-        <b>[Contact]</b> <A>Twitter</A>, <A>Insta</A>.
+        <b>[Contact]</b> <EmailButton />.
       </p>
     </div>
   );
