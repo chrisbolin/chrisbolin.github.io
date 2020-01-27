@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 
 import App from "./app";
 
-const appElement = document.getElementById("app");
+const appElement = document.getElementById("root");
 
 const greeting = `hey there
 
