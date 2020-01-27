@@ -26,6 +26,7 @@
     <style>
       html {
         background-color: #f9f9f9;
+        font-family: Helvetica Neue, Arial, sans-serif;
       }
 
       body {
@@ -36,6 +37,17 @@
       body ::selection {
         color: black;
         background: rgba(255, 247, 0, 0.95);
+      }
+
+      .skip {
+        position: absolute;
+        top: -40px;
+      }
+
+      .skip:focus {
+        z-index: 1;
+        font-size: 6vw;
+        top: 0;
       }
 
       .app {
@@ -103,7 +115,6 @@
       }
 
       #back-content {
-        font-family: Helvetica Neue, Arial, sans-serif;
         color: hsl(195, 0%, 92%);
         font-size: 9vmin;
         width: 95vmin;
@@ -137,6 +148,8 @@
       }
 
       a:hover,
+      a:focus,
+      button:focus,
       button:hover {
         background: -webkit-linear-gradient(0deg, orange, blue);
         color: black;
@@ -155,7 +168,9 @@
     </style>
   </head>
   <body>
+    <a class="skip" href="#down">skip to content.</a>
     <div id="root"><!-- STATIC_RENDER --></div>
+    <dib id="down">
     <script async src="https://www.google-analytics.com/analytics.js"></script>
     <script>
       window.ga =
