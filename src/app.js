@@ -176,7 +176,6 @@ const links = {
 const A = props => (
   <a
     href={links[props.children] || console.error("NOT FOUND:", props.children)}
-    target="_blank"
     rel="noopener noreferrer"
     {...props}
   />
