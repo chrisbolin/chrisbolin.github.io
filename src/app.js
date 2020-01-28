@@ -170,7 +170,8 @@ const links = {
   // edu
   "Computational Engineering": "https://computationalengineering.mit.edu/",
   "numerical simulation of environmental impact":
-    "http://dspace.mit.edu/handle/1721.1/82189"
+    "http://dspace.mit.edu/handle/1721.1/82189",
+  Email: "mailto:bolin.chris@gmail.com"
 };
 
 const A = props => (
@@ -181,15 +182,21 @@ const A = props => (
   />
 );
 
-const EmailButton = () => (
-  <button
-    onClick={() => {
-      window.open("mailto:bolin.chris@gmail.com");
-    }}
-  >
-    Email
-  </button>
-);
+class ClientLink extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      mounted: false
+    };
+  }
+  componentDidMount() {
+    this.setState({ mounted: true });
+  }
+  render() {
+    if (this.state.mounted) return <A {...this.props} />; // if mounted on client, render as usual
+    return false; // if rendered on server
+  }
+}
 
 const AboutText = ({ progress }) => {
   const y = 1 - progress;
@@ -239,7 +246,7 @@ const AboutText = ({ progress }) => {
       </p>
 
       <p>
-        <b>[Contact]</b> <EmailButton />.
+        <b>[Contact]</b> <ClientLink>Email</ClientLink>.
       </p>
     </div>
   );
