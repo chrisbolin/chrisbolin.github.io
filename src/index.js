@@ -10,7 +10,7 @@ const greeting = `hey there
 source @ https://github.com/chrisbolin/chrisbolin.github.io`;
 
 if (appElement) {
-  ReactDOM.render(<App />, appElement);
+  ReactDOM.hydrate(<App />, appElement);
   console.log(greeting);
 } else {
   global.App = App;
