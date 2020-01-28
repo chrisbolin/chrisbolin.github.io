@@ -60,6 +60,7 @@ const CardFront = ({ x, mounted }) => {
       </div>
       {colors.map(({ value, barXScale }, index) => (
         <ColorBar
+          key={index}
           color={value}
           left={`${index * 20}%`}
           width="20%"
