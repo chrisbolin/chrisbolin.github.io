@@ -1,10 +1,8 @@
 {
   "scripts": {
-    "start": "webpack-dev-server",
-    "prod": "python -m SimpleHTTPServer",
-    "build-webpack": "webpack -p --env=prod",
-    "build-markup": "export NODE_ENV='production' && node scripts/markup.js",
-    "build": "yarn build-webpack && yarn build-markup"
+    "start": "next",
+    "prod": "next start",
+    "build": "next build"
   },
   "dependencies": {
     "next": "^9.4.4",
