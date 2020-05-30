@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[7],{"6+OC":function(n,w,o){(window.__NEXT_P=window.__NEXT_P||[]).push(["/index/global-styles",function(){return o("DFAe")}])}},[["6+OC",0,1,3]]]);

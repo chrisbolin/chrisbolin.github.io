@@ -1,0 +1,1 @@
+self.__BUILD_MANIFEST = (function(a){return {"/":[a],"/index":[a],"/index/global-styles":[a]}}("static\u002Fchunks\u002Fbbfbf005fb9a26a4087685e1fa3e7e693fb8df31.91afb442815b030e64bd.js"));self.__BUILD_MANIFEST_CB && self.__BUILD_MANIFEST_CB()
