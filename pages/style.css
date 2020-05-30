@@ -1,10 +1,11 @@
 html {
-  background-color: #f9f9f9;
   font-family: Helvetica Neue, Arial, sans-serif;
+  background-color: #d93285;
 }
 
 body {
   margin: 0;
+  background-color: #f9f9f9;
   overflow-x: hidden;
 }
 
