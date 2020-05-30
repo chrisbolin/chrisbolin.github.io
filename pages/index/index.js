@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import Head from "next/head";
 
-const fx = {
-  limitUnit(x) {
-    return x < 0 ? 0 : x < 1 ? x : 1;
-  },
-  isMobile() {
-    if (typeof navigator === "undefined") return false;
-    return navigator.userAgent.match(/Mobile|iP(hone|od|ad)|Android|IEMobile/);
-  },
+import A, { ClientOnlyLink } from "./link";
+
+const limitUnit = (x) => (x < 0 ? 0 : x < 1 ? x : 1);
+
+const isMobile = () => {
+  if (typeof navigator === "undefined") return false;
+  return navigator.userAgent.match(/Mobile|iP(hone|od|ad)|Android|IEMobile/);
 };
 
 const colors = [
@@ -30,7 +29,7 @@ const radialBackground = `
 `;
 
 const ColorBar = ({ x, width, left, color }) => {
-  const height = fx.limitUnit(x) * 100;
+  const height = limitUnit(x) * 100;
   return (
     <div
       style={{
@@ -85,7 +84,7 @@ const CardBack = ({ x }) => {
 };
 
 const cardPlaneStyle = (x) => {
-  const rotateX = 180 * (x < 0.5 ? x : fx.limitUnit(x * 2 - 0.5));
+  const rotateX = 180 * (x < 0.5 ? x : limitUnit(x * 2 - 0.5));
   const transform = `
       rotateZ(${90 * x}deg)
       rotateX(${rotateX}deg)
@@ -113,7 +112,7 @@ const CardPlane = ({ x, mounted }) => {
 const Arrow = ({ x }) => {
   const grey = Math.floor(255 * (1 - x));
   const transform = `translateY(${20 * x}px)`;
-  const opacity = fx.limitUnit(10 * (0.9 - x));
+  const opacity = limitUnit(10 * (0.9 - x));
   const style = {
     transform,
     WebkitTransform: transform,
@@ -126,70 +125,6 @@ const Arrow = ({ x }) => {
       &darr;
     </div>
   );
-};
-
-const links = {
-  // main
-  "The Disconnect": "https://thedisconnect.co/",
-  Formidable: "https://formidable.com/",
-
-  // work
-  "U of Denver":
-    "https://daniels.du.edu/entrepreneurship/entrepreneurship-degree-programs",
-  Jumpshell: "https://www.jumpshell.com/",
-  Autotegrity: "https://www.cogolabs.com/portfolio/autotegrity",
-  NI: "http://www.ni.com/",
-  "MIT EBM Lab": "http://web.mit.edu/ebm/www/",
-
-  // projects
-  "Offline Only": "https://chris.bolin.co/offline/",
-  Elements: "https://chris.bolin.co/elements/",
-  Tessellate: "https://chris.bolin.co/tessellate/",
-  Enchiridion: "https://chris.bolin.co/enchiridion/",
-  Skycoins: "https://chris.bolin.co/skycoins/",
-  Shipwrecked: "http://www.blurb.com/books/1234410-shipwrecked",
-  Travels: "https://rookievagabonds.tumblr.com/",
-
-  // talks
-  DinosaurJS: "https://www.youtube.com/watch?v=nhuvY0CT064",
-  "SXSW me Convention": "https://www.youtube.com/watch?v=6wjqLAaCAyw",
-  "Offline Websites": "https://www.youtube.com/watch?v=iavC1oWvtJ8&t=2591s",
-  Debugging: "https://www.youtube.com/watch?v=ccG9L2Pg4io&t=1035",
-
-  // press
-  Lifehacker:
-    "https://lifehacker.com/you-cant-read-this-website-until-you-turn-off-your-inte-1822776654",
-  Vice:
-    "https://motherboard.vice.com/en_us/article/kzzgjn/this-website-only-works-when-youre-offline",
-  CBC:
-    "http://www.cbc.ca/radio/spark/want-to-look-at-this-guy-s-website-go-offline-1.4281329",
-  CJR:
-    "https://www.cjr.org/innovations/disconnect-magazine-only-works-offline.php",
-  "Le Monde":
-    "http://www.lemonde.fr/big-browser/article/2017/08/29/et-si-se-deconnecter-vous-aidait-a-mieux-profiter-des-richesses-d-internet_5177910_4832693.html",
-  "The Next Web":
-    "https://thenextweb.com/insider/2017/08/21/this-manifesto-against-internet-addiction-can-only-be-viewed-offline/",
-
-  // edu
-  "Computational Engineering": "https://computationalengineering.mit.edu/",
-  "numerical simulation of environmental impact":
-    "http://dspace.mit.edu/handle/1721.1/82189",
-  Email: "mailto:bolin.chris@gmail.com",
-};
-
-const A = (props) => (
-  <a
-    href={links[props.children] || console.error("NOT FOUND:", props.children)}
-    rel="noopener noreferrer"
-    {...props}
-  />
-);
-
-const ClientLink = (props) => {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), [setMounted]);
-  if (mounted) return <A {...props} />; // if mounted on client, render as usual
-  return false; // if rendered on server
 };
 
 const AboutText = ({ progress }) => {
@@ -240,7 +175,7 @@ const AboutText = ({ progress }) => {
       </p>
 
       <p>
-        <b>[Contact]</b> <ClientLink>Email</ClientLink>.
+        <b>[Contact]</b> <ClientOnlyLink>Email</ClientOnlyLink>.
       </p>
     </div>
   );
@@ -286,57 +221,51 @@ const SkipLink = () => (
 
 const SkipDestination = () => <div id="down"></div>;
 
-class Home extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      x: 0,
-      mounted: false,
-    };
-    // longer scroll for desktop users
-    this.scrollLength = fx.isMobile() ? 1.5 : 3;
-  }
-  handleScroll(e) {
-    const x = fx.limitUnit(
-      window.scrollY / (window.innerHeight * (this.scrollLength - 1))
-    );
-    this.setState({ x });
-  }
-  componentDidMount() {
-    const handler = this.handleScroll.bind(this);
+const Home = () => {
+  const [x, setX] = useState(0);
+  const [mounted, setMounted] = useState(false);
 
-    window.addEventListener("scroll", handler);
-    window.addEventListener("resize", handler);
-    window.addEventListener("touchmove", handler);
+  const scrollLength = useMemo(() => (isMobile() ? 1.5 : 3));
+  const handleScroll = useCallback(
+    () =>
+      setX(
+        limitUnit(window.scrollY / (window.innerHeight * (scrollLength - 1)))
+      ),
+    [setX]
+  );
 
-    this.setState({ mounted: true });
-  }
-  render() {
-    const { x } = this.state;
-    const backgroundTransitionPoint = 0.95;
-    const backgroundAlpha =
-      x > backgroundTransitionPoint
-        ? (x - backgroundTransitionPoint) / (1 - backgroundTransitionPoint)
-        : 0;
-    const appStyle = {
-      height: this.state.mounted ? `${this.scrollLength * 100}vh` : "auto",
-      backgroundColor: `rgba(171, 166, 81, ${backgroundAlpha})`,
-    };
-    return (
-      <>
-        <HtmlHead />
-        <div className="app" style={appStyle}>
-          <SkipLink />
-          <div className="container">
-            <CardPlane x={x} mounted={this.state.mounted} />
-            <Back x={x} />
-          </div>
-          <Arrow x={x} />
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleScroll);
+    window.addEventListener("touchmove", handleScroll);
+
+    setMounted(true);
+  }, [setMounted]);
+
+  const backgroundTransitionPoint = 0.95;
+  const backgroundAlpha =
+    x > backgroundTransitionPoint
+      ? (x - backgroundTransitionPoint) / (1 - backgroundTransitionPoint)
+      : 0;
+  const appStyle = {
+    height: mounted ? `${scrollLength * 100}vh` : "auto",
+    backgroundColor: `rgba(171, 166, 81, ${backgroundAlpha})`,
+  };
+
+  return (
+    <>
+      <HtmlHead />
+      <div className="app" style={appStyle}>
+        <SkipLink />
+        <div className="container">
+          <CardPlane x={x} mounted={mounted} />
+          <Back x={x} />
         </div>
-        <SkipDestination />
-      </>
-    );
-  }
-}
+        <Arrow x={x} />
+      </div>
+      <SkipDestination />
+    </>
+  );
+};
 
 export default Home;
