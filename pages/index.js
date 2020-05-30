@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 
 const fx = {
   limitUnit(x) {
@@ -268,6 +269,24 @@ const Back = ({ x }) => {
   );
 };
 
+const HtmlHead = () => (
+  <Head>
+    <title>Chris Bolin</title>
+
+    <meta
+      name="Description"
+      content="Chris Bolin is a software engineer and artist based in Denver."
+    />
+
+    <link rel="icon" sizes="16x16 32x32 64x64" href="favicon.ico" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
+    />
+  </Head>
+);
+
 class Home extends React.Component {
   constructor() {
     super();
@@ -306,6 +325,7 @@ class Home extends React.Component {
     };
     return (
       <div className="app" style={appStyle}>
+        <HtmlHead />
         <div className="container">
           <CardPlane x={x} mounted={this.state.mounted} />
           <Back x={x} />
