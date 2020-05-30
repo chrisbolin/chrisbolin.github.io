@@ -124,6 +124,7 @@ button:focus,
 button:hover {
   background: -webkit-linear-gradient(50deg, #7830cf, #cf3030);
   text-decoration: none;
+  color: white;
 }
 
 p {
