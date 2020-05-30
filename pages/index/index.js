@@ -11,11 +11,11 @@ const isMobile = () => {
 };
 
 const colors = [
-  { value: "#42BAFF", barXScale: 5.2, gradientPosition: "25%" },
-  { value: "#A33CE8", barXScale: 4.7, gradientPosition: "36%" },
-  { value: "#E8BF3C", barXScale: 4.4, gradientPosition: "59%" },
-  { value: "#6AFF40", barXScale: 4, gradientPosition: "81%" },
-  { value: "#FF6E50", barXScale: 3.5, gradientPosition: "100%" },
+  { value: "#7830CF", barXScale: 5.2, gradientPosition: "25%" },
+  { value: "#AB32D9", barXScale: 4.7, gradientPosition: "36%" },
+  { value: "#C236C2", barXScale: 4.4, gradientPosition: "59%" },
+  { value: "#D93285", barXScale: 4, gradientPosition: "81%" },
+  { value: "#CF3030", barXScale: 3.5, gradientPosition: "100%" },
 ];
 
 const radialBackground = `
