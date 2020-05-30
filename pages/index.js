@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, useCallback } from "react";
 import Head from "next/head";
 
-import A, { ClientOnlyLink } from "./link";
+import A, { ClientOnlyLink } from "../src/link";
 
 const limitUnit = (x) => (x < 0 ? 0 : x < 1 ? x : 1);
 
