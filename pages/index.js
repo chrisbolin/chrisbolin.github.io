@@ -287,6 +287,14 @@ const HtmlHead = () => (
   </Head>
 );
 
+const SkipLink = () => (
+  <a class="skip" href="#down">
+    skip to content.
+  </a>
+);
+
+const SkipDestination = () => <div id="down"></div>;
+
 class Home extends React.Component {
   constructor() {
     super();
@@ -324,14 +332,18 @@ class Home extends React.Component {
       backgroundColor: `rgba(171, 166, 81, ${backgroundAlpha})`,
     };
     return (
-      <div className="app" style={appStyle}>
+      <>
         <HtmlHead />
-        <div className="container">
-          <CardPlane x={x} mounted={this.state.mounted} />
-          <Back x={x} />
+        <div className="app" style={appStyle}>
+          <SkipLink />
+          <div className="container">
+            <CardPlane x={x} mounted={this.state.mounted} />
+            <Back x={x} />
+          </div>
+          <Arrow x={x} />
         </div>
-        <Arrow x={x} />
-      </div>
+        <SkipDestination />
+      </>
     );
   }
 }
