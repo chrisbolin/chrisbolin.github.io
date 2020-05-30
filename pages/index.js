@@ -279,7 +279,7 @@ const HtmlHead = () => (
 );
 
 const SkipLink = () => (
-  <a class="skip" href="#down">
+  <a className="skip" href="#down">
     skip to content.
   </a>
 );
