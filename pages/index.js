@@ -1,12 +1,14 @@
 import React from "react";
+import Head from "next/head";
 
 const fx = {
   limitUnit(x) {
     return x < 0 ? 0 : x < 1 ? x : 1;
   },
   isMobile() {
+    if (typeof navigator === "undefined") return false;
     return navigator.userAgent.match(/Mobile|iP(hone|od|ad)|Android|IEMobile/);
-  }
+  },
 };
 
 const colors = [
@@ -14,7 +16,7 @@ const colors = [
   { value: "#A33CE8", barXScale: 4.7, gradientPosition: "36%" },
   { value: "#E8BF3C", barXScale: 4.4, gradientPosition: "59%" },
   { value: "#6AFF40", barXScale: 4, gradientPosition: "81%" },
-  { value: "#FF6E50", barXScale: 3.5, gradientPosition: "100%" }
+  { value: "#FF6E50", barXScale: 3.5, gradientPosition: "100%" },
 ];
 
 const radialBackground = `
@@ -37,7 +39,7 @@ const ColorBar = ({ x, width, left, color }) => {
         backgroundColor: color,
         left,
         position: "absolute",
-        bottom: 0
+        bottom: 0,
       }}
     />
   );
@@ -47,7 +49,7 @@ const CardFront = ({ x, mounted }) => {
   const zIndex = x < 0.5 ? 1 : 0;
   if (!zIndex) return null;
   const scrollStyle = {
-    opacity: 1 - 10 * x
+    opacity: 1 - 10 * x,
   };
   return (
     <div className="card-face front" style={{ zIndex }}>
@@ -76,13 +78,13 @@ const CardBack = ({ x }) => {
 
   const style = {
     zIndex,
-    background: radialBackground
+    background: radialBackground,
   };
 
   return <div className="card-face back" style={style}></div>;
 };
 
-const cardPlaneStyle = x => {
+const cardPlaneStyle = (x) => {
   const rotateX = 180 * (x < 0.5 ? x : fx.limitUnit(x * 2 - 0.5));
   const transform = `
       rotateZ(${90 * x}deg)
@@ -93,7 +95,7 @@ const cardPlaneStyle = x => {
 
   return {
     transform,
-    WebkitTransform: transform
+    WebkitTransform: transform,
   };
 };
 
@@ -117,7 +119,7 @@ const Arrow = ({ x }) => {
     WebkitTransform: transform,
     color: `rgb(${grey},${grey},${grey})`,
     opacity,
-    display: opacity > 0 ? "block" : "none"
+    display: opacity > 0 ? "block" : "none",
   };
   return (
     <div className="arrow" style={style}>
@@ -172,10 +174,10 @@ const links = {
   "Computational Engineering": "https://computationalengineering.mit.edu/",
   "numerical simulation of environmental impact":
     "http://dspace.mit.edu/handle/1721.1/82189",
-  Email: "mailto:bolin.chris@gmail.com"
+  Email: "mailto:bolin.chris@gmail.com",
 };
 
-const A = props => (
+const A = (props) => (
   <a
     href={links[props.children] || console.error("NOT FOUND:", props.children)}
     rel="noopener noreferrer"
@@ -187,7 +189,7 @@ class ClientLink extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      mounted: false
+      mounted: false,
     };
   }
   componentDidMount() {
@@ -210,7 +212,7 @@ const AboutText = ({ progress }) => {
           scale(${progress})
           rotateZ(-${y * 15 + 0}deg)
         `,
-        opacity: progress
+        opacity: progress,
       }}
     >
       <p>
@@ -267,12 +269,38 @@ const Back = ({ x }) => {
   );
 };
 
-export default class App extends React.Component {
+const HtmlHead = () => (
+  <Head>
+    <title>Chris Bolin</title>
+
+    <meta
+      name="Description"
+      content="Chris Bolin is a software engineer and artist based in Denver."
+    />
+
+    <link rel="icon" sizes="16x16 32x32 64x64" href="favicon.ico" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
+    />
+  </Head>
+);
+
+const SkipLink = () => (
+  <a class="skip" href="#down">
+    skip to content.
+  </a>
+);
+
+const SkipDestination = () => <div id="down"></div>;
+
+class Home extends React.Component {
   constructor() {
     super();
     this.state = {
       x: 0,
-      mounted: false
+      mounted: false,
     };
     // longer scroll for desktop users
     this.scrollLength = fx.isMobile() ? 1.5 : 3;
@@ -301,16 +329,23 @@ export default class App extends React.Component {
         : 0;
     const appStyle = {
       height: this.state.mounted ? `${this.scrollLength * 100}vh` : "auto",
-      backgroundColor: `rgba(171, 166, 81, ${backgroundAlpha})`
+      backgroundColor: `rgba(171, 166, 81, ${backgroundAlpha})`,
     };
     return (
-      <div className="app" style={appStyle}>
-        <div className="container">
-          <CardPlane x={x} mounted={this.state.mounted} />
-          <Back x={x} />
+      <>
+        <HtmlHead />
+        <div className="app" style={appStyle}>
+          <SkipLink />
+          <div className="container">
+            <CardPlane x={x} mounted={this.state.mounted} />
+            <Back x={x} />
+          </div>
+          <Arrow x={x} />
         </div>
-        <Arrow x={x} />
-      </div>
+        <SkipDestination />
+      </>
     );
   }
 }
+
+export default Home;
