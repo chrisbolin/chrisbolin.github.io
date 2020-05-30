@@ -80,7 +80,7 @@ const CardBack = ({ x }) => {
     background: radialBackground,
   };
 
-  return <div className="card-face back" style={style}></div>;
+  return <div className="card-face" style={style}></div>;
 };
 
 const cardPlaneStyle = (x) => {
@@ -131,7 +131,7 @@ const AboutText = ({ progress }) => {
   const y = 1 - progress;
   return (
     <div
-      id="about"
+      className="about-text"
       style={{
         transform: `
           translateY(${-20 * y}vh)
@@ -189,7 +189,7 @@ const Back = ({ x }) => {
   const style = { display };
 
   return (
-    <div id="back-content" style={style}>
+    <div className="back" style={style}>
       <AboutText progress={progress} />
     </div>
   );

@@ -10,7 +10,7 @@ body {
 
 body ::selection {
   color: black;
-  background: rgba(255, 247, 0, 0.95);
+  background-color: #d93285;
 }
 
 .skip {
@@ -39,26 +39,31 @@ body ::selection {
   height: 320px;
   margin: 50px calc(50vw - 91px);
 }
+
 .card-face {
   width: 100%;
   height: 100%;
   position: absolute;
 }
+
 .front {
   background-color: hsla(314, 41%, 10%, 1);
   color: white;
   font-style: italic;
   font-family: "Baskerville", "Times New Roman", "Droid Serif", "Times", serif;
 }
+
 .title {
   font-size: 22px;
   padding: 17px 11px;
 }
+
 hr {
   border-style: solid;
   margin: 15px 0;
   color: inherit;
 }
+
 .scroll {
   position: absolute;
   text-align: center;
@@ -66,15 +71,6 @@ hr {
   color: #717171;
   bottom: -30px;
   font-size: 16px;
-}
-.back {
-  /* reversed for the back of the card */
-  background-color: hsla(314, 41%, 10%, 1);
-  width: 320px;
-  height: 182px;
-  -webkit-transform: rotateZ(90deg) rotateX(180deg)
-    translate3d(68.5px, -68.5px, 0px);
-  transform: rotateZ(90deg) rotateX(180deg) translate3d(68.5px, -68.5px, 0px);
 }
 
 .arrow {
@@ -86,7 +82,7 @@ hr {
   top: 320px;
 }
 
-#back-content {
+.back {
   color: hsl(195, 0%, 92%);
   width: 95vmin;
   margin: calc(1.8 * (2.6vmin + 1.1vh)) auto 0;
