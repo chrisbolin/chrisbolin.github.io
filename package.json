@@ -1,7 +1,8 @@
 {
   "scripts": {
     "start": "next",
-    "build": "next build && next export && cp -r out/* ."
+    "build": "next build && next export && cp -r out/* .",
+    "stage": "surge . chrisbolin.surge.sh"
   },
   "dependencies": {
     "next": "^9.4.4",
