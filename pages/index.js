@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Head from "next/head";
 
 const fx = {
@@ -185,21 +185,12 @@ const A = (props) => (
   />
 );
 
-class ClientLink extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      mounted: false,
-    };
-  }
-  componentDidMount() {
-    this.setState({ mounted: true });
-  }
-  render() {
-    if (this.state.mounted) return <A {...this.props} />; // if mounted on client, render as usual
-    return false; // if rendered on server
-  }
-}
+const ClientLink = (props) => {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), [setMounted]);
+  if (mounted) return <A {...props} />; // if mounted on client, render as usual
+  return false; // if rendered on server
+};
 
 const AboutText = ({ progress }) => {
   const y = 1 - progress;
