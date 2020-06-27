@@ -127,6 +127,8 @@ const Arrow = ({ x }) => {
   );
 };
 
+const Opener = ({ children }) => <span className="Opener">{children}</span>;
+
 const AboutText = ({ progress }) => {
   const y = 1 - progress;
   return (
@@ -142,40 +144,40 @@ const AboutText = ({ progress }) => {
       }}
     >
       <p>
-        <b>[Chris Bolin]</b> Software engineer + artist in Denver. Engineering,{" "}
-        <A>Formidable</A>. Founder, <A>The Disconnect</A>.
+        <Opener>Chris Bolin</Opener> Software engineer + artist in Denver.
+        Engineering, <A>Formidable</A>. Founder, <A>The Disconnect</A>
       </p>
 
       <p>
-        <b>[Projects]</b> <A>Offline Only</A>, <A>Tessellate</A>,{" "}
+        <Opener>Projects</Opener> <A>Offline Only</A>, <A>Tessellate</A>,{" "}
         <A>Skycoins</A>, <A>Elements</A>, <A>Enchiridion</A>, <A>Travels</A>,{" "}
-        <A>Shipwrecked</A>.
+        <A>Shipwrecked</A>
       </p>
 
       <p>
-        <b>[Talks]</b> <A>SXSW me Convention</A>, <A>DinosaurJS</A>,{" "}
-        <A>Debugging</A>, <A>Offline Websites</A>.
+        <Opener>Talks</Opener> <A>SXSW me Convention</A>, <A>DinosaurJS</A>,{" "}
+        <A>Debugging</A>, <A>Offline Websites</A>
       </p>
 
       <p>
-        <b>[Press]</b> <A>Vice</A>, <A>Lifehacker</A>, <A>CBC</A>, <A>CJR</A>,{" "}
-        <A>Le Monde</A>, <A>The Next Web</A>.
+        <Opener>Press</Opener> <A>Vice</A>, <A>Lifehacker</A>, <A>CBC</A>,{" "}
+        <A>CJR</A>, <A>Le Monde</A>, <A>The Next Web</A>
       </p>
 
       <p>
-        <b>[Work]</b> VP Engineering, <A>Formidable</A>. Adjunct,{" "}
+        <Opener>Work</Opener> VP Engineering, <A>Formidable</A>. Adjunct,{" "}
         <A>U of Denver</A>. Engineer, <A>Jumpshell</A>. Data scientist,{" "}
-        <A>Autotegrity</A>. Researcher, <A>MIT EBM Lab</A>. Engineer, <A>NI</A>.
+        <A>Autotegrity</A>. Researcher, <A>MIT EBM Lab</A>. Engineer, <A>NI</A>
       </p>
 
       <p>
-        <b>[Edu]</b> Master’s <A>Computational Engineering</A>, MIT,{" "}
+        <Opener>Edu</Opener> Master’s <A>Computational Engineering</A>, MIT,{" "}
         <A>numerical simulation of environmental impact</A>. BS Mechanical
-        Engineering, U of Nebraska.
+        Engineering, U of Nebraska
       </p>
 
       <p>
-        <b>[Contact]</b> <ClientOnlyLink>Email</ClientOnlyLink>.
+        <Opener>Contact</Opener> <ClientOnlyLink>Email</ClientOnlyLink>
       </p>
     </div>
   );

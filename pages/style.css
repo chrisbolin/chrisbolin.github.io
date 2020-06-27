@@ -59,6 +59,11 @@ body ::selection {
   padding: 17px 11px;
 }
 
+.Opener {
+  background: -webkit-linear-gradient(50deg, #7830cf, #cf3030);
+  padding: 0 10px;
+}
+
 hr {
   border-style: solid;
   margin: 15px 0;
