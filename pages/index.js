@@ -11,11 +11,11 @@ const isMobile = () => {
 };
 
 const colors = [
-  { value: "#7830CF", barXScale: 5.2, gradientPosition: "25%" },
-  { value: "#AB32D9", barXScale: 4.7, gradientPosition: "36%" },
-  { value: "#C236C2", barXScale: 4.4, gradientPosition: "59%" },
-  { value: "#D93285", barXScale: 4, gradientPosition: "81%" },
-  { value: "#CF3030", barXScale: 3.5, gradientPosition: "100%" },
+  { value: "var(--color-a)", barXScale: 5.2, gradientPosition: "25%" },
+  { value: "var(--color-b)", barXScale: 4.7, gradientPosition: "36%" },
+  { value: "var(--color-c)", barXScale: 4.4, gradientPosition: "59%" },
+  { value: "var(--color-d)", barXScale: 4, gradientPosition: "81%" },
+  { value: "var(--color-e)", barXScale: 3.5, gradientPosition: "100%" },
 ];
 
 const radialBackground = `
@@ -251,7 +251,6 @@ const Home = () => {
       : 0;
   const appStyle = {
     height: mounted ? `${scrollLength * 100}vh` : "auto",
-    backgroundColor: `rgba(171, 166, 81, ${backgroundAlpha})`,
   };
 
   return (

@@ -4,8 +4,8 @@
   --color-c: #c236c2;
   --color-d: #d93285;
   --color-e: #cf3030;
-  --color-whitish: hsl(195, 0%, 92%);
-  --color-blackish: hsla(314, 41%, 10%, 1);
+  --color-whitish: #f2f2f2;
+  --color-blackish: #240f1f;
   --color-highlight: var(--color-d);
 }
 
@@ -71,7 +71,7 @@ body ::selection {
 }
 
 .Opener {
-  background: -webkit-linear-gradient(50deg, #7830cf, #cf3030);
+  background: -webkit-linear-gradient(50deg, var(--color-e), var(--color-a));
   padding: 0 10px;
 }
 
@@ -135,9 +135,9 @@ a:hover,
 a:focus,
 button:focus,
 button:hover {
-  background: -webkit-linear-gradient(50deg, #7830cf, #cf3030);
+  background: -webkit-linear-gradient(50deg, var(--color-a), var(--color-e));
   text-decoration: none;
-  color: white;
+  color: var(--color-whitish);
 }
 
 p {
