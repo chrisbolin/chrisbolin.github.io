@@ -1,17 +1,28 @@
+:root {
+  --color-a: #7830cf;
+  --color-b: #ab32d9;
+  --color-c: #c236c2;
+  --color-d: #d93285;
+  --color-e: #cf3030;
+  --color-whitish: hsl(195, 0%, 92%);
+  --color-blackish: hsla(314, 41%, 10%, 1);
+  --color-highlight: var(--color-d);
+}
+
 html {
   font-family: Helvetica Neue, Arial, sans-serif;
-  background-color: #d93285;
+  background-color: var(--color-highlight);
 }
 
 body {
   margin: 0;
-  background-color: #f9f9f9;
+  background-color: var(--color-whitish);
   overflow-x: hidden;
 }
 
 body ::selection {
-  color: black;
-  background-color: #d93285;
+  color: var(--color-blackish);
+  background-color: var(--color-highlight);
 }
 
 .skip {
@@ -26,7 +37,7 @@ body ::selection {
 }
 
 .app {
-  background-color: #f9f9f9;
+  background-color: var(--color-whitish);
 }
 
 .container {
@@ -48,8 +59,8 @@ body ::selection {
 }
 
 .front {
-  background-color: hsla(314, 41%, 10%, 1);
-  color: white;
+  background-color: var(--color-blackish);
+  color: var(--color-whitish);
   font-style: italic;
   font-family: "Baskerville", "Times New Roman", "Droid Serif", "Times", serif;
 }
@@ -74,7 +85,7 @@ hr {
   position: absolute;
   text-align: center;
   width: 100%;
-  color: #717171;
+  color: var(--color-blackish);
   bottom: -30px;
   font-size: 16px;
 }
@@ -89,7 +100,7 @@ hr {
 }
 
 .back {
-  color: hsl(195, 0%, 92%);
+  color: var(--color-whitish);
   width: 95vmin;
   margin: calc(1.8 * (2.6vmin + 1.1vh)) auto 0;
   position: relative;
