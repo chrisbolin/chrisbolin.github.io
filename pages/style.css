@@ -115,6 +115,7 @@ a {
 a:hover,
 a:focus {
   background: -webkit-linear-gradient(50deg, var(--color-a), var(--color-e));
+  color: var(--color-whitish);
   text-decoration: none;
   transform: scale(2.5, 1.1);
 }

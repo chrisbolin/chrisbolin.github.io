@@ -263,7 +263,7 @@ const Home = () => {
     <>
       <HtmlHead />
       <div className="app" style={appStyle}>
-        <SkipLink />
+        {x < 0.5 ? <SkipLink /> : null}
         <div className="container">
           <CardPlane x={x} mounted={mounted} />
           <Back x={x} />
