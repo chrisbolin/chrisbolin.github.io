@@ -26,14 +26,16 @@ body ::selection {
 }
 
 .skip {
-  position: absolute;
-  top: -40px;
+  position: fixed;
+  top: -100%;
+  left: 0;
 }
 
 .skip:focus {
-  z-index: 1;
+  z-index: 2;
   font-size: 6vw;
   top: 0;
+  transform: none;
 }
 
 .app {
@@ -71,8 +73,7 @@ body ::selection {
 }
 
 .Opener {
-  background: -webkit-linear-gradient(50deg, var(--color-e), var(--color-a));
-  padding: 0 10px;
+  font-weight: 700;
 }
 
 hr {
@@ -106,43 +107,21 @@ hr {
   position: relative;
 }
 
-p {
-  font-size: calc(0.95 * (2.6vmin + 1.1vh));
-  line-height: 1.23;
-  margin: calc(0.7 * (2.6vmin + 1.1vh)) 0;
-}
-
 a {
   color: inherit;
-}
-
-button {
-  color: inherit;
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
-  margin: 0;
-  overflow: visible;
-  padding: 0;
-  text-decoration: underline;
-  text-transform: none;
-  background: none;
-  border: none;
-  cursor: pointer;
+  display: inline-block;
 }
 
 a:hover,
-a:focus,
-button:focus,
-button:hover {
+a:focus {
   background: -webkit-linear-gradient(50deg, var(--color-a), var(--color-e));
   text-decoration: none;
-  color: var(--color-whitish);
+  transform: scale(2.5, 1.1);
 }
 
 p {
   font-size: calc(2.8vmin + 1.1vh);
-  line-height: 1.23;
+  line-height: 1.25;
   margin: calc(0.8 * (2.6vmin + 1.1vh)) 0;
 }
 

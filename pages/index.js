@@ -127,7 +127,13 @@ const Arrow = ({ x }) => {
   );
 };
 
-const Opener = ({ children }) => <span className="Opener">{children}</span>;
+const Opener = ({ children }) => (
+  <>
+    {" "}
+    <span className="Opener">{children}</span>
+    {" → "}
+  </>
+);
 
 const AboutText = ({ progress }) => {
   const y = 1 - progress;
