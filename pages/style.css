@@ -7,12 +7,13 @@
   --color-whitish: #f2f2f2;
   --color-blackish: #240f1f;
   --color-highlight: var(--color-d);
+  --color-behind-curtain: var(--color-a);
   --color-transparent: rgba(0, 0, 0, 0);
 }
 
 html {
   font-family: Helvetica Neue, Arial, sans-serif;
-  background-color: var(--color-highlight);
+  background-color: var(--color-behind-curtain);
 }
 
 body {
@@ -131,11 +132,11 @@ hr {
   display: inline-block;
   text-align: center;
   max-width: 25vw;
-  transition: all 200ms ease-out;
+  transition: 400ms ease-out;
 }
 
 .BackSection:hover h1 {
-  transform: scaleX(2.9) skewX(-5deg);
+  transform: scaleX(3.9) skewX(-5deg);
 }
 
 .BackSection button {
