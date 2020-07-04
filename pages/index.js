@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo, useCallback } from "react";
 import Head from "next/head";
 
 import A, { ClientOnlyLink } from "../src/link";
+import Back from "../src/back";
 
 const limitUnit = (x) => (x < 0 ? 0 : x < 1 ? x : 1);
 
@@ -185,20 +186,6 @@ const AboutText = ({ progress }) => {
       <p>
         <Opener>Contact</Opener> <ClientOnlyLink>Email</ClientOnlyLink>
       </p>
-    </div>
-  );
-};
-
-const Back = ({ x }) => {
-  // Text does not show until minX
-  const minX = 0.75;
-  const display = x > minX ? "inherit" : "none";
-  const progress = Math.max((x - minX) / (1 - minX), 0);
-  const style = { display };
-
-  return (
-    <div className="back" style={style}>
-      <AboutText progress={progress} />
     </div>
   );
 };
