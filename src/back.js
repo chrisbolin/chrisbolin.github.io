@@ -11,14 +11,20 @@ function BackSection({ title, children }) {
   );
 }
 
-export default function Back({ x }) {
+export default function Back({ x, style }) {
   // Text does not show until minX
-  const minX = 0.75;
+  const minX = 0.6;
   const display = x > minX ? null : "none";
+  const progress = (x - minX) / (1 - minX);
   const [selectedSection, selectSection] = useState(null);
-
+  const combinedStyle = {
+    display,
+    opacity: progress,
+    filter: `brightness(${progress})`,
+    ...style,
+  };
   return (
-    <div className="Back" style={{ display }}>
+    <div className="Back" style={combinedStyle}>
       <BackSection title="Chris Bolin">
         Software engineer + artist in Denver. Engineering, Formidable. Founder,
         The Disconnect

@@ -12,8 +12,8 @@ const isMobile = () => {
 };
 
 const colors = [
-  { value: "var(--color-a)", barXScale: 5.2, gradientPosition: "25%" },
-  { value: "var(--color-b)", barXScale: 4.7, gradientPosition: "36%" },
+  { value: "var(--color-a)", barXScale: 5.2, gradientPosition: "41%" },
+  { value: "var(--color-b)", barXScale: 4.7, gradientPosition: "47%" },
   { value: "var(--color-c)", barXScale: 4.4, gradientPosition: "59%" },
   { value: "var(--color-d)", barXScale: 4, gradientPosition: "81%" },
   { value: "var(--color-e)", barXScale: 3.5, gradientPosition: "100%" },
@@ -21,7 +21,7 @@ const colors = [
 
 const radialBackground = `
   radial-gradient(
-    circle,
+    circle at top right,
     black 0%,
     ${colors.map(
       ({ value, gradientPosition }) => `${value} ${gradientPosition}`
@@ -78,32 +78,40 @@ const CardBack = ({ x }) => {
 
   const style = {
     zIndex,
-    background: radialBackground,
   };
 
   return <div className="card-face" style={style}></div>;
 };
 
-const cardPlaneStyle = (x) => {
+const flipStyle = (x) => {
   const rotateX = 180 * (x < 0.5 ? x : limitUnit(x * 2 - 0.5));
-  const transform = `
+  const x4 = x * x * x * x;
+  const frontTransform = `
       rotateZ(${90 * x}deg)
       rotateX(${rotateX}deg)
-      translate3d(${-50 * x}px, 0, 0)
-      scale(${1 + x * x * x * x * 20})
+      scale(${1 + x4 * 20})
     `;
 
-  return {
-    transform,
-    WebkitTransform: transform,
-  };
+  const backTransform = `
+    scale(${x4})
+    rotateZ(${90 * x - 90}deg)
+  `;
+
+  return [
+    {
+      transform: frontTransform,
+      WebkitTransform: frontTransform,
+    },
+    {
+      transform: backTransform,
+      WebkitTransform: backTransform,
+    },
+  ];
 };
 
-const CardPlane = ({ x, mounted }) => {
-  const zFront = x < 0.5 ? 1 : 0;
-  const zBack = !zFront;
+const CardPlane = ({ x, mounted, style }) => {
   return (
-    <div style={cardPlaneStyle(x)} className="card-plane">
+    <div style={style} className="card-plane">
       <CardFront x={x} mounted={mounted} />
       <CardBack x={x} />
     </div>
@@ -246,14 +254,16 @@ const Home = () => {
     height: mounted ? `${scrollLength * 100}vh` : "auto",
   };
 
+  const [flipStyleFront, flipStyleBack] = flipStyle(x);
+
   return (
     <>
       <HtmlHead />
       <div className="app" style={appStyle}>
         {x < 0.5 ? <SkipLink /> : null}
         <div className="container">
-          <CardPlane x={x} mounted={mounted} />
-          <Back x={x} />
+          <CardPlane style={flipStyleFront} x={x} mounted={mounted} />
+          <Back x={x} style={flipStyleBack} />
         </div>
         <Arrow x={x} />
       </div>
