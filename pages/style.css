@@ -119,6 +119,13 @@ hr {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  z-index: 1;
+  transition: all 300ms ease-out;
+}
+
+.BackSection.active {
+  transform: scale(2);
+  z-index: 2;
 }
 
 .BackSection h1 {
@@ -128,6 +135,7 @@ hr {
   text-align: center;
   max-width: 25vw;
   transition: 400ms ease-out;
+  position: absolute;
 }
 
 .BackSection:hover h1 {
@@ -140,6 +148,12 @@ hr {
   font-size: inherit;
   border: none;
   text-align: inherit;
+}
+
+.BackSection .BackSection-deactivate {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .BackSection:nth-of-type(4n + 1) {
