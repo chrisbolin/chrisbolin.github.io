@@ -9,7 +9,7 @@ const backSectionElements = [
     <Link name="formidable">Formidable</Link>. Founder of{" "}
     <Link name="disconnect">The Disconnect</Link>. Most recent project:{" "}
     <Link name="perf-land">Perf Land</Link>. Wanna chat?{" "}
-    <ClientOnlyLink>Email me</ClientOnlyLink>.
+    <ClientOnlyLink name="email">Email me</ClientOnlyLink>.
   </BackSection>,
   <BackSection title="Projects">
     <b>2020</b> <Link name="perf-land">Perf Land</Link>, <b>2019</b>{" "}

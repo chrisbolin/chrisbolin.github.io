@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 
+const TRANSITION_MS = 500;
+
 export default function BackSection({
   title,
   children,
@@ -8,15 +10,23 @@ export default function BackSection({
   active,
   index,
 }) {
+  const [transitioning, setTransitioning] = useState(false);
   const transformOrigin = `${index < 2 ? "top" : "bottom"} ${
     index % 2 === 0 ? "left" : "right"
   }`;
   useEffect(() => {
-    console.log("transitioning!");
+    setTransitioning(true);
+    setTimeout(() => setTransitioning(false), TRANSITION_MS);
   }, [active]);
+
+  const style = {
+    transformOrigin,
+    zIndex: transitioning ? 2 : undefined,
+    transitionDuration: `${TRANSITION_MS}ms`,
+  };
   return (
     <div
-      style={{ transformOrigin }}
+      style={style}
       className={`BackSection ${active && "active"}`}
       onClick={onOpen}
     >
