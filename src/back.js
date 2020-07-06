@@ -1,14 +1,15 @@
 import { useState } from "react";
 
 import BackSection from "./back-section";
-import Link from "./link";
+import Link, { ClientOnlyLink } from "./link";
 
 const backSectionElements = [
   <BackSection title="Chris Bolin">
-    Software engineer + artist in Denver. Engineering leadership at{" "}
+    Software engineer and artist in Denver. Engineering leadership at{" "}
     <Link name="formidable">Formidable</Link>. Founder of{" "}
     <Link name="disconnect">The Disconnect</Link>. Most recent project:{" "}
-    <Link name="perf-land">Perf Land</Link>.
+    <Link name="perf-land">Perf Land</Link>. Wanna chat?{" "}
+    <ClientOnlyLink>Email me</ClientOnlyLink>.
   </BackSection>,
   <BackSection title="Projects">
     <b>2020</b> <Link name="perf-land">Perf Land</Link>, <b>2019</b>{" "}
