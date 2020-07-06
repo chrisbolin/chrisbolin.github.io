@@ -24,14 +24,23 @@ const backSectionElements = [
     <Link name="enchiridion">Enchiridion</Link>
   </BackSection>,
   <BackSection title="Talks & Press">
-    SXSW me Convention, DinosaurJS, Debugging, Offline Websites, Vice,
-    Lifehacker, CBC, CJR, Le Monde, The Next Web
+    <Link name="me-convention">SXSW me Convention</Link>,{" "}
+    <Link name="dinojs">DinosaurJS</Link>,{" "}
+    <Link name="debugging-talk">Debugging</Link>,{" "}
+    <Link name="offline-talk">Offline websites</Link>,{" "}
+    <Link name="vice">Vice</Link>, <Link name="lifehacker">Lifehacker</Link>,{" "}
+    <Link name="cbc">CBC</Link>, <Link name="cjr">CJR</Link>,{" "}
+    <Link name="le-monde">Le Monde</Link>,{" "}
+    <Link name="the-next-web">The Next Web</Link>
   </BackSection>,
   <BackSection title="CV">
-    VP Engineering, Formidable. Adjunct, U of Denver. Engineer, Jumpshell. Data
-    scientist, Autotegrity. Researcher, MIT EBM Lab. Engineer, NI Edu → Master’s
-    Computational Engineering, MIT, numerical simulation of environmental
-    impact. BS Mechanical Engineering, U of Nebraska
+    VP Engineering, <Link name="formidable">Formidable</Link>. Adjunct,{" "}
+    <Link name="u-denver">U of Denver</Link>. Engineer, Jumpshell. Data
+    scientist, <Link name="autotegrity">Autotegrity</Link>. Researcher,{" "}
+    <Link name="ebm">MIT EBM Lab</Link>. Engineer, <Link name="ni">NI</Link>.
+    Master’s Computational Engineering, MIT,{" "}
+    <Link name="thesis">numerical simulation of environmental impact</Link>. BS
+    Mechanical Engineering, U of Nebraska.
   </BackSection>,
 ];
 

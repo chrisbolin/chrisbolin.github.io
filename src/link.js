@@ -27,8 +27,7 @@ const links = {
   // talks
   dinojs: "https://www.youtube.com/watch?v=nhuvY0CT064",
   "me-convention": "https://www.youtube.com/watch?v=6wjqLAaCAyw",
-  "Offline-Websites-talk":
-    "https://www.youtube.com/watch?v=iavC1oWvtJ8&t=2591s",
+  "offline-talk": "https://www.youtube.com/watch?v=iavC1oWvtJ8&t=2591s",
   "debugging-talk": "https://www.youtube.com/watch?v=ccG9L2Pg4io&t=1035",
 
   // press
@@ -53,7 +52,7 @@ const links = {
 
 const Link = ({ name, children }) => (
   <a
-    href={links[name] || console.error("NOT FOUND:", name)}
+    href={links[name] || console.error("NOT FOUND:", name, children)}
     rel="noopener noreferrer"
     children={children}
   />

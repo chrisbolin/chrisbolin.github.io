@@ -144,60 +144,6 @@ const Opener = ({ children }) => (
   </>
 );
 
-const AboutText = ({ progress }) => {
-  const y = 1 - progress;
-  return (
-    <div
-      className="about-text"
-      style={{
-        transform: `
-          translateY(${-20 * y}vh)
-          scale(${progress})
-          rotateZ(-${y * 15 + 0}deg)
-        `,
-        opacity: progress,
-      }}
-    >
-      <p>
-        <Opener>Chris Bolin</Opener> Software engineer + artist in Denver.
-        Engineering, <A>Formidable</A>. Founder, <A>The Disconnect</A>
-      </p>
-
-      <p>
-        <Opener>Projects</Opener> <A>Offline Only</A>, <A>Tessellate</A>,{" "}
-        <A>Skycoins</A>, <A>Elements</A>, <A>Enchiridion</A>, <A>Travels</A>,{" "}
-        <A>Shipwrecked</A>
-      </p>
-
-      <p>
-        <Opener>Talks</Opener> <A>SXSW me Convention</A>, <A>DinosaurJS</A>,{" "}
-        <A>Debugging</A>, <A>Offline Websites</A>
-      </p>
-
-      <p>
-        <Opener>Press</Opener> <A>Vice</A>, <A>Lifehacker</A>, <A>CBC</A>,{" "}
-        <A>CJR</A>, <A>Le Monde</A>, <A>The Next Web</A>
-      </p>
-
-      <p>
-        <Opener>Work</Opener> VP Engineering, <A>Formidable</A>. Adjunct,{" "}
-        <A>U of Denver</A>. Engineer, <A>Jumpshell</A>. Data scientist,{" "}
-        <A>Autotegrity</A>. Researcher, <A>MIT EBM Lab</A>. Engineer, <A>NI</A>
-      </p>
-
-      <p>
-        <Opener>Edu</Opener> Master’s <A>Computational Engineering</A>, MIT,{" "}
-        <A>numerical simulation of environmental impact</A>. BS Mechanical
-        Engineering, U of Nebraska
-      </p>
-
-      <p>
-        <Opener>Contact</Opener> <ClientOnlyLink>Email</ClientOnlyLink>
-      </p>
-    </div>
-  );
-};
-
 const HtmlHead = () => (
   <Head>
     <title>Chris Bolin</title>

@@ -154,6 +154,9 @@ hr {
   padding: 2vmin;
   cursor: pointer;
 }
+.BackSection .BackSection-close:hover {
+  color: var(--color-blackish);
+}
 
 .BackSection:nth-of-type(4n + 1) {
   background: -webkit-linear-gradient(50deg, var(--color-a), var(--color-d));
@@ -179,20 +182,14 @@ hr {
 
 a {
   color: inherit;
-  display: inline-block;
   text-decoration: underline;
 }
 
 a:hover,
 a:focus {
-  background: -webkit-linear-gradient(
-    50deg,
-    var(--color-a),
-    var(--color-blackish)
-  );
-  color: var(--color-whitish);
+  background: -webkit-linear-gradient(50deg, var(--color-a), var(--color-e));
+  color: var(--color-blackish);
   text-decoration: none;
-  transform: scale(1.4, 0.9);
 }
 
 .hidden {
