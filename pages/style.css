@@ -27,6 +27,11 @@ body ::selection {
   background-color: var(--color-highlight);
 }
 
+a,
+button {
+  cursor: pointer;
+}
+
 .skip {
   position: fixed;
   top: -100%;
@@ -101,6 +106,7 @@ hr {
   text-align: center;
   width: 100%;
   top: 320px;
+  pointer-events: none; /* allow clicking "behind" the arrow" */
 }
 
 .Back {

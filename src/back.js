@@ -11,15 +11,15 @@ const backSectionElements = [
     <Link name="perf-land">Perf Land</Link>.
   </BackSection>,
   <BackSection title="Projects">
-    2020 <Link name="perf-land">Perf Land</Link>, 2019{" "}
-    <Link name="disconnect-3">Disconnect #3</Link>, 2018{" "}
+    <b>2020</b> <Link name="perf-land">Perf Land</Link>, <b>2019</b>{" "}
+    <Link name="disconnect-3">Disconnect #3</Link>, <b>2018</b>{" "}
     <Link name="elements">Elements</Link>,{" "}
     <Link name="disconnect-2">Disconnect #2</Link>,{" "}
-    <Link name="disconnect-1">Disconnect #1</Link>, 2017{" "}
+    <Link name="disconnect-1">Disconnect #1</Link>, <b>2017</b>{" "}
     <Link name="offline-only">Offline Only</Link>,{" "}
-    <Link name="travels">Travels</Link>, 2016{" "}
+    <Link name="travels">Travels</Link>, <b>2016</b>{" "}
     <Link name="tessellate">Tessellate</Link>,{" "}
-    <Link name="skycoins">Skycoins</Link>, pre-2016{" "}
+    <Link name="skycoins">Skycoins</Link>, <b>pre-2016</b>{" "}
     <Link name="shipwrecked">Shipwrecked</Link>,{" "}
     <Link name="enchiridion">Enchiridion</Link>
   </BackSection>,

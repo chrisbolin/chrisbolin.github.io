@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function BackSection({
   title,
@@ -11,6 +11,9 @@ export default function BackSection({
   const transformOrigin = `${index < 2 ? "top" : "bottom"} ${
     index % 2 === 0 ? "left" : "right"
   }`;
+  useEffect(() => {
+    console.log("transitioning!");
+  }, [active]);
   return (
     <div
       style={{ transformOrigin }}
