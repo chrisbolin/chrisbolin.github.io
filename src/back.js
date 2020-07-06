@@ -1,45 +1,27 @@
 import { useState } from "react";
 
-function BackSection({
-  title,
-  children,
-  onActivate,
-  onDeactivate,
-  active,
-  index,
-}) {
-  const transformOrigin = `${index < 2 ? "top" : "bottom"} ${
-    index % 2 === 0 ? "left" : "right"
-  }`;
-  return (
-    <div
-      style={{ transformOrigin }}
-      className={`BackSection ${active && "active"}`}
-      onClick={onActivate}
-    >
-      {active && (
-        <button className="BackSection-deactivate" onClick={onDeactivate}>
-          X
-        </button>
-      )}
-      {!active && (
-        <h1>
-          <button onClick={onActivate}>{title}</button>
-        </h1>
-      )}
-      {active && <div className="BackSection-children">{children}</div>}
-    </div>
-  );
-}
+import BackSection from "./back-section";
+import Link from "./link";
 
 const backSectionElements = [
   <BackSection title="Chris Bolin">
-    Software engineer + artist in Denver. Engineering, Formidable. Founder, The
-    Disconnect
+    Software engineer + artist in Denver. Engineering leadership at{" "}
+    <Link name="formidable">Formidable</Link>. Founder of{" "}
+    <Link name="disconnect">The Disconnect</Link>. Most recent project:{" "}
+    <Link name="perf-land">Perf Land</Link>.
   </BackSection>,
   <BackSection title="Projects">
-    Offline Only, Tessellate, Skycoins, Elements, Enchiridion, Travels,
-    Shipwrecked
+    2020 <Link name="perf-land">Perf Land</Link>, 2019{" "}
+    <Link name="disconnect-3">Disconnect #3</Link>, 2018{" "}
+    <Link name="elements">Elements</Link>,{" "}
+    <Link name="disconnect-2">Disconnect #2</Link>,{" "}
+    <Link name="disconnect-1">Disconnect #1</Link>, 2017{" "}
+    <Link name="offline-only">Offline Only</Link>,{" "}
+    <Link name="travels">Travels</Link>, 2016{" "}
+    <Link name="tessellate">Tessellate</Link>,{" "}
+    <Link name="skycoins">Skycoins</Link>, pre-2016{" "}
+    <Link name="shipwrecked">Shipwrecked</Link>,{" "}
+    <Link name="enchiridion">Enchiridion</Link>
   </BackSection>,
   <BackSection title="Talks & Press">
     SXSW me Convention, DinosaurJS, Debugging, Offline Websites, Vice,
@@ -77,27 +59,11 @@ export default function Back({ x, style }) {
         React.cloneElement(element, {
           index,
           key: index,
-          onActivate: () => setActiveSectionIndex(index),
-          onDeactivate: clearActiveSectionIndex,
+          onOpen: () => setActiveSectionIndex(index),
+          onClose: clearActiveSectionIndex,
           active: index === activeSectionIndex,
         })
       )}
     </div>
   );
 }
-
-/*
-current:
-Chris Bolin
-Projects
-Talks
-Press
-Work
-Edu
-Contact
-
-Chris Bolin (basics and contact)
-Projects
-Talks and Press
-CV
-*/
