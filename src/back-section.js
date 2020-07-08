@@ -1,17 +1,8 @@
 import { useState, useEffect } from "react";
 import characterCount from "./character-count";
-import { limitUnit, limit } from "./utils";
+import { getWindow } from "./utils";
 
 const TRANSITION_MS = 500;
-
-const windowFallback = {
-  innerHeight: 100,
-  innerWidth: 100,
-};
-
-function getWindow() {
-  return typeof window !== "undefined" ? window : windowFallback;
-}
 
 export default function BackSection({
   title,
@@ -39,14 +30,10 @@ export default function BackSection({
     transitionDuration: `${TRANSITION_MS}ms`,
   };
 
-  const h1ScaleY = limit(
-    (3.3 * getWindow().innerHeight) / getWindow().innerWidth,
-    0,
-    3
-  );
+  const h1ScaleY = (3.5 * getWindow().innerHeight) / getWindow().innerWidth;
 
   const childrenStyle = { fontSize };
-  const h1Style = { transform: `scaleY(${h1ScaleY}) skewX(3deg)` };
+  const h1Style = { transform: `scaleY(${h1ScaleY}) skewX(5deg)` };
 
   return (
     <div

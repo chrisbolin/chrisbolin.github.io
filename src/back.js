@@ -45,8 +45,9 @@ const backSectionElements = [
 ];
 
 export default function Back({ x, style }) {
-  // Text does not show until minX
   const minX = 0.6;
+  if (x < minX) return null;
+  // Text does not show until minX
   const display = x > minX ? null : "none";
   const progress = (x - minX) / (1 - minX);
   const [activeSection, setActiveSection] = useState(null);
