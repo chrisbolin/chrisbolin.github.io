@@ -3,13 +3,13 @@ import characterCount from "./character-count";
 
 const TRANSITION_MS = 500;
 
-const serverBody = {
-  clientHeight: 100,
-  clientWidth: 100,
+const windowFallback = {
+  innerHeight: 100,
+  innerWidth: 100,
 };
 
-function body() {
-  return typeof document !== "undefined" ? document.body : serverBody;
+function getWindow() {
+  return typeof window !== "undefined" ? window : windowFallback;
 }
 
 export default function BackSection({
@@ -31,8 +31,8 @@ export default function BackSection({
 
   const characters = characterCount(children);
   const fontSize =
-    0.3 * Math.sqrt((body().clientHeight * body().clientWidth) / characters);
-
+    0.5 *
+    Math.sqrt((getWindow().innerHeight * getWindow().innerWidth) / characters);
   const style = {
     transformOrigin,
     transitionDuration: `${TRANSITION_MS}ms`,
