@@ -140,11 +140,11 @@ hr {
 }
 
 .BackSection h1 {
-  font-size: 5vw;
+  font-size: 4.5vw;
   transform: scaleX(2.6) skewX(5deg);
   display: inline-block;
   text-align: center;
-  max-width: 25vw;
+  max-width: calc(50vw / 2.6);
   transition: transform 350ms ease-out;
 }
 
