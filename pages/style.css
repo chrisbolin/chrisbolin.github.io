@@ -150,7 +150,8 @@ hr {
 }
 
 .BackSection:hover h1 {
-  transform: scaleX(4) skewX(5deg) rotateZ(-10deg);
+  transform: scaleX(2.2) skewX(2deg);
+  opacity: 0.9;
 }
 
 .BackSection button {
