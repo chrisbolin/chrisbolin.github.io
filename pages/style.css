@@ -129,6 +129,20 @@ hr {
 }
 
 .BackSection:hover {
+  z-index: 2;
+}
+
+.BackSection.active {
+  transform: scale(2);
+  z-index: 3;
+  cursor: unset;
+}
+
+.BackSection.transitioning {
+  z-index: 3;
+}
+
+.BackSection:hover {
   filter: brightness(1.1) saturate(1.1);
 }
 
@@ -146,16 +160,6 @@ hr {
 
 .BackSection:nth-of-type(4n + 4) {
   background: -webkit-linear-gradient(140deg, var(--color-e), var(--color-a));
-}
-
-.BackSection.active {
-  transform: scale(2);
-  z-index: 2;
-  cursor: unset;
-}
-
-.BackSection.transitioning {
-  z-index: 2;
 }
 
 .BackSection h1 {

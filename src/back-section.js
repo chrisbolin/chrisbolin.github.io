@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import characterCount from "./character-count";
 import { getWindow } from "./utils";
 
@@ -16,7 +16,7 @@ export default function BackSection({
   const transformOrigin = `${index < 2 ? "top" : "bottom"} ${
     index % 2 === 0 ? "left" : "right"
   }`;
-  useEffect(() => {
+  useLayoutEffect(() => {
     setTransitioning(true);
     setTimeout(() => setTransitioning(false), TRANSITION_MS);
   }, [active]);
