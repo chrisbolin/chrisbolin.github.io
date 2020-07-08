@@ -1,6 +1,16 @@
 import { useState, useEffect } from "react";
+import characterCount from "./character-count";
 
 const TRANSITION_MS = 500;
+
+const serverBody = {
+  clientHeight: 100,
+  clientWidth: 100,
+};
+
+function body() {
+  return typeof document !== "undefined" ? document.body : serverBody;
+}
 
 export default function BackSection({
   title,
@@ -19,15 +29,23 @@ export default function BackSection({
     setTimeout(() => setTransitioning(false), TRANSITION_MS);
   }, [active]);
 
+  const characters = characterCount(children);
+  const fontSize =
+    0.3 * Math.sqrt((body().clientHeight * body().clientWidth) / characters);
+
   const style = {
     transformOrigin,
-    zIndex: transitioning ? 2 : undefined,
     transitionDuration: `${TRANSITION_MS}ms`,
   };
+
+  const childrenStyle = { fontSize };
+
   return (
     <div
       style={style}
-      className={`BackSection ${active && "active"}`}
+      className={`BackSection ${active && "active"} ${
+        transitioning && "transitioning"
+      }`}
       onClick={onOpen}
     >
       {active && (
@@ -40,7 +58,11 @@ export default function BackSection({
           <button onClick={onOpen}>{title}</button>
         </h1>
       )}
-      {active && <div className="BackSection-children">{children}</div>}
+      {active && (
+        <div className="BackSection-children" style={{ fontSize }}>
+          {children}
+        </div>
+      )}
     </div>
   );
 }
