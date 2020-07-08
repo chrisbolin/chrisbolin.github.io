@@ -147,10 +147,6 @@ hr {
   max-width: 50wv;
 }
 
-.BackSection:hover h1 {
-  background: -webkit-linear-gradient(10deg, var(--color-a), var(--color-e));
-}
-
 .BackSection button {
   color: inherit;
   background: none;
@@ -186,6 +182,10 @@ hr {
 
 .BackSection:nth-of-type(4n + 4) {
   background: -webkit-linear-gradient(140deg, var(--color-e), var(--color-a));
+}
+
+.BackSection:hover {
+  filter: brightness(1.1) saturate(1.1);
 }
 
 .BackSection-children {
