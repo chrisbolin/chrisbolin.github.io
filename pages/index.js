@@ -1,15 +1,8 @@
 import React, { useState, useEffect, useMemo, useCallback } from "react";
 import Head from "next/head";
 
-import A, { ClientOnlyLink } from "../src/link";
+import { limitUnit, isMobile } from "../src/utils";
 import Back from "../src/back";
-
-const limitUnit = (x) => (x < 0 ? 0 : x < 1 ? x : 1);
-
-const isMobile = () => {
-  if (typeof navigator === "undefined") return false;
-  return navigator.userAgent.match(/Mobile|iP(hone|od|ad)|Android|IEMobile/);
-};
 
 const colors = [
   { value: "var(--color-a)", barXScale: 5.2, gradientPosition: "41%" },

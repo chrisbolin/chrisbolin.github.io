@@ -4,37 +4,36 @@ import BackSection from "./back-section";
 import Link, { ClientOnlyLink } from "./link";
 
 const backSectionElements = [
-  <BackSection title="Chris Bolin">
+  <BackSection title="Chris">
     Software engineer and artist in Denver. Engineering leadership at{" "}
     <Link name="formidable">Formidable</Link>. Founder of{" "}
     <Link name="disconnect">The Disconnect</Link>. Most recent project:{" "}
     <Link name="perf-land">Perf Land</Link>. [
     <ClientOnlyLink name="email">Email me</ClientOnlyLink>]
   </BackSection>,
-  <BackSection title="Projects">
-    <b>2020</b> <Link name="perf-land">Perf Land</Link>, <b>2019</b>{" "}
-    <Link name="disconnect-3">Disconnect #3</Link>, <b>2018</b>{" "}
-    <Link name="elements">Elements</Link>,{" "}
-    <Link name="disconnect-2">Disconnect #2</Link>,{" "}
-    <Link name="disconnect-1">Disconnect #1</Link>, <b>2017</b>{" "}
-    <Link name="offline-only">Offline Only</Link>,{" "}
-    <Link name="travels">Travels</Link>, <b>2016</b>{" "}
-    <Link name="tessellate">Tessellate</Link>,{" "}
-    <Link name="skycoins">Skycoins</Link>, <b>pre-2016</b>{" "}
-    <Link name="shipwrecked">Shipwrecked</Link>,{" "}
+  <BackSection title="Make">
+    <b>2020</b> <Link name="perf-land">Perf Land</Link> <b>2019</b>{" "}
+    <Link name="disconnect-3">Disconnect #3</Link> <b>2018</b>{" "}
+    <Link name="elements">Elements</Link>{" "}
+    <Link name="disconnect-2">Disconnect #2</Link>{" "}
+    <Link name="disconnect-1">Disconnect #1</Link> <b>2017</b>{" "}
+    <Link name="offline-only">Offline Only</Link>{" "}
+    <Link name="travels">Travels</Link> <b>2016</b>{" "}
+    <Link name="tessellate">Tessellate</Link>{" "}
+    <Link name="skycoins">Skycoins</Link> <b>pre-2016</b>{" "}
+    <Link name="shipwrecked">Shipwrecked</Link>{" "}
     <Link name="enchiridion">Enchiridion</Link>
   </BackSection>,
-  <BackSection title="Talks & Press">
-    <Link name="me-convention">SXSW me Convention</Link>,{" "}
-    <Link name="dinojs">DinosaurJS</Link>,{" "}
-    <Link name="debugging-talk">Debugging</Link>,{" "}
-    <Link name="offline-talk">Offline websites</Link>,{" "}
-    <Link name="vice">Vice</Link>, <Link name="lifehacker">Lifehacker</Link>,{" "}
-    <Link name="cbc">CBC</Link>, <Link name="cjr">CJR</Link>,{" "}
-    <Link name="le-monde">Le Monde</Link>,{" "}
-    <Link name="the-next-web">The Next Web</Link>
+  <BackSection title="Talk">
+    <b>2019</b> <Link name="debugging-talk">Debugging</Link> <b>2018</b>{" "}
+    <Link name="me-convention">SXSW me Convention</Link>{" "}
+    <Link name="dinojs">DinosaurJS</Link> <Link name="cjr">CJR</Link>{" "}
+    <Link name="lifehacker">Lifehacker</Link> <b>2017</b>{" "}
+    <Link name="offline-talk">Offline websites</Link>{" "}
+    <Link name="vice">Vice</Link> <Link name="le-monde">Le Monde</Link>{" "}
+    <Link name="the-next-web">The Next Web</Link> <Link name="cbc">CBC</Link>
   </BackSection>,
-  <BackSection title="CV">
+  <BackSection title="Work">
     VP Engineering, <Link name="formidable">Formidable</Link>. Adjunct,{" "}
     <Link name="u-denver">U of Denver</Link>. Engineer, Jumpshell. Data
     scientist, <Link name="autotegrity">Autotegrity</Link>. Researcher,{" "}

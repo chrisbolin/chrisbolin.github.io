@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import characterCount from "./character-count";
+import { limitUnit, limit } from "./utils";
 
 const TRANSITION_MS = 500;
 
@@ -38,7 +39,14 @@ export default function BackSection({
     transitionDuration: `${TRANSITION_MS}ms`,
   };
 
+  const h1ScaleY = limit(
+    (3.3 * getWindow().innerHeight) / getWindow().innerWidth,
+    0,
+    3
+  );
+
   const childrenStyle = { fontSize };
+  const h1Style = { transform: `scaleY(${h1ScaleY}) skewX(3deg)` };
 
   return (
     <div
@@ -54,7 +62,7 @@ export default function BackSection({
         </button>
       )}
       {!active && (
-        <h1>
+        <h1 style={h1Style}>
           <button onClick={onOpen}>{title}</button>
         </h1>
       )}

@@ -124,48 +124,12 @@ hr {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  transition: all cubic-bezier(0, 0.99, 0.58, 1);
   cursor: pointer;
   z-index: 1;
 }
 
-.BackSection.active {
-  transform: scale(2);
-  z-index: 2;
-  cursor: unset;
-}
-
-.BackSection.transitioning {
-  z-index: 2;
-}
-
-.BackSection h1 {
-  font-size: 12vw;
-  transform: scaleY(0.5) skewX(5deg);
-  display: inline-block;
-  text-align: center;
-  max-width: 50wv;
-}
-
-.BackSection button {
-  color: inherit;
-  background: none;
-  font-size: inherit;
-  border: none;
-  text-align: inherit;
-}
-
-.BackSection .BackSection-close {
-  position: absolute;
-  top: -3vmin;
-  right: 0;
-  font-size: 8vmin;
-  padding: 2vmin;
-  cursor: pointer;
-}
-
-.BackSection .BackSection-close:hover {
-  color: var(--color-blackish);
+.BackSection:hover {
+  filter: brightness(1.1) saturate(1.1);
 }
 
 .BackSection:nth-of-type(4n + 1) {
@@ -184,8 +148,46 @@ hr {
   background: -webkit-linear-gradient(140deg, var(--color-e), var(--color-a));
 }
 
-.BackSection:hover {
-  filter: brightness(1.1) saturate(1.1);
+.BackSection.active {
+  transform: scale(2);
+  z-index: 2;
+  cursor: unset;
+}
+
+.BackSection.transitioning {
+  z-index: 2;
+}
+
+.BackSection h1 {
+  font-size: 21vw;
+  display: inline-block;
+  text-align: center;
+  max-width: 50wv;
+}
+
+button {
+  color: inherit;
+  background: none;
+  font-size: inherit;
+  border: none;
+  text-align: inherit;
+}
+
+button:focus {
+  color: var(--color-blackish);
+}
+
+.BackSection-close {
+  position: absolute;
+  top: -3vmin;
+  right: 0;
+  font-size: 8vmin;
+  padding: 1vmin 2vmin;
+  cursor: pointer;
+}
+
+.BackSection-close:hover {
+  color: var(--color-blackish);
 }
 
 .BackSection-children {
