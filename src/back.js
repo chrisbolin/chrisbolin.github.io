@@ -50,9 +50,9 @@ export default function Back({ x, style }) {
   const minX = 0.6;
   const display = x > minX ? null : "none";
   const progress = (x - minX) / (1 - minX);
-  const [activeSectionIndex, setActiveSectionIndex] = useState(null);
-  const clearActiveSectionIndex = (e) => {
-    setActiveSectionIndex(null);
+  const [activeSection, setActiveSection] = useState(null);
+  const clearActiveSection = (e) => {
+    setActiveSection(null);
     e.stopPropagation();
   };
   const combinedStyle = {
@@ -68,10 +68,10 @@ export default function Back({ x, style }) {
         // index is a unique ID, as the number and order of this will not change at runtime
         React.cloneElement(element, {
           index,
-          key: index,
-          onOpen: () => setActiveSectionIndex(index),
-          onClose: clearActiveSectionIndex,
-          active: index === activeSectionIndex,
+          key: element.props.title,
+          onOpen: () => setActiveSection(element.props.title),
+          onClose: clearActiveSection,
+          active: element.props.title === activeSection,
         })
       )}
     </div>

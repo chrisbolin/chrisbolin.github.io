@@ -7,8 +7,7 @@
   --color-whitish: #f2f2f2;
   --color-blackish: #240f1f;
   --color-highlight: var(--color-d);
-  --color-behind-curtain: var(--color-a);
-  --color-transparent: rgba(0, 0, 0, 0);
+  --color-behind-curtain: var(--color-e);
 }
 
 html {
@@ -24,7 +23,7 @@ body {
 
 body ::selection {
   color: var(--color-whitish);
-  background-color: var(--color-highlight);
+  background-color: var(--color-blackish);
 }
 
 a,
