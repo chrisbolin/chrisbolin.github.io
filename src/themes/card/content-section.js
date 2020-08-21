@@ -1,10 +1,9 @@
-import { useState, useEffect, useLayoutEffect } from "react";
-import characterCount from "./character-count";
-import { getWindow } from "./utils";
+import { useState, useLayoutEffect, Children } from "react";
+import { getWindow } from "../../utils/general";
 
 const TRANSITION_MS = 500;
 
-export default function BackSection({
+export default function ContentSection({
   title,
   children,
   onOpen,
@@ -21,10 +20,6 @@ export default function BackSection({
     setTimeout(() => setTransitioning(false), TRANSITION_MS);
   }, [active]);
 
-  const characters = characterCount(children);
-  const fontSize =
-    0.5 *
-    Math.sqrt((getWindow().innerHeight * getWindow().innerWidth) / characters);
   const style = {
     transformOrigin,
     transitionDuration: `${TRANSITION_MS}ms`,
@@ -32,7 +27,6 @@ export default function BackSection({
 
   const h1ScaleY = (3.5 * getWindow().innerHeight) / getWindow().innerWidth;
 
-  const childrenStyle = { fontSize };
   const h1Style = { transform: `scaleY(${h1ScaleY}) skewX(5deg)` };
 
   return (
@@ -53,11 +47,7 @@ export default function BackSection({
           <button onClick={onOpen}>{title}</button>
         </h1>
       )}
-      {active && (
-        <div className="BackSection-children" style={{ fontSize }}>
-          {children}
-        </div>
-      )}
+      {active && <div className="BackSection-children">{children}</div>}
     </div>
   );
 }
