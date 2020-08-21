@@ -24,13 +24,13 @@ const links = {
   shipwrecked: "http://www.blurb.com/books/1234410-shipwrecked",
   travels: "https://rookievagabonds.tumblr.com/",
 
-  // talks
+  // talk
+  venturi:
+    "https://venturi-group.com/podcast/building-good-engineering-culture-formidable-chris-bolin/",
   dinojs: "https://www.youtube.com/watch?v=nhuvY0CT064",
   "me-convention": "https://www.youtube.com/watch?v=6wjqLAaCAyw",
   "offline-talk": "https://www.youtube.com/watch?v=iavC1oWvtJ8&t=2591s",
   "debugging-talk": "https://www.youtube.com/watch?v=ccG9L2Pg4io&t=1035",
-
-  // press
   lifehacker:
     "https://lifehacker.com/you-cant-read-this-website-until-you-turn-off-your-inte-1822776654",
   vice:
@@ -54,6 +54,7 @@ const Link = ({ name, children }) => (
   <a
     href={links[name] || console.error("NOT FOUND:", name, children)}
     rel="noopener noreferrer"
+    className="Link"
     children={children}
   />
 );
@@ -64,5 +65,7 @@ export const ClientOnlyLink = (props) => {
   if (mounted) return <Link {...props} />; // if mounted on client, render as usual
   return false; // if rendered on server
 };
+
+export const LinkButton = (props) => <button className="Button" {...props} />;
 
 export default Link;
