@@ -232,3 +232,8 @@ a {
 .SimpleApp .main {
   font-style: italic;
 }
+
+.SimpleApp a,
+.SimpleApp button {
+  color: blue;
+}
