@@ -1,22 +1,7 @@
 import React, { useContext } from "react";
 import Link, { ClientOnlyLink, LinkButton } from "./link";
 
-import ThemeContext, { THEME_CARD, THEME_SIMPLE } from "./themes/theme-context";
-
-const ChangeThemeButton = () => {
-  const { theme, changeTheme } = useContext(ThemeContext);
-
-  return (
-    <LinkButton
-      onClick={() => {
-        changeTheme();
-      }}
-    >
-      {theme === THEME_CARD && "[simplify this]"}
-      {theme === THEME_SIMPLE && "[make this weirder]"}
-    </LinkButton>
-  );
-};
+import { ChangeThemeButton } from "./themes/theme-context";
 
 export const Main = () => (
   <>
