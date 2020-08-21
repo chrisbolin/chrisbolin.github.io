@@ -20,7 +20,7 @@ const ChangeThemeButton = () => {
 
 export const Main = () => (
   <>
-    Software engineer and artist in Denver. Engineering leadership at{" "}
+    Software engineer and artist in Colorado. Engineering leadership at{" "}
     <Link name="formidable">Formidable</Link>. Founder of{" "}
     <Link name="disconnect">The Disconnect</Link>. Most recent project:{" "}
     <Link name="perf-land">Perf Land</Link>.{" "}
