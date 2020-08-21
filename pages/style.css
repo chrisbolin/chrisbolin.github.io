@@ -10,9 +10,9 @@
   --color-behind-curtain: var(--color-e);
 }
 
-html {
+.CardApp {
+  background-color: var(--color-whitish);
   font-family: Helvetica Neue, Arial, sans-serif;
-  background-color: var(--color-behind-curtain);
 }
 
 body {
@@ -21,7 +21,7 @@ body {
   overflow-x: hidden;
 }
 
-body ::selection {
+.CardApp ::selection {
   color: var(--color-whitish);
   background-color: var(--color-blackish);
 }
@@ -42,10 +42,6 @@ button {
   font-size: 6vw;
   top: 0;
   transform: none;
-}
-
-.app {
-  background-color: var(--color-whitish);
 }
 
 .container {
@@ -175,10 +171,17 @@ button {
   font-size: inherit;
   border: none;
   text-align: inherit;
+  font-style: inherit;
+  padding: 0;
+  font-family: inherit;
 }
 
 button:focus {
   color: var(--color-blackish);
+}
+
+.Button {
+  text-decoration: underline;
 }
 
 .BackSection-close {
@@ -198,6 +201,7 @@ button:focus {
   line-height: 1.25;
   margin: 2vw;
   hyphens: auto;
+  font-size: calc(1.5vw + 1.5vh);
 }
 
 a {
@@ -205,8 +209,10 @@ a {
   text-decoration: underline;
 }
 
-a:hover,
-a:focus {
+.CardApp .Link:hover,
+.CardApp .Link:focus,
+.CardApp .Button:hover,
+.CardApp .Button:focus {
   background: -webkit-linear-gradient(50deg, var(--color-a), var(--color-e));
   color: var(--color-blackish);
   text-decoration: none;
@@ -214,4 +220,15 @@ a:focus {
 
 .hidden {
   opacity: 0 !important;
+}
+
+/* SimpleApp */
+
+.SimpleApp {
+  margin: 1em;
+  font-family: "Times New Roman", serif;
+}
+
+.SimpleApp .main {
+  font-style: italic;
 }
