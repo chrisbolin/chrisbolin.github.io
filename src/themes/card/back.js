@@ -6,16 +6,16 @@ import Link, { ClientOnlyLink, LinkButton } from "../../link";
 import { Main, Make, Talk, Work } from "../../content";
 
 const contentSectionElements = [
-  <ContentSection title="Chris">
+  <ContentSection title="Chris" fontScale={1.35}>
     <Main />
   </ContentSection>,
-  <ContentSection title="Make">
+  <ContentSection title="Make" fontScale={1.35}>
     <Make />
   </ContentSection>,
-  <ContentSection title="Talk">
+  <ContentSection title="Talk" fontScale={1.4}>
     <Talk />
   </ContentSection>,
-  <ContentSection title="Work">
+  <ContentSection title="Work" fontScale={1.05}>
     <Work />
   </ContentSection>,
 ];

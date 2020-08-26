@@ -10,6 +10,7 @@ export default function ContentSection({
   onClose,
   active,
   index,
+  fontScale = 1,
 }) {
   const [transitioning, setTransitioning] = useState(false);
   const transformOrigin = `${index < 2 ? "top" : "bottom"} ${
@@ -29,6 +30,10 @@ export default function ContentSection({
 
   const h1Style = { transform: `scaleY(${h1ScaleY}) skewX(5deg)` };
 
+  const childrenStyle = {
+    fontSize: `calc(${fontScale} * (1.5vw + 1.5vh))`,
+  };
+
   return (
     <div
       style={style}
@@ -47,7 +52,11 @@ export default function ContentSection({
           <button onClick={onOpen}>{title}</button>
         </h1>
       )}
-      {active && <div className="ContextSection-children">{children}</div>}
+      {active && (
+        <div className="ContextSection-children" style={childrenStyle}>
+          {children}
+        </div>
+      )}
     </div>
   );
 }

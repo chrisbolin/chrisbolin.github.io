@@ -201,7 +201,6 @@ button:focus {
   line-height: 1.25;
   margin: 2vw;
   hyphens: auto;
-  font-size: calc(1.5vw + 1.5vh);
 }
 
 a {
