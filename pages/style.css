@@ -115,7 +115,7 @@ hr {
   grid-template-rows: 1fr 1fr;
 }
 
-.BackSection {
+.ContextSection {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -124,41 +124,41 @@ hr {
   z-index: 1;
 }
 
-.BackSection:hover {
+.ContextSection:hover {
   z-index: 2;
 }
 
-.BackSection.active {
+.ContextSection.active {
   transform: scale(2);
   z-index: 3;
   cursor: unset;
 }
 
-.BackSection.transitioning {
+.ContextSection.transitioning {
   z-index: 3;
 }
 
-.BackSection:hover {
+.ContextSection:hover {
   filter: brightness(1.1) saturate(1.1);
 }
 
-.BackSection:nth-of-type(4n + 1) {
+.ContextSection:nth-of-type(4n + 1) {
   background: -webkit-linear-gradient(50deg, var(--color-a), var(--color-d));
 }
 
-.BackSection:nth-of-type(4n + 2) {
+.ContextSection:nth-of-type(4n + 2) {
   background: -webkit-linear-gradient(-50deg, var(--color-b), var(--color-e));
 }
 
-.BackSection:nth-of-type(4n + 3) {
+.ContextSection:nth-of-type(4n + 3) {
   background: -webkit-linear-gradient(30deg, var(--color-e), var(--color-b));
 }
 
-.BackSection:nth-of-type(4n + 4) {
+.ContextSection:nth-of-type(4n + 4) {
   background: -webkit-linear-gradient(140deg, var(--color-e), var(--color-a));
 }
 
-.BackSection h1 {
+.ContextSection h1 {
   font-size: 21vw;
   display: inline-block;
   text-align: center;
@@ -184,7 +184,7 @@ button:focus {
   text-decoration: underline;
 }
 
-.BackSection-close {
+.ContextSection-close {
   position: absolute;
   top: -3vmin;
   right: 0;
@@ -193,11 +193,11 @@ button:focus {
   cursor: pointer;
 }
 
-.BackSection-close:hover {
+.ContextSection-close:hover {
   color: var(--color-blackish);
 }
 
-.BackSection-children {
+.ContextSection-children {
   line-height: 1.25;
   margin: 2vw;
   hyphens: auto;

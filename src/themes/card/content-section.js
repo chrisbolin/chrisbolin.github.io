@@ -32,13 +32,13 @@ export default function ContentSection({
   return (
     <div
       style={style}
-      className={`BackSection ${active && "active"} ${
+      className={`ContextSection ${active && "active"} ${
         transitioning && "transitioning"
       }`}
       onClick={onOpen}
     >
       {active && (
-        <button className="BackSection-close" onClick={onClose}>
+        <button className="ContextSection-close" onClick={onClose}>
           ⨯
         </button>
       )}
@@ -47,7 +47,7 @@ export default function ContentSection({
           <button onClick={onOpen}>{title}</button>
         </h1>
       )}
-      {active && <div className="BackSection-children">{children}</div>}
+      {active && <div className="ContextSection-children">{children}</div>}
     </div>
   );
 }
