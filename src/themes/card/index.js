@@ -163,6 +163,12 @@ export default () => {
     window.addEventListener("touchmove", handleScroll);
 
     setMounted(true);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+      window.removeEventListener("touchmove", handleScroll);
+    };
   }, [setMounted]);
 
   const backgroundTransitionPoint = 0.95;
