@@ -43,6 +43,8 @@ const links = {
     "http://www.lemonde.fr/big-browser/article/2017/08/29/et-si-se-deconnecter-vous-aidait-a-mieux-profiter-des-richesses-d-internet_5177910_4832693.html",
   "the-next-web":
     "https://thenextweb.com/insider/2017/08/21/this-manifesto-against-internet-addiction-can-only-be-viewed-offline/",
+  nautilus:
+    "https://nautil.us/issue/63/horizons/the-online-magazine-you-cant-read-online",
 
   // edu
   "computational-engineering": "https://computationalengineering.mit.edu/",

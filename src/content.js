@@ -36,7 +36,8 @@ export const Talk = () => (
     <Link name="debugging-talk">Debugging</Link> <b>2018</b>{" "}
     <Link name="me-convention">SXSW me Convention</Link>{" "}
     <Link name="dinojs">DinosaurJS</Link> <Link name="cjr">CJR</Link>{" "}
-    <Link name="lifehacker">Lifehacker</Link> <b>2017</b>{" "}
+    <Link name="lifehacker">Lifehacker</Link>{" "}
+    <Link name="nautilus">Nautilus</Link> <b>2017</b>{" "}
     <Link name="offline-talk">Offline websites</Link>{" "}
     <Link name="vice">Vice</Link> <Link name="le-monde">Le Monde</Link>{" "}
     <Link name="the-next-web">The Next Web</Link> <Link name="cbc">CBC</Link>
