@@ -8,7 +8,7 @@ export const Main = () => (
     Software engineer and artist in Colorado. Engineering leadership at{" "}
     <Link name="formidable">Formidable</Link>. Founder of{" "}
     <Link name="disconnect">The Disconnect</Link>. Most recent project:{" "}
-    <Link name="perf-land">Perf Land</Link>.{" "}
+    <Link name="perf-land">Perf Land</Link>. <Link name="log">[web log]</Link>.{" "}
     <ClientOnlyLink name="email">[email me]</ClientOnlyLink>{" "}
     <ChangeThemeButton />
   </>
@@ -32,7 +32,8 @@ export const Make = () => (
 
 export const Talk = () => (
   <>
-    <b>2020</b> <Link name="venturi">Venturi Interview</Link> <b>2019</b>{" "}
+    <b>Now</b> <Link name="log">log</Link> <b>2020</b>{" "}
+    <Link name="venturi">Venturi Interview</Link> <b>2019</b>{" "}
     <Link name="debugging-talk">Debugging</Link> <b>2018</b>{" "}
     <Link name="me-convention">SXSW me Convention</Link>{" "}
     <Link name="dinojs">DinosaurJS</Link> <Link name="cjr">CJR</Link>{" "}

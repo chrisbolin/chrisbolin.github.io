@@ -25,6 +25,7 @@ const links = {
   travels: "https://rookievagabonds.tumblr.com/",
 
   // talk
+  log: "https://chris.bolin.co/log/",
   venturi:
     "https://venturi-group.com/podcast/building-good-engineering-culture-formidable-chris-bolin/",
   dinojs: "https://www.youtube.com/watch?v=nhuvY0CT064",
