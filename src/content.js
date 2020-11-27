@@ -8,7 +8,7 @@ export const Main = () => (
     Software engineer and artist in Colorado. Engineering leadership at{" "}
     <Link name="formidable">Formidable</Link>. Founder of{" "}
     <Link name="disconnect">The Disconnect</Link>. Most recent project:{" "}
-    <Link name="perf-land">Perf Land</Link>. <Link name="log">[web log]</Link>.{" "}
+    <Link name="perf-land">Perf Land</Link>. <Link name="log">[web log]</Link>{" "}
     <ClientOnlyLink name="email">[email me]</ClientOnlyLink>{" "}
     <ChangeThemeButton />
   </>
