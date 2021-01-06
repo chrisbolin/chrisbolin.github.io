@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 const links = {
   // work
   formidable: "https://formidable.com/",
+  ddg: "https://duckduckgo.com/",
   "u-denver":
     "https://daniels.du.edu/entrepreneurship/entrepreneurship-degree-programs",
   jumpshell: "https://www.jumpshell.com/",
@@ -50,7 +51,7 @@ const links = {
   // edu
   "computational-engineering": "https://computationalengineering.mit.edu/",
   thesis: "http://dspace.mit.edu/handle/1721.1/82189",
-  email: "mailto:bolin.chris@gmail.com",
+  email: "mailto:chrisbolin@protonmail.com",
 };
 
 const Link = ({ name, children }) => (
