@@ -38,8 +38,8 @@ export const ChangeThemeButton = () => {
         changeTheme();
       }}
     >
-      {theme === THEME_CARD && "[simplify this]"}
-      {theme === THEME_SIMPLE && "[make this weirder]"}
+      {theme === THEME_CARD && "[simplify]"}
+      {theme === THEME_SIMPLE && "[complicate]"}
     </LinkButton>
   );
 };

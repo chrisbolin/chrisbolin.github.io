@@ -47,8 +47,9 @@ export const Talk = () => (
 
 export const Work = () => (
   <>
-    <b>Current:</b> VP Engineering, <Link name="formidable">Formidable</Link>.
-    Adjunct, <Link name="u-denver">U of Denver</Link>. <b>Past:</b> Engineer,
+    <b>Current:</b> Director, Data Science, <Link name="ddg"><nobr>DuckDuckGo</nobr></Link>{" "}
+    <b>Past:</b> VP Engineering, <Link name="formidable">Formidable</Link>.
+    Adjunct, <Link name="u-denver">U of Denver</Link>. Engineer,
     Jumpshell. Data scientist, <Link name="autotegrity">Autotegrity</Link>.
     Researcher, <Link name="ebm">MIT EBM Lab</Link>. Engineer,{" "}
     <Link name="ni">NI</Link>. Master’s Computational Engineering, MIT,{" "}
