@@ -13,8 +13,8 @@ export default function ContentSection({
   fontScale = 1,
 }) {
   const [transitioning, setTransitioning] = useState(false);
-  const transformOrigin = `${index < 2 ? "top" : "bottom"} ${index % 2 === 0 ? "left" : "right"
-    }`;
+  const transformOrigin = `${index < 2 ? "top" : "bottom"} ${index % 2 === 0 ? "left" : "right"}`;
+
   useLayoutEffect(() => {
     setTransitioning(true);
     setTimeout(() => setTransitioning(false), TRANSITION_MS);

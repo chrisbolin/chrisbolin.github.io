@@ -38,10 +38,17 @@ export default function Back({ x, style }) {
     ...style,
   };
 
+  const handleKeyPress = (e) => {
+    if (e.keyCode === 27) {
+      clearActiveSection(e)
+    }
+  }
+
+
   useEffect(() => {
-    window.addEventListener("keydown", clearActiveSection);
+    window.addEventListener("keydown", handleKeyPress);
     return () => {
-      window.removeEventListener("keydown", clearActiveSection);
+      window.removeEventListener("keydown", handleKeyPress);
     }
   }, [])
 
