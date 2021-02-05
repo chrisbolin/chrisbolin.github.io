@@ -1,4 +1,4 @@
-import { useState, useLayoutEffect, Children, useEffect } from "react";
+import { useState, useLayout, useEffect, Children, } from "react";
 import { getWindow } from "../../utils/general";
 
 const TRANSITION_MS = 500;

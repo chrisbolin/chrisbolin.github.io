@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext } from "react";
 
 import ContentSection from "./content-section";
 import Link, { ClientOnlyLink, LinkButton } from "../../link";
