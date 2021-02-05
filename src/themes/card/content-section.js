@@ -1,4 +1,4 @@
-import { useState, useLayoutEffect, Children } from "react";
+import { useState, useLayout, useEffect, Children, } from "react";
 import { getWindow } from "../../utils/general";
 
 const TRANSITION_MS = 500;
@@ -13,9 +13,8 @@ export default function ContentSection({
   fontScale = 1,
 }) {
   const [transitioning, setTransitioning] = useState(false);
-  const transformOrigin = `${index < 2 ? "top" : "bottom"} ${
-    index % 2 === 0 ? "left" : "right"
-  }`;
+  const transformOrigin = `${index < 2 ? "top" : "bottom"} ${index % 2 === 0 ? "left" : "right"}`;
+
   useLayoutEffect(() => {
     setTransitioning(true);
     setTimeout(() => setTransitioning(false), TRANSITION_MS);
@@ -34,12 +33,24 @@ export default function ContentSection({
     fontSize: `calc(${fontScale} * (1.5vw + 1.5vh))`,
   };
 
+  const handleKeyPress = (e) => {
+    if (e.keyCode === 27) {
+      onClose(e)
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyPress);
+    return () => {
+      window.removeEventListener("keydown", handleKeyPress);
+    }
+  }, [])
+
   return (
     <div
       style={style}
-      className={`ContextSection ${active && "active"} ${
-        transitioning && "transitioning"
-      }`}
+      className={`ContextSection ${active && "active"} ${transitioning && "transitioning"
+        }`}
       onClick={onOpen}
     >
       {active && (
