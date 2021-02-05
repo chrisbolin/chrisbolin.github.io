@@ -1,4 +1,4 @@
-import { useState, useLayoutEffect, Children } from "react";
+import { useState, useLayoutEffect, Children, useEffect } from "react";
 import { getWindow } from "../../utils/general";
 
 const TRANSITION_MS = 500;
@@ -32,6 +32,19 @@ export default function ContentSection({
   const childrenStyle = {
     fontSize: `calc(${fontScale} * (1.5vw + 1.5vh))`,
   };
+
+  const handleKeyPress = (e) => {
+    if (e.keyCode === 27) {
+      onClose(e)
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyPress);
+    return () => {
+      window.removeEventListener("keydown", handleKeyPress);
+    }
+  }, [])
 
   return (
     <div

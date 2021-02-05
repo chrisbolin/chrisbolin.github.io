@@ -38,20 +38,6 @@ export default function Back({ x, style }) {
     ...style,
   };
 
-  const handleKeyPress = (e) => {
-    if (e.keyCode === 27) {
-      clearActiveSection(e)
-    }
-  }
-
-
-  useEffect(() => {
-    window.addEventListener("keydown", handleKeyPress);
-    return () => {
-      window.removeEventListener("keydown", handleKeyPress);
-    }
-  }, [])
-
   return (
     <div className="Back" style={combinedStyle}>
       {contentSectionElements.map((element, index) =>
