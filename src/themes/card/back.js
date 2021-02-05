@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 
 import ContentSection from "./content-section";
 import Link, { ClientOnlyLink, LinkButton } from "../../link";
@@ -28,6 +28,7 @@ export default function Back({ x, style }) {
   const progress = (x - minX) / (1 - minX);
   const [activeSection, setActiveSection] = useState(null);
   const clearActiveSection = (e) => {
+    console.log("FIRED Close");
     setActiveSection(null);
     e.stopPropagation();
   };
@@ -37,6 +38,13 @@ export default function Back({ x, style }) {
     filter: `brightness(${progress})`,
     ...style,
   };
+
+  useEffect(() => {
+    window.addEventListener("keydown", clearActiveSection);
+    return () => {
+      window.removeEventListener("keydown", clearActiveSection);
+    }
+  }, [])
 
   return (
     <div className="Back" style={combinedStyle}>

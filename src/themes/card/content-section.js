@@ -13,9 +13,8 @@ export default function ContentSection({
   fontScale = 1,
 }) {
   const [transitioning, setTransitioning] = useState(false);
-  const transformOrigin = `${index < 2 ? "top" : "bottom"} ${
-    index % 2 === 0 ? "left" : "right"
-  }`;
+  const transformOrigin = `${index < 2 ? "top" : "bottom"} ${index % 2 === 0 ? "left" : "right"
+    }`;
   useLayoutEffect(() => {
     setTransitioning(true);
     setTimeout(() => setTransitioning(false), TRANSITION_MS);
@@ -33,13 +32,13 @@ export default function ContentSection({
   const childrenStyle = {
     fontSize: `calc(${fontScale} * (1.5vw + 1.5vh))`,
   };
+  console.log("fired");
 
   return (
     <div
       style={style}
-      className={`ContextSection ${active && "active"} ${
-        transitioning && "transitioning"
-      }`}
+      className={`ContextSection ${active && "active"} ${transitioning && "transitioning"
+        }`}
       onClick={onOpen}
     >
       {active && (
