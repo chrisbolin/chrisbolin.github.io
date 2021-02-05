@@ -32,7 +32,6 @@ export default function ContentSection({
   const childrenStyle = {
     fontSize: `calc(${fontScale} * (1.5vw + 1.5vh))`,
   };
-  console.log("fired");
 
   return (
     <div

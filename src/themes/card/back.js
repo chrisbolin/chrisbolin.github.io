@@ -28,7 +28,6 @@ export default function Back({ x, style }) {
   const progress = (x - minX) / (1 - minX);
   const [activeSection, setActiveSection] = useState(null);
   const clearActiveSection = (e) => {
-    console.log("FIRED Close");
     setActiveSection(null);
     e.stopPropagation();
   };
