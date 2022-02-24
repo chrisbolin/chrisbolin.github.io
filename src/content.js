@@ -7,8 +7,7 @@ export const Main = () => (
   <>
     Software engineer and artist in Colorado. Data Science,{" "}
     <Link name="ddg"><nobr>DuckDuckGo</nobr></Link>. Founder,{" "}
-    <Link name="disconnect">The Disconnect</Link>. Most recent project:{" "}
-    <Link name="perf-land">Perf Land</Link>. <Link name="log">[web log]</Link>{" "}
+    <Link name="disconnect">The Disconnect</Link>. <Link name="log">[web log]</Link>{" "}
     <ClientOnlyLink name="email">[email]</ClientOnlyLink>{" "}
     <ChangeThemeButton />
   </>
