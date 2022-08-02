@@ -212,8 +212,6 @@ a {
 .CardApp .Link:focus,
 .CardApp .Button:hover,
 .CardApp .Button:focus {
-  background: -webkit-linear-gradient(50deg, var(--color-a), var(--color-e));
-  color: var(--color-blackish);
   text-decoration: none;
 }
 
@@ -221,18 +219,14 @@ a {
   opacity: 0 !important;
 }
 
-/* SimpleApp */
+/* CleanBack */
 
-.SimpleApp {
-  margin: 1em;
-  font-family: "Times New Roman", serif;
-}
-
-.SimpleApp .main {
-  font-style: italic;
-}
-
-.SimpleApp a,
-.SimpleApp button {
-  color: blue;
+.CleanBack {
+  font-family: Helvetica, Arial, sans-serif;
+  margin: 0;
+  background-color: hsl(0deg 0% 98%);
+  color: black;
+  padding: 1em;
+  height: 100vh;
+  font-size: calc(3vmin + 1.5vmax);
 }

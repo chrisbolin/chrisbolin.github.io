@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 const links = {
   // work
   formidable: "https://formidable.com/",
-  ddg: "https://duckduckgo.com/",
+  duckduckgo: "https://duckduckgo.com/",
   "u-denver":
     "https://daniels.du.edu/entrepreneurship/entrepreneurship-degree-programs",
   jumpshell: "https://www.jumpshell.com/",
@@ -35,12 +35,9 @@ const links = {
   "debugging-talk": "https://www.youtube.com/watch?v=ccG9L2Pg4io&t=1035",
   lifehacker:
     "https://lifehacker.com/you-cant-read-this-website-until-you-turn-off-your-inte-1822776654",
-  vice:
-    "https://motherboard.vice.com/en_us/article/kzzgjn/this-website-only-works-when-youre-offline",
-  cbc:
-    "http://www.cbc.ca/radio/spark/want-to-look-at-this-guy-s-website-go-offline-1.4281329",
-  cjr:
-    "https://www.cjr.org/innovations/disconnect-magazine-only-works-offline.php",
+  vice: "https://motherboard.vice.com/en_us/article/kzzgjn/this-website-only-works-when-youre-offline",
+  cbc: "http://www.cbc.ca/radio/spark/want-to-look-at-this-guy-s-website-go-offline-1.4281329",
+  cjr: "https://www.cjr.org/innovations/disconnect-magazine-only-works-offline.php",
   "le-monde":
     "http://www.lemonde.fr/big-browser/article/2017/08/29/et-si-se-deconnecter-vous-aidait-a-mieux-profiter-des-richesses-d-internet_5177910_4832693.html",
   "the-next-web":
