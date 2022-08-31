@@ -1,29 +1,15 @@
-import React, { useContext } from "react";
-import Link, { ClientOnlyLink, LinkButton } from "./link";
-
-import { ChangeThemeButton } from "./themes/theme-context";
-
-export const Main = () => (
-  <>
-    Software engineer and artist in Colorado. Data Science,{" "}
-    <Link name="ddg">
-      <nobr>DuckDuckGo</nobr>
-    </Link>
-    . Founder, <Link name="disconnect">The Disconnect</Link>.{" "}
-    <Link name="log">[web log]</Link>{" "}
-    <ClientOnlyLink name="email">[email]</ClientOnlyLink> <ChangeThemeButton />
-  </>
-);
+import React from "react";
+import Link from "./Link";
 
 export default function Content() {
   return (
     <>
       <div>
-        <b>Chris.</b> Person in Colorado.
+        <b>chris.</b> conifer, colorado.
       </div>
       <div>
-        <b>Fun.</b> Currently: logging, woodworking, and carpentry. Previously:{" "}
-        <Link name="disconnect">The Disconnect</Link> (
+        <b>for fun.</b> currently: logging, woodworking, and carpentry.
+        previously: <Link name="disconnect">the disconnect</Link> (
         <>
           <Link name="disconnect-1">#1</Link>,{" "}
           <Link name="disconnect-2">#2</Link>,{" "}
@@ -31,36 +17,36 @@ export default function Content() {
         </>
         ), assorted side projects (
         <>
-          like <Link name="skycoins">Skycoins</Link>,{" "}
-          <Link name="elements">Elements</Link>,{" "}
-          <Link name="tessellate">Tessellate</Link>,{" "}
-          <Link name="offline-only">Offline Only</Link>,{" "}
-          <Link name="perf-land">Perf Land</Link>,{" "}
-          <Link name="enchiridion">The Enchiridion</Link>
+          like <Link name="skycoins">skycoins</Link>,{" "}
+          <Link name="elements">elements</Link>,{" "}
+          <Link name="tessellate">tessellate</Link>,{" "}
+          <Link name="offline-only">offline only</Link>,{" "}
+          <Link name="perf-land">perf land</Link>,{" "}
+          <Link name="enchiridion">the enchiridion</Link>
         </>
-        ), and photography (both <Link name="travels">beautiful</Link> and{" "}
-        <Link name="shipwrecked">ugly</Link>).{" "}
+        ), and photography (<Link name="travels">beautiful</Link> and{" "}
+        <Link name="shipwrecked">ugly</Link>).
       </div>
       <div>
-        <b>Work.</b> Currently Director, Data Science at{" "}
-        <Link name="duckduckgo">DuckDuckGo</Link>. Previously VP Engineering,{" "}
-        <Link name="formidable">Formidable</Link>. Adjunct,{" "}
-        <Link name="u-denver">U of Denver</Link>. Engineer, Jumpshell. Data
-        scientist, <Link name="autotegrity">Autotegrity</Link>. Researcher,{" "}
-        <Link name="ebm">MIT EBM Lab</Link>. Engineer, <Link name="ni">NI</Link>
-        .{" "}
+        <b>at work.</b> currently director, data science at{" "}
+        <Link name="duckduckgo">duckduckgo</Link>. previously vp engineering,{" "}
+        <Link name="formidable">formidable</Link>. adjunct,{" "}
+        <Link name="u-denver">u of denver</Link>. engineer, jumpshell. data
+        scientist, <Link name="autotegrity">autotegrity</Link>. researcher,{" "}
+        <Link name="ebm">mit ebm lab</Link>. engineer, <Link name="ni">ni</Link>
+        .
       </div>
       <div>
-        <b>Appearances.</b> <Link name="venturi">Venturi</Link>,{" "}
-        <Link name="debugging-talk">Debugging</Link>,{" "}
-        <Link name="me-convention">SXSW me Convention</Link>,{" "}
-        <Link name="dinojs">DinosaurJS</Link>, <Link name="cjr">CJR</Link>,{" "}
-        <Link name="lifehacker">Lifehacker</Link>,{" "}
-        <Link name="nautilus">Nautilus</Link>,{" "}
-        <Link name="offline-talk">Offline Websites</Link>,{" "}
-        <Link name="vice">Vice</Link>, <Link name="le-monde">Le Monde</Link>,{" "}
-        <Link name="the-next-web">The Next Web</Link>,{" "}
-        <Link name="cbc">the CBC</Link>.{" "}
+        <b>in public.</b> <Link name="venturi">venturi</Link>,{" "}
+        <Link name="debugging-talk">debugging</Link>,{" "}
+        <Link name="me-convention">sxsw me convention</Link>,{" "}
+        <Link name="dinojs">dinosaurjs</Link>, <Link name="cjr">cjr</Link>,{" "}
+        <Link name="lifehacker">lifehacker</Link>,{" "}
+        <Link name="nautilus">nautilus</Link>,{" "}
+        <Link name="offline-talk">offline websites</Link>,{" "}
+        <Link name="vice">vice</Link>, <Link name="le-monde">le monde</Link>,{" "}
+        <Link name="the-next-web">the next web</Link>,{" "}
+        <Link name="cbc">the cbc</Link>.{" "}
       </div>
     </>
   );
