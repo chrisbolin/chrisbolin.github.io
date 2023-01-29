@@ -17,7 +17,7 @@ const links = {
   "disconnect-2": "https://thedisconnect.co/two",
   "disconnect-3": "https://thedisconnect.co/three",
   "perf-land": "https://github.com/chrisbolin/perf-land/",
-  "offline-only": "https://chris.bolin.co/offline/",
+  "offline-only": "/offline/",
   elements: "https://chris.bolin.co/elements/",
   tessellate: "https://chris.bolin.co/tessellate/",
   enchiridion: "https://chris.bolin.co/enchiridion/",
