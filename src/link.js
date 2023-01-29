@@ -12,18 +12,19 @@ const links = {
   ebm: "http://web.mit.edu/ebm/www/",
 
   // projects
-  disconnect: "https://thedisconnect.co/",
   "disconnect-1": "https://thedisconnect.co/one",
   "disconnect-2": "https://thedisconnect.co/two",
   "disconnect-3": "https://thedisconnect.co/three",
-  "perf-land": "https://github.com/chrisbolin/perf-land/",
+  "disconnect": "https://thedisconnect.co/",
+  "drink-surge": "https://drink.surge.sh/",
+  "elements": "/elements/",
+  "enchiridion": "/enchiridion/",
   "offline-only": "/offline/",
-  elements: "/elements/",
-  tessellate: "/tessellate/",
-  enchiridion: "/enchiridion/",
-  skycoins: "/skycoins/",
-  shipwrecked: "http://www.blurb.com/books/1234410-shipwrecked",
-  travels: "https://rookievagabonds.tumblr.com/",
+  "perf-land": "https://github.com/chrisbolin/perf-land/",
+  "shipwrecked": "http://www.blurb.com/books/1234410-shipwrecked",
+  "skycoins": "/skycoins/",
+  "tessellate": "/tessellate/",
+  "travels": "https://rookievagabonds.tumblr.com/",
 
   // talk
   log: "/log/",

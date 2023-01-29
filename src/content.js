@@ -22,7 +22,8 @@ export default function Content() {
           <Link name="tessellate">tessellate</Link>,{" "}
           <Link name="offline-only">offline only</Link>,{" "}
           <Link name="perf-land">perf land</Link>,{" "}
-          <Link name="enchiridion">the enchiridion</Link>
+          <Link name="enchiridion">the enchiridion</Link>,{" "}
+          <Link name="drink-surge">drink.surge</Link>,{" "}
         </>
         ), and photography (<Link name="travels">beautiful</Link> and{" "}
         <Link name="shipwrecked">ugly</Link>).
