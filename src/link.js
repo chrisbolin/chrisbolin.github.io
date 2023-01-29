@@ -18,15 +18,15 @@ const links = {
   "disconnect-3": "https://thedisconnect.co/three",
   "perf-land": "https://github.com/chrisbolin/perf-land/",
   "offline-only": "/offline/",
-  elements: "https://chris.bolin.co/elements/",
-  tessellate: "https://chris.bolin.co/tessellate/",
-  enchiridion: "https://chris.bolin.co/enchiridion/",
-  skycoins: "https://chris.bolin.co/skycoins/",
+  elements: "/elements/",
+  tessellate: "/tessellate/",
+  enchiridion: "/enchiridion/",
+  skycoins: "/skycoins/",
   shipwrecked: "http://www.blurb.com/books/1234410-shipwrecked",
   travels: "https://rookievagabonds.tumblr.com/",
 
   // talk
-  log: "https://chris.bolin.co/log/",
+  log: "/log/",
   venturi:
     "https://venturi-group.com/podcast/building-good-engineering-culture-formidable-chris-bolin/",
   dinojs: "https://www.youtube.com/watch?v=nhuvY0CT064",
