@@ -44,7 +44,7 @@ const links = {
   "the-next-web":
     "https://thenextweb.com/insider/2017/08/21/this-manifesto-against-internet-addiction-can-only-be-viewed-offline/",
   nautilus:
-    "https://nautil.us/issue/63/horizons/the-online-magazine-you-cant-read-online",
+    "https://nautil.us/the-online-magazine-you-cant-read-online-237171/",
 
   // edu
   "computational-engineering": "https://computationalengineering.mit.edu/",
