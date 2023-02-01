@@ -33,14 +33,14 @@ export default function Content() {
         <Link name="duckduckgo">duckduckgo</Link>. previously vp engineering,{" "}
         <Link name="formidable">formidable</Link>. adjunct,{" "}
         <Link name="u-denver">u of denver</Link>. engineer, jumpshell. data
-        scientist, <Link name="autotegrity">autotegrity</Link>. researcher,{" "}
+        scientist, autotegrity. researcher,{" "}
         <Link name="ebm">mit ebm lab</Link>. engineer, <Link name="ni">ni</Link>
         .
       </div>
       <div>
-        <b>in public.</b> <Link name="venturi">venturi</Link>,{" "}
+        <b>in public.</b>{" "}
         <Link name="debugging-talk">debugging</Link>,{" "}
-        <Link name="me-convention">sxsw me convention</Link>,{" "}
+        sxsw me convention,
         <Link name="dinojs">dinosaurjs</Link>, <Link name="cjr">cjr</Link>,{" "}
         <Link name="lifehacker">lifehacker</Link>,{" "}
         <Link name="nautilus">nautilus</Link>,{" "}
