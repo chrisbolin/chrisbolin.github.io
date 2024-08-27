@@ -8,7 +8,7 @@ export default function Content() {
         <b>chris.</b> conifer, colorado.
       </div>
       <div>
-        <b>for fun.</b> currently: logging, woodworking, and carpentry.
+        <b>art.</b> currently: painting.
         previously: <Link name="disconnect">the disconnect</Link> (
         <>
           <Link name="disconnect-1">#1</Link>,{" "}
@@ -25,11 +25,11 @@ export default function Content() {
           <Link name="enchiridion">the enchiridion</Link>,{" "}
           <Link name="drink-surge">drink.surge</Link>
         </>
-        ), and photography (<Link name="travels">beautiful</Link> and{" "}
+        ), and photography (<Link name="travels">pretty</Link> and{" "}
         <Link name="shipwrecked">ugly</Link>).
       </div>
       <div>
-        <b>at work.</b> currently director, data science at{" "}
+        <b>job.</b> currently director, data science at{" "}
         <Link name="duckduckgo">duckduckgo</Link>. previously vp engineering,{" "}
         <Link name="formidable">formidable</Link>. adjunct,{" "}
         <Link name="u-denver">u of denver</Link>. engineer, jumpshell. data
@@ -38,7 +38,7 @@ export default function Content() {
         .
       </div>
       <div>
-        <b>in public.</b>{" "}
+        <b>appearances.</b>{" "}
         <Link name="debugging-talk">debugging</Link>,{" "}
         sxsw me convention,
         <Link name="dinojs">dinosaurjs</Link>, <Link name="cjr">cjr</Link>,{" "}
