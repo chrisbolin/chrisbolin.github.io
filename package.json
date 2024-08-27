@@ -1,0 +1,22 @@
+{
+  "name": "chrisbolin.github.io",
+  "version": "2.0.0",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "author": "Chris Bolin",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "eslint-config-next": "^14.2.6",
+    "next": "^14.2.6",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "22.5.0",
+    "@types/react": "18.3.4"
+  }
+}
