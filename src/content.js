@@ -15,18 +15,17 @@ export default function Content() {
           <Link name="disconnect-2">#2</Link>,{" "}
           <Link name="disconnect-3">#3</Link>
         </>
-        ), assorted side projects (
+        ), assorted projects (
         <>
-          like <Link name="skycoins">skycoins</Link>,{" "}
-          <Link name="elements">elements</Link>,{" "}
+          like <Link name="elements">elements</Link>,{" "}
           <Link name="tessellate">tessellate</Link>,{" "}
+          <Link name="skycoins">skycoins</Link>,{" "}
           <Link name="offline-only">offline only</Link>,{" "}
-          <Link name="perf-land">perf land</Link>,{" "}
           <Link name="enchiridion">the enchiridion</Link>,{" "}
           <Link name="drink-surge">drink.surge</Link>
         </>
-        ), and photography (<Link name="travels">pretty</Link> and{" "}
-        <Link name="shipwrecked">ugly</Link>).
+        ), and photography (<Link name="travels">pretty places</Link> /{" "}
+        <Link name="shipwrecked">ugly places</Link>).
       </div>
       <div>
         <b>job.</b> currently director, data science at{" "}
