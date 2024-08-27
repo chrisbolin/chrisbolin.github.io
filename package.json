@@ -2,7 +2,6 @@
   "scripts": {
     "start": "next dev",
     "build": "next build",
-    "export": "next export",
     "stage": "surge . chrisbolin.surge.sh"
   },
   "dependencies": {
