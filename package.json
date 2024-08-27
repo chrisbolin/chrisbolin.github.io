@@ -1,14 +1,15 @@
 {
   "scripts": {
-    "start": "next",
+    "start": "next dev",
     "build": "next build",
     "export": "next export",
     "stage": "surge . chrisbolin.surge.sh"
   },
   "dependencies": {
-    "next": "^9.4.4",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "eslint-config-next": "^14.2.6",
+    "next": "^14.2.6",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "license": "MIT"
 }
