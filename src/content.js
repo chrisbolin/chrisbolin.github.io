@@ -8,7 +8,8 @@ export default function Content() {
         <b>chris.</b> conifer, colorado.
       </div>
       <div>
-        <b>art.</b> currently: painting.
+        <b>art. </b>
+        currently: <Link name="recent-work">painting</Link>.
         previously: <Link name="disconnect">the disconnect</Link> (
         <>
           <Link name="disconnect-1">#1</Link>,{" "}

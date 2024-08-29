@@ -1,6 +1,6 @@
 ©️ Chris Bolin
 
-### Hey Chris. Here's how to do those things you forget how to do.
+### Reminders
 
 - **Change a link**. Edit [src/link.js](https://github.com/chrisbolin/chrisbolin.github.io/blob/master/src/link.js)
 - **Add a link**. Edit Link above, then [src/content.js](https://github.com/chrisbolin/chrisbolin.github.io/blob/master/src/content.js). Use the syntax `<Link name="key-in-link">text for link</Link>`
