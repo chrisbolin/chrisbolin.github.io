@@ -35,7 +35,7 @@ const links = {
   "debugging-talk": "https://www.youtube.com/watch?v=ccG9L2Pg4io&t=1035",
   lifehacker:
     "https://lifehacker.com/you-cant-read-this-website-until-you-turn-off-your-inte-1822776654",
-  vice: "https://motherboard.vice.com/en_us/article/kzzgjn/this-website-only-works-when-youre-offline",
+  vice: "https://www.vice.com/en/article/this-website-only-works-when-youre-offline/",
   cbc: "https://www.cbc.ca/radio/spark/362-machine-learning-outliers-smart-device-ownership-and-more-1.4279433/want-to-look-at-this-guy-s-website-go-offline-1.4279453",
   cjr: "https://www.cjr.org/innovations/disconnect-magazine-only-works-offline.php",
   "le-monde":
