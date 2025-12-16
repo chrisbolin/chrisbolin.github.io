@@ -51,22 +51,38 @@ const links = {
   email: "mailto:chrisbolin@protonmail.com",
 };
 
-const Link = ({ name, children }) => (
-  <a
-    href={links[name] || console.error("NOT FOUND:", name, children)}
-    rel="noopener noreferrer"
-    className="Link"
-    children={children}
-  />
-);
+const Link = ({ name, children }) => {
+  const href = links[name];
+  if (!href && process.env.NODE_ENV !== "production") {
+    // Avoid side-effects during render in production; still warn in dev.
+    // eslint-disable-next-line no-console
+    console.error("Link not found:", name, children);
+  }
+
+  return (
+    <a
+      href={href || "#"}
+      rel="noopener noreferrer"
+      className="Link"
+      aria-disabled={!href}
+      onClick={(e) => {
+        if (!href) e.preventDefault();
+      }}
+    >
+      {children}
+    </a>
+  );
+};
 
 export const ClientOnlyLink = (props) => {
   const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), [setMounted]);
+  useEffect(() => setMounted(true), []);
   if (mounted) return <Link {...props} />; // if mounted on client, render as usual
-  return false; // if rendered on server
+  return null; // if rendered on server
 };
 
-export const LinkButton = (props) => <button className="Button" {...props} />;
+export const LinkButton = (props) => (
+  <button type="button" className="Button" {...props} />
+);
 
 export default Link;

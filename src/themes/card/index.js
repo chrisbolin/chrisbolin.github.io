@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 import { limitUnit, isMobile } from "../../utils/general";
 import Back from "./back";
@@ -10,16 +10,6 @@ const colors = [
   { value: "var(--color-d)", barXScale: 4, gradientPosition: "81%" },
   { value: "var(--color-e)", barXScale: 3.5, gradientPosition: "100%" },
 ];
-
-const radialBackground = `
-  radial-gradient(
-    circle at top right,
-    black 0%,
-    ${colors.map(
-      ({ value, gradientPosition }) => `${value} ${gradientPosition}`
-    )}
-    )
-`;
 
 const ColorBar = ({ x, width, left, color }) => {
   const height = limitUnit(x) * 100;
@@ -49,7 +39,7 @@ const CardFront = ({ x, mounted }) => {
         wannabe polymath
         <hr />
       </div>
-      <div className={`scroll ${mounted || "hidden"}`} style={scrollStyle}>
+      <div className={`scroll ${mounted ? "" : "hidden"}`} style={scrollStyle}>
         (scroll)
       </div>
       {colors.map(({ value, barXScale }, index) => (
@@ -142,34 +132,38 @@ const SkipLink = () => (
   </a>
 );
 
-const SkipDestination = () => <div id="down"></div>;
+const SkipDestination = () => <div id="down" tabIndex={-1}></div>;
 
 export default () => {
   const [x, setX] = useState(0);
   const [mounted, setMounted] = useState(false);
+  // Keep server/client initial render consistent; decide mobile-only after mount.
+  const [scrollLength, setScrollLength] = useState(3);
 
-  const scrollLength = useMemo(() => (isMobile() ? 1.5 : 3));
-  const handleScroll = useCallback(
-    () =>
-      setX(
-        limitUnit(window.scrollY / (window.innerHeight * (scrollLength - 1)))
-      ),
-    [setX]
-  );
+  const handleScroll = useCallback(() => {
+    setX(
+      limitUnit(window.scrollY / (window.innerHeight * (scrollLength - 1)))
+    );
+  }, [scrollLength]);
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+    setScrollLength(isMobile() ? 1.5 : 3);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("resize", handleScroll);
-    window.addEventListener("touchmove", handleScroll);
+    window.addEventListener("touchmove", handleScroll, { passive: true });
 
     setMounted(true);
+    handleScroll();
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleScroll);
       window.removeEventListener("touchmove", handleScroll);
     };
-  }, [setMounted]);
+  }, [handleScroll]);
 
   const backgroundTransitionPoint = 0.95;
   const backgroundAlpha =
