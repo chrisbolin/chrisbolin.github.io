@@ -5,7 +5,10 @@ export const THEME_SIMPLE = "THEME_SIMPLE";
 
 const THEME_DEFAULT = THEME_CARD;
 
-const ThemeContext = createContext();
+const ThemeContext = createContext({
+  theme: THEME_DEFAULT,
+  changeTheme: () => {},
+});
 
 export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState(THEME_DEFAULT);
