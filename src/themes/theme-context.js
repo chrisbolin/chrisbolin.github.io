@@ -1,5 +1,4 @@
-import { createContext, useState, useContext } from "react";
-import { LinkButton } from "../link";
+import { createContext, useState } from "react";
 
 export const THEME_CARD = "THEME_CARD";
 export const THEME_SIMPLE = "THEME_SIMPLE";
@@ -26,21 +25,6 @@ export const ThemeProvider = ({ children }) => {
     >
       {children}
     </ThemeContext.Provider>
-  );
-};
-
-export const ChangeThemeButton = () => {
-  const { theme, changeTheme } = useContext(ThemeContext);
-
-  return (
-    <LinkButton
-      onClick={() => {
-        changeTheme();
-      }}
-    >
-      {theme === THEME_CARD && "[simplify]"}
-      {theme === THEME_SIMPLE && "[complicate]"}
-    </LinkButton>
   );
 };
 
