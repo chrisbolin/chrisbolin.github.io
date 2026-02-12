@@ -101,7 +101,8 @@ hr {
   text-align: center;
   width: 100%;
   top: 320px;
-  pointer-events: none; /* allow clicking "behind" the arrow" */
+  pointer-events: none;
+  /* allow clicking "behind" the arrow" */
 }
 
 .Back {
@@ -229,4 +230,8 @@ a {
   padding: 1em;
   height: 100vh;
   font-size: calc(3vmin + 1.5vmax);
+}
+
+.CleanBack .content {
+  filter: url(#xerox);
 }
