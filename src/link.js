@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 const links = {
   // work
+  toner: "https://toner.industries/",
   formidable: "https://formidable.com/",
   duckduckgo: "https://duckduckgo.com/",
   "u-denver":
@@ -46,6 +47,7 @@ const links = {
     "https://nautil.us/the-online-magazine-you-cant-read-online-237171/",
 
   // edu
+  mit: "https://www.mit.edu/",
   "computational-engineering": "https://computationalengineering.mit.edu/",
   thesis: "http://dspace.mit.edu/handle/1721.1/82189",
   email: "mailto:chrisbolin@protonmail.com",

@@ -29,18 +29,20 @@ export default function Content() {
         <Link name="shipwrecked">ugly places</Link>).
       </div>
       <div>
-        <b>job.</b> currently director, data science at{" "}
-        <Link name="duckduckgo">duckduckgo</Link>. previously vp engineering,{" "}
+        <b>job.</b> currently cofounder, <Link name="toner">toner</Link>.
+        previously director, data science,{" "}
+        <Link name="duckduckgo">duckduckgo</Link>. vp engineering,{" "}
         <Link name="formidable">formidable</Link>. adjunct,{" "}
         <Link name="u-denver">u of denver</Link>. engineer, jumpshell. data
         scientist, autotegrity. researcher,{" "}
-        <Link name="ebm">mit ebm lab</Link>. engineer, <Link name="ni">ni</Link>
+        <Link name="ebm">mit ebm lab</Link>. grad student,{" "}
+        <Link name="mit">mit</Link>. engineer, <Link name="ni">ni</Link>
         .
       </div>
       <div>
         <b>appearances.</b>{" "}
         <Link name="debugging-talk">debugging</Link>,{" "}
-        sxsw me convention,
+        sxsw me convention,{" "}
         <Link name="dinojs">dinosaurjs</Link>, <Link name="cjr">cjr</Link>,{" "}
         <Link name="lifehacker">lifehacker</Link>,{" "}
         <Link name="nautilus">nautilus</Link>,{" "}
