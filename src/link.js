@@ -24,6 +24,7 @@ const links = {
   "perf-land": "https://github.com/chrisbolin/perf-land/",
   "shipwrecked": "http://www.blurb.com/books/1234410-shipwrecked",
   "skycoins": "/skycoins/",
+  "stormcoins": "/stormcoins/",
   "tessellate": "/tessellate/",
   "travels": "https://rookievagabonds.tumblr.com/",
 

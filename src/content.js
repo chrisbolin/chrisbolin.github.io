@@ -9,8 +9,9 @@ export default function Content() {
       </div>
       <div>
         <b>art. </b>
-        currently: <Link name="recent-work">painting</Link>.
-        previously: <Link name="disconnect">the disconnect</Link> (
+        <Link name="stormcoins">stormcoins</Link>,{" "}
+        <Link name="recent-work">painting</Link>,{" "}
+        <Link name="disconnect">the disconnect</Link> (
         <>
           <Link name="disconnect-1">#1</Link>,{" "}
           <Link name="disconnect-2">#2</Link>,{" "}
@@ -29,8 +30,8 @@ export default function Content() {
         <Link name="shipwrecked">ugly places</Link>).
       </div>
       <div>
-        <b>job.</b> currently cofounder, <Link name="toner">toner</Link>.
-        previously director, data science,{" "}
+        <b>job.</b> cofounder, <Link name="toner">toner</Link>.
+        previously: director, data science,{" "}
         <Link name="duckduckgo">duckduckgo</Link>. vp engineering,{" "}
         <Link name="formidable">formidable</Link>. adjunct,{" "}
         <Link name="u-denver">u of denver</Link>. engineer, jumpshell. data
