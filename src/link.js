@@ -10,7 +10,7 @@ const links = {
   jumpshell: "https://www.jumpshell.com/",
   ni: "http://www.ni.com/",
   ebm: "http://web.mit.edu/ebm/www/",
-  "recent-work": "https://www.are.na/chris-bolin/recent-work-t9ewjy320i8",
+  "recent-work": "https://www.are.na/block/52408076",
 
   // projects
   "disconnect-1": "https://thedisconnect.co/one",
