@@ -12,22 +12,17 @@ export default function Content() {
         <Link name="stormcoins">stormcoins</Link>,{" "}
         <Link name="recent-work">painting</Link>,{" "}
         <Link name="disconnect">the disconnect</Link> (
-        <>
-          <Link name="disconnect-1">#1</Link>,{" "}
-          <Link name="disconnect-2">#2</Link>,{" "}
-          <Link name="disconnect-3">#3</Link>
-        </>
-        ), assorted projects (
-        <>
-          like <Link name="elements">elements</Link>,{" "}
-          <Link name="tessellate">tessellate</Link>,{" "}
-          <Link name="skycoins">skycoins</Link>,{" "}
-          <Link name="offline-only">offline only</Link>,{" "}
-          <Link name="enchiridion">the enchiridion</Link>,{" "}
-          <Link name="drink-surge">drink.surge</Link>
-        </>
-        ), and photography (<Link name="travels">pretty places</Link> /{" "}
-        <Link name="shipwrecked">ugly places</Link>).
+        <Link name="disconnect-1">#1</Link>,{" "}
+        <Link name="disconnect-2">#2</Link>,{" "}
+        <Link name="disconnect-3">#3</Link>),{" "}
+        <Link name="elements">elements</Link>,{" "}
+        <Link name="tessellate">tessellate</Link>,{" "}
+        <Link name="skycoins">skycoins</Link>,{" "}
+        <Link name="offline-only">offline only</Link>,{" "}
+        <Link name="enchiridion">the enchiridion</Link>,{" "}
+        <Link name="drink-surge">drink.surge</Link>,{" "}
+        <Link name="travels">pretty places</Link>,{" "}
+        <Link name="shipwrecked">ugly places</Link>.
       </div>
       <div>
         <b>job.</b> cofounder, <Link name="toner">toner</Link>.
